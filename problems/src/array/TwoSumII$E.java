@@ -12,6 +12,8 @@ package array;
  * element twice.
  *
  * <p>Input: numbers={2, 7, 11, 15}, target=9 Output: index1=1, index2=2
+ *
+ * 给定一个整数(顺序)数组和一个目标值，找出数组中和为目标值的 两个 数。
  */
 public class TwoSumII$E {
   /**
@@ -22,21 +24,21 @@ public class TwoSumII$E {
    */
   public static void main(String[] args) throws Exception {
     int[] nums = {2, 7, 11, 15};
-    int[] result = new TwoSumII$E().twoSum(nums, 23);
+    int[] result = new TwoSumII$E().twoSum(nums, 9);
     for (int i : result) System.out.println(i);
   }
 
   public int[] twoSum(int[] numbers, int target) {
-    int i = 0, j = numbers.length - 1;
-    while (i < j) {
-      int x = (numbers[i] + numbers[j]);
-      if (x == target) {
+    int i = 0;int j = numbers.length - 1;
+    while (i < j){
+      int x = numbers[i] + numbers[j];
+      if (x == target){
         int[] result = new int[2];
         result[0] = i + 1;
         result[1] = j + 1;
         return result;
-      } else if (x < target) i++;
-      else j--;
+      }else if (x < target) i++;
+      j--;
     }
     return new int[2];
   }
