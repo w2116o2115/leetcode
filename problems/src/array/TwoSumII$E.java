@@ -13,7 +13,7 @@ package array;
  *
  * <p>Input: numbers={2, 7, 11, 15}, target=9 Output: index1=1, index2=2
  */
-public class TwoSumII {
+public class TwoSumII$E {
   /**
    * Main method
    *
@@ -22,7 +22,7 @@ public class TwoSumII {
    */
   public static void main(String[] args) throws Exception {
     int[] nums = {2, 7, 11, 15};
-    int[] result = new TwoSumII().twoSum(nums, 23);
+    int[] result = new TwoSumII$E().twoSum(nums, 23);
     for (int i : result) System.out.println(i);
   }
 
