@@ -21,7 +21,7 @@ package array;
  * <p>Explanation: Note that the third maximum here means the third maximum distinct number. Both
  * numbers with value 2 are both considered as second maximum.
  */
-public class ThirdMaximumNumber {
+public class ThirdMaximumNumber$E {
   /**
    * Main method
    *
@@ -30,7 +30,7 @@ public class ThirdMaximumNumber {
    */
   public static void main(String[] args) throws Exception {
     int[] a = {1, 2};
-    System.out.println(new ThirdMaximumNumber().thirdMax(a));
+    System.out.println(new ThirdMaximumNumber$E().thirdMax(a));
   }
 
   public int thirdMax(int[] nums) {

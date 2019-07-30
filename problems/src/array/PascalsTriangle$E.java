@@ -13,9 +13,9 @@ import java.util.List;
  *
  * <p>Note: Could you optimize your algorithm to use only O(k) extra space?
  */
-public class PascalsTriangle {
+public class PascalsTriangle$E {
   public static void main(String[] args) throws Exception {
-    System.out.println(new PascalsTriangle().getRow(6));
+    System.out.println(new PascalsTriangle$E().getRow(6));
   }
 
   public List<Integer> getRow(int rowIndex) {
