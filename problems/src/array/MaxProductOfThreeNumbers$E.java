@@ -9,11 +9,19 @@ import java.util.Arrays;
  * <p>Example 1: Input: [1,2,3] Output: 6 Example 2: Input: [1,2,3,4] Output: 24 Note: The length of
  * the given array will be in range [3,104] and all elements are in the range [-1000, 1000].
  * Multiplication of any three numbers in the input won't exceed the range of 32-bit signed integer.
+ *
+ *
+ * 给一个整数数组，找出乘积最大的3个数，返回这3个数组。
+ *
+ * 数组的长度范围为[3,10^4]，元素值范围为[-1000,1000]。
+ *
+ * 先排序   然后前三数 和  后仨数 相乘 比较
+ *
  */
-public class MaxProductOfThreeNumbers {
+public class MaxProductOfThreeNumbers$E {
   public static void main(String[] args) {
     int[] A = {1, 2, 3};
-    System.out.println(new MaxProductOfThreeNumbers().maximumProduct(A));
+    System.out.println(new MaxProductOfThreeNumbers$E().maximumProduct(A));
   }
 
   public int maximumProduct(int[] nums) {
