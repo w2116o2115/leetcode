@@ -12,7 +12,7 @@ package array;
  * <p>Hint: Could you do it in-place with O(1) extra space? Related problem: Reverse Words in a
  * String II
  */
-public class RotateArray {
+public class RotateArray$E {
   /**
    * Main method
    *
@@ -21,7 +21,7 @@ public class RotateArray {
    */
   public static void main(String[] args) throws Exception {
     int[] A = {1, 2, 3, 4, 5, 6};
-    new RotateArray().rotate(A, 2);
+    new RotateArray$E().rotate(A, 2);
     for (int i : A) System.out.print(i + " ");
   }
 
