@@ -14,7 +14,7 @@ import java.util.List;
  * their relative ranks according to their scores. Note: N is a positive integer and won't exceed
  * 10,000. All the scores of athletes are guaranteed to be unique.
  */
-public class RelativeRanks {
+public class RelativeRanks$E {
 
   class Position {
     int score, poisition;
@@ -32,7 +32,7 @@ public class RelativeRanks {
    */
   public static void main(String[] args) throws Exception {
     int[] A = {5, 4, 3, 2, 1};
-    String[] S = new RelativeRanks().findRelativeRanks(A);
+    String[] S = new RelativeRanks$E().findRelativeRanks(A);
     for (String i : S) {
       System.out.println(i);
     }
