@@ -11,6 +11,12 @@ package array;
  * it's not a continuous one where 5 and 7 are separated by 4. Example 2: Input: [2,2,2,2,2] Output:
  * 1 Explanation: The longest continuous increasing subsequence is [2], its length is 1. Note:
  * Length of the array will not exceed 10,000.
+ *
+ * 给定未排序的整数数组，找到最长连续增加子序列的长度。例如：
+ *
+ * 输入：[1,3,5,4,7]
+ * 输出：3
+ * 说明：最长的连续增加子序列为[1,3,5]，其长度为3，即使[1,3,5,7]也是一个增加的子序列，它不是一个连续的，其中5和7被4分开。
  */
 public class LongestIncreasingSubsequence$E {
 
