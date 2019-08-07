@@ -1,6 +1,7 @@
 package array;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Created by gouthamvidyapradhan on 27/11/2017. Given an array of meeting time intervals consisting
@@ -41,7 +42,7 @@ public class MeetingRooms$E {
   }
 
   public boolean canAttendMeetings(Interval[] intervals) {
-    Arrays.sort(intervals, (a, b) -> Integer.compare(a.start, b.start));
+    Arrays.sort(intervals, Comparator.comparingInt(a -> a.start));
     for (int i = 1; i < intervals.length; i++) {
       if (intervals[i].start < intervals[i - 1].end) return false;
     }
