@@ -11,8 +11,10 @@ import java.util.Arrays;
  *
  * <p>Solution: Sort the interval based on the start interval. Then, for every interval check if the
  * previous interval ends before the start of the current interval.
+ *
+ * 这道题给了我们一堆会议的时间，问我们能不能同时参见所有的会议，这实际上就是求区间是否有交集的问题
  */
-public class MeetingRooms {
+public class MeetingRooms$E {
 
   public static class Interval {
     int start;
@@ -35,7 +37,7 @@ public class MeetingRooms {
     Interval i3 = new Interval(15, 20);
     Interval[] intervals = {i1, i2, i3};
 
-    System.out.println(new MeetingRooms().canAttendMeetings(intervals));
+    System.out.println(new MeetingRooms$E().canAttendMeetings(intervals));
   }
 
   public boolean canAttendMeetings(Interval[] intervals) {
