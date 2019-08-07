@@ -18,7 +18,7 @@ package array;
  * array, so output -1. Note: All elements in nums1 and nums2 are unique. The length of both nums1
  * and nums2 would not exceed 1000.
  */
-public class NextGreaterElementI {
+public class NextGreaterElementI$E {
 
   /**
    * Main method
@@ -29,7 +29,7 @@ public class NextGreaterElementI {
   public static void main(String[] args) throws Exception {
     int[] A = {4, 1, 2};
     int[] B = {1, 3, 4, 2};
-    int[] result = new NextGreaterElementI().nextGreaterElement(A, B);
+    int[] result = new NextGreaterElementI$E().nextGreaterElement(A, B);
     System.out.println(result);
   }
 
