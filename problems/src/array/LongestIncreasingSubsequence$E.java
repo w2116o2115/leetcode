@@ -12,7 +12,7 @@ package array;
  * 1 Explanation: The longest continuous increasing subsequence is [2], its length is 1. Note:
  * Length of the array will not exceed 10,000.
  */
-public class LongestIncreasingSubsequence {
+public class LongestIncreasingSubsequence$E {
 
   /**
    * Main method
@@ -22,7 +22,7 @@ public class LongestIncreasingSubsequence {
    */
   public static void main(String[] args) throws Exception {
     int[] A = {1, 3, 5, 4, 7};
-    System.out.println(new LongestIncreasingSubsequence().findLengthOfLCIS(A));
+    System.out.println(new LongestIncreasingSubsequence$E().findLengthOfLCIS(A));
   }
 
   public int findLengthOfLCIS(int[] nums) {
