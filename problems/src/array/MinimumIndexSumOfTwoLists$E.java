@@ -48,30 +48,17 @@ public class MinimumIndexSumOfTwoLists$E {
   public String[] findRestaurant(String[] list1, String[] list2) {
     int min = Integer.MAX_VALUE;
     List<String> result = new ArrayList<>();
-    if (list2.length == 0) return new String[0];
-    Map<String, Integer> index = new HashMap<>();
-    for (int i = 0; i < list2.length; i++) {
-      index.put(list2[i], i);
-    }
-    for (int i = 0; i < list1.length; i++) {
-      String s = list1[i];
-      if (index.containsKey(s)) {
-        int sum = i + index.get(s);
-        min = Math.min(min, sum);
-      }
-    }
-
-    for (int i = 0; i < list1.length; i++) {
-      String s = list1[i];
-      if (index.containsKey(s)) {
-        int sum = i + index.get(s);
-        if (sum == min) {
-          result.add(s);
+    String best = null;
+    for (int i=0;i<list1.length;i++){
+      for (int j=0;j<list2.length;j++){
+        if (list1[i].equals(list2[j])){
+          if (min > i+j || min == i+j){
+            min = i+j;
+            result.add(list1[i]);
+          }
         }
       }
     }
-    String[] resArr = new String[result.size()];
-    result.toArray(resArr);
-    return resArr;
+    return result.toArray(new String[result.size()]);
   }
 }
