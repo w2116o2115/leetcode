@@ -6,24 +6,29 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by gouthamvidyapradhan on 11/04/2018. Suppose Andy and Doris want to choose a restaurant
- * for dinner, and they both have a list of favorite restaurants represented by strings.
+ * 假设Andy和Doris想要选择一家餐馆吃晚餐，他们都有一个最受欢迎的餐馆列表。你需要用最少的列表索引总和帮助他们找出他们的共同兴趣。
+ * 如果答案之间存在选择关系，则输出所有答案并且没有顺序要求。你可以假设总有一个答案。例如：
  *
- * <p>You need to help them find out their common interest with the least list index sum. If there
- * is a choice tie between answers, output all of them with no order requirement. You could assume
- * there always exists an answer.
+ * 输入:
  *
- * <p>Example 1: Input: ["Shogun", "Tapioca Express", "Burger King", "KFC"] ["Piatti", "The Grill at
- * Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"] Output: ["Shogun"] Explanation: The only
- * restaurant they both like is "Shogun". Example 2: Input: ["Shogun", "Tapioca Express", "Burger
- * King", "KFC"] ["KFC", "Shogun", "Burger King"] Output: ["Shogun"] Explanation: The restaurant
- * they both like and have the least index sum is "Shogun" with index sum 1 (0+1). Note: The length
- * of both lists will be in the range of [1, 1000]. The length of strings in both lists will be in
- * the range of [1, 30]. The index is starting from 0 to the list length minus 1. No duplicates in
- * both lists.
+ * ["Shogun", "Tapioca Express", "Burger King", "KFC"]
  *
- * <p>Solution:O(N) maintain index of each restaurant in a list using a HashMap, find the min sum of
- * indices and list all the restaurants which match the min sum of indices
+ * ["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"]
+ *
+ * 输出: ["Shogun"]
+ *
+ * 说明: 他们都喜欢的唯一一家餐厅是“Shogun”。
+ *
+ *
+ * 输入:
+ *
+ * ["Shogun", "Tapioca Express", "Burger King", "KFC"]
+ *
+ * ["KFC", "Shogun", "Burger King"]
+ *
+ * 输出: ["Shogun"]
+ *
+ * 说明: 他们喜欢并且索引总和最少的餐馆是“Shogun”，索引和1（0 + 1）。
  */
 public class MinimumIndexSumOfTwoLists$E {
   /**
