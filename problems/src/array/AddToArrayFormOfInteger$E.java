@@ -37,8 +37,8 @@ public class AddToArrayFormOfInteger$E {
       sb.append(a);
     }
     BigInteger bigInteger = new BigInteger(sb.toString());
-    BigInteger restlt =bigInteger.add(BigInteger.valueOf(K));
-    String resultStr = restlt.toString();
+    BigInteger result =bigInteger.add(BigInteger.valueOf(K));
+    String resultStr = result.toString();
     List<Integer> list = new ArrayList<>();
     for (char c : resultStr.toCharArray()){
       list.add(Integer.parseInt(String.valueOf(c)));
