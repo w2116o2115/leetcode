@@ -25,7 +25,7 @@ import java.util.Map;
  * <p>Solution:O(N) maintain index of each restaurant in a list using a HashMap, find the min sum of
  * indices and list all the restaurants which match the min sum of indices
  */
-public class MinimumIndexSumOfTwoLists {
+public class MinimumIndexSumOfTwoLists$E {
   /**
    * Main method
    *
@@ -34,7 +34,7 @@ public class MinimumIndexSumOfTwoLists {
   public static void main(String[] args) throws Exception {
     String[] A1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
     String[] A2 = {"Tapioca Express", "Shogun", "Burger King"};
-    String[] ans = new MinimumIndexSumOfTwoLists().findRestaurant(A1, A2);
+    String[] ans = new MinimumIndexSumOfTwoLists$E().findRestaurant(A1, A2);
     for (String s : ans) {
       System.out.println(s);
     }
