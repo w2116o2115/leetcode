@@ -24,20 +24,24 @@ import java.util.*;
  */
 public class AddToArrayFormOfInteger$E {
   public static void main(String[] args) {
-    //
+    int[] A = new int[]{9,9,9,9,9,9,9,9,9,9};
+    List<Integer> list = addToArrayForm(A,1);
+    for (int a:list){
+      System.out.println(a);
+    }
   }
 
-  public List<Integer> addToArrayForm(int[] A, int K) {
+  private static List<Integer> addToArrayForm(int[] A, int K) {
     StringBuilder sb = new StringBuilder();
-    for (int a : A) {
+    for (int a:A){
       sb.append(a);
     }
-    BigInteger big = new BigInteger(sb.toString());
-    BigInteger result = big.add(BigInteger.valueOf(K));
-    String resultStr = result.toString();
+    BigInteger bigInteger = new BigInteger(sb.toString());
+    BigInteger restlt =bigInteger.add(BigInteger.valueOf(K));
+    String resultStr = restlt.toString();
     List<Integer> list = new ArrayList<>();
-    for (char a : resultStr.toCharArray()) {
-      list.add(Integer.parseInt(String.valueOf(a)));
+    for (char c : resultStr.toCharArray()){
+      list.add(Integer.parseInt(String.valueOf(c)));
     }
     return list;
   }
