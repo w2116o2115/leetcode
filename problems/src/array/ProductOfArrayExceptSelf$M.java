@@ -23,13 +23,13 @@ public class ProductOfArrayExceptSelf$M {
     for (int r : result) System.out.print(r + " ");
   }
 
-  public int[] productExceptSelf(int[] nums) {
+  public int[] productExceptSelf(int[] nums) {//计算左侧乘机
     int[] result = new int[nums.length];
     for (int i=0,temp = 1;i<nums.length;i++){
       result[i] = temp;
       temp = nums[i] * temp;
     }
-    for (int j=nums.length-1,temp = 1;j>=0;j--){
+    for (int j=nums.length-1,temp = 1;j>=0;j--){//计算右侧乘机并与左侧乘机相乘
       result[j] = result[j]*temp;
       temp *= nums[j];
     }
