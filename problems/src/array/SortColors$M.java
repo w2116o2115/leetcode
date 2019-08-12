@@ -6,12 +6,14 @@ package array;
  * 此题中，我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
  *
  * 注意:
- * 不能使用代码库中的排序函数来解决这道题。
+ * 不能使用代码库中的排序函数来解决这道题  只能遍历一次。
  *
  * 示例:
  *
  * 输入: [2,0,2,1,1,0]
  * 输出: [0,0,1,1,2,2]
+ *
+ * 关键点：用two pointers，一头一尾放置红色和蓝色，保留白色在中间
  */
 public class SortColors$M {
   /**
@@ -27,32 +29,21 @@ public class SortColors$M {
   }
 
   public void sortColors(int[] nums) {
-    int s = nums[0]; // save the first index value
-    nums[0] = 1; // overwrite with 1
-    int l = 0, r = 0; // left and right index indicating the start and end index of 1s
-    for (int i = 1; i < nums.length; i++) {
-      switch (nums[i]) {
-        case 0:
-          nums[l] = 0;
-          nums[r + 1] = 1;
-          if (r + 1 != i) {
-            nums[i] = 2;
-          }
-          l++;
-          r++;
-          break;
-
-        case 1:
-          nums[r + 1] = 1;
-          if (r + 1 != i) {
-            nums[i] = 2;
-          }
-          r++;
-          break;
+    int red = 0;
+    int blud = nums.length - 1;
+    for (int i=0;i<=blud;i++){
+      if (nums[i] == 0){
+        int temp = nums[red];
+        nums[red] = nums[i];
+        nums[i] = temp;
+        red ++;
+      }else if (nums[i] == 2){
+        int temp = nums[blud];
+        nums[blud] = nums[i];
+        nums[i] = temp;
+        blud--;
+        i--;
       }
     }
-    // replace the initial overwritten value with the original value
-    if (s == 0) nums[l] = 0;
-    else if (s == 2) nums[r] = 2;
   }
 }
