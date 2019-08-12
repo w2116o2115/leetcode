@@ -23,7 +23,7 @@ import java.util.Set;
  * <p>Note: There will be exactly one celebrity if he/she is in the party. Return the celebrity's
  * label if there is a celebrity in the party. If there is no celebrity, return -1.
  */
-public class FindTheCelebrity {
+public class FindTheCelebrity$M {
 
   private static Map<Integer, Set<Integer>> map = new HashMap<>();
 
@@ -68,7 +68,7 @@ public class FindTheCelebrity {
     map.get(6).add(3);
     map.get(6).add(0);
 
-    System.out.println(new FindTheCelebrity().findCelebrity(0));
+    System.out.println(new FindTheCelebrity$M().findCelebrity(0));
   }
 
   /**
