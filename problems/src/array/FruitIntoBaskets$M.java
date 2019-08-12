@@ -1,5 +1,7 @@
 package array;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -20,43 +22,31 @@ public class FruitIntoBaskets$M {
    * @param args
    */
   public static void main(String[] args) {
-    int[] trees = {1, 0, 3, 4, 3};
+    int[] trees = {3,3,3,1,2,1,1,2,3,3,4};
     System.out.println(new FruitIntoBaskets$M().totalFruit(trees));
   }
 
   public int totalFruit(int[] tree) {
-    int t1 = -1, t2 = -1;
-    Stack<Integer> stack = new Stack<>();
-    for (int i : tree) {
-      if (i == t1 || i == t2) {
-        countAndMax(stack, i);
-      } else {
-        if (t1 == -1) {
-          t1 = i;
-          countAndMax(stack, i);
-        } else if (t2 == -1) {
-          t2 = i;
-          countAndMax(stack, i);
-        } else {
-          Stack<Integer> temp = new Stack<>();
-          count = 0;
-          t1 = stack.pop();
-          countAndMax(temp, t1);
-          while (!stack.isEmpty() && stack.peek() == t1) {
-            countAndMax(temp, stack.pop());
-          }
-          t2 = i;
-          stack = temp;
-          countAndMax(stack, i);
+    int left = 0;
+    List<Integer> basket = new ArrayList<>();
+    basket.add(tree[0]);
+    for (int right=1;right<tree.length;){
+      if (basket.size() < 2){
+        if (!basket.contains(tree[right])){
+          basket.add(tree[right]);
         }
-      }
+        right ++;
+      }else {
+        if (!basket.contains(tree[right])){
+          max = Math.max(max,right-left);
+          left = right = left + 1;
+          basket.clear();
+        }else {
+          right++;
+          max = Math.max(max,right-left);
+        }
+     }
     }
     return max;
-  }
-
-  private void countAndMax(Stack<Integer> stack, int i) {
-    count++;
-    stack.push(i);
-    max = Math.max(max, count);
   }
 }
