@@ -1,12 +1,14 @@
 package binary_search;
 
+import array.HIndex$M;
+
 /**
  * Created by gouthamvidyapradhan on 11/12/2017.
  *
  * <p>Follow up for H-Index: What if the citations array is sorted in ascending order? Could you
  * optimize your algorithm?
  *
- * @see array.HIndex
+ * @see HIndex$M
  */
 public class HIndexII {
   /**
