@@ -24,21 +24,19 @@ public class IncreasingTripletSubsequence$M {
    * @throws Exception
    */
   public static void main(String[] args) throws Exception {
-    int[] A = {1, 2, 3, 4, 5};
+    int[] A = {5, 4, 3, 2, 1};
     System.out.println(new IncreasingTripletSubsequence$M().increasingTriplet(A));
   }
 
   public boolean increasingTriplet(int[] nums) {
-    int[] A = new int[3];
-    Arrays.fill(A, Integer.MAX_VALUE);
-    for (int num : nums) {
-      if (num < A[0]) {
-        A[0] = num;
-      } else if (num < A[1] && num > A[0]) {
-        A[1] = num;
-      } else if (num < A[2] && num > A[1]) {
+    int a=Integer.MIN_VALUE;int b = Integer.MIN_VALUE;
+    a = nums[0];b = nums[1];
+    if (a > b) return false;
+    for (int i=2;i<nums.length;i++){
+      if (a < b || b < nums[i])
         return true;
-      }
+      a = nums[i-1];
+      b = nums[i];
     }
     return false;
   }
