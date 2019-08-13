@@ -1,5 +1,7 @@
 package array;
 
+import java.util.Arrays;
+
 /**
  * 最大交换
  *
@@ -15,36 +17,32 @@ package array;
  * 输入: 9973
  * 输出: 9973
  * 解释: 不需要交换。
+ *
+ * char 和 int 可以直接比较 比较的asc码
  */
 public class MaximumSwap$M {
 
   public static void main(String[] args) throws Exception {
-    System.out.println(new MaximumSwap$M().maximumSwap(2736));
+    System.out.println(new MaximumSwap$M().maximumSwap(98368));
   }
 
   public int maximumSwap(int num) {
-    int[] D = new int[10];
-    char[] A = String.valueOf(num).toCharArray();
-    for (int i = 0; i < A.length; i++) {
-      D[A[i] - '0'] = i;
-    }
-
-    boolean found = false;
-
-    for (int i = 0; i < A.length; i++) {
-      int digit = A[i] - '0';
-      for (int j = 9; j > digit; j--) {
-        if (D[j] > i) {
-          char temp = A[i];
-          A[i] = (char) (j + '0');
-          A[D[j]] = temp;
-          found = true;
-          break;
-        }
+    char[] D = String.valueOf(num).toCharArray();
+    for (int i = 0;i<D.length-1;i++){
+      int max = Integer.MIN_VALUE;
+      int maxIndex = 0;
+      for (int j = i+1;j<D.length;j++){
+        if (max <= D[j])
+          maxIndex = j;
+        max = Math.max(max,D[j]);
       }
-      if (found) break;
+      if (D[i] < max){
+        char temp = D[maxIndex];
+        D[maxIndex] = D[i];
+        D[i] = temp;
+        return Integer.parseInt(String.valueOf(D));
+      }
     }
-
-    return Integer.parseInt(String.valueOf(A));
+    return Integer.parseInt(String.valueOf(D));
   }
 }
