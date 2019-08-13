@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Arrays;
-
 /**
  * 题目大意是，给定一个无序数组，判断其中是否存在一个长度为3的递增子序列。
  *
