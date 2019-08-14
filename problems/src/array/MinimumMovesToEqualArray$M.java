@@ -25,7 +25,7 @@ import java.util.Arrays;
  * 你可以假设数组长度不超过10000。
  *
  * 解题思路：
- * 求数组各元素与中位数差的绝对值之和
+ * 求数组各元素与中位数差的绝对值之和   长度为偶数   中位数是两个有两种情况  需要算两次
  */
 public class MinimumMovesToEqualArray$M {
   /**
