@@ -3,9 +3,7 @@ package array;
 import java.util.Arrays;
 
 /**
- * Created by gouthamvidyapradhan on 17/02/2018. Given a non-empty integer array, find the minimum
- * number of moves required to make all array elements equal, where a move is incrementing a
- * selected element by 1 or decrementing a selected element by 1.
+ * 最少移动次数使数组元素相等之二
  *
  * <p>You may assume the array's length is at most 10,000.
  *
@@ -22,6 +20,12 @@ import java.util.Arrays;
  *
  * <p>Solution: O(n log n): Sort the array and find the median of the array. Use the median of array
  * to increment/decrement other value of array. Sum up the difference and return the answer.
+ * 给定非空整数数组，求使得数组中的所有元素均相等的最小移动次数，一次移动是指将某个元素加1或者减1。
+ *
+ * 你可以假设数组长度不超过10000。
+ *
+ * 解题思路：
+ * 求数组各元素与中位数差的绝对值之和
  */
 public class MinimumMovesToEqualArray$M {
   /**
