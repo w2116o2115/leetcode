@@ -23,7 +23,7 @@ import java.util.Arrays;
  * <p>Solution: O(n log n): Sort the array and find the median of the array. Use the median of array
  * to increment/decrement other value of array. Sum up the difference and return the answer.
  */
-public class MinimumMovesToEqualArray {
+public class MinimumMovesToEqualArray$M {
   /**
    * Main method
    *
@@ -32,7 +32,7 @@ public class MinimumMovesToEqualArray {
    */
   public static void main(String[] args) throws Exception {
     int[] A = {1, 2, 3};
-    System.out.println(new MinimumMovesToEqualArray().minMoves2(A));
+    System.out.println(new MinimumMovesToEqualArray$M().minMoves2(A));
   }
 
   public int minMoves2(int[] nums) {
