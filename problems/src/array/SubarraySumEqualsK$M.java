@@ -4,17 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by gouthamvidyapradhan on 03/01/2018. Given an array of integers and an integer k, you
- * need to find the total number of continuous subarrays whose sum equals to k.
+ * 这道题给了我们一个数组，让我们求和为k的连续子数组的个数
+ * 题目中提醒我们必须要在O(n)的时间复杂度完成
  *
- * <p>Example 1: Input:nums = [1,1,1], k = 2 Output: 2 Note: The length of the array is in range [1,
- * 20,000]. The range of numbers in the array is [-1000, 1000] and the range of the integer k is
- * [-1e7, 1e7].
+ * Input:nums = [1,1,1], k = 2
+ * Output: 2
  *
- * <p>Solution: O(n) Maintain a hash-map of prefix sum and its count and check for range sum for
- * each element.
+ * 最直观的想法是遍历数组并依次加当前位置的数字，同时用数组sum记录下当前位置之前所有数字的相加和，
+ * 这样下标[i, j)之间的数字之和就可以用sum[j]-sum[i]来计算，然后通过双层循环，遍历所有情况来统计满足条件的子数组个数。
+ *
+ * sum 表示从数组开始到当前位置的数字之和 , 用map存储 sum 出现的次数
+ * sum[j] - sum[k] = k  ===> sum[i] = sum[j] - k
+ * 以 sum[i] 作为k 进行存储 出现一个就是 累加一次
  */
-public class SubarraySumEqualsK {
+public class SubarraySumEqualsK$M {
 
   /**
    * Main method
@@ -24,7 +27,7 @@ public class SubarraySumEqualsK {
    */
   public static void main(String[] args) throws Exception {
     int[] A = {1, 2, 1, -2, 3, -1, -1};
-    System.out.println(new SubarraySumEqualsK().subarraySum(A, 2));
+    System.out.println(new SubarraySumEqualsK$M().subarraySum(A, 2));
   }
 
   public int subarraySum(int[] nums, int k) {
