@@ -31,34 +31,16 @@ public class SubarraySumEqualsK$M {
   }
 
   public int subarraySum(int[] nums, int k) {
-    Map<Integer, Integer> map = new HashMap<>();
+    Map<Integer, Integer> preSum = new HashMap<>();
     int sum = 0;
-    for (int i : nums) {
-      sum += i;
-      Integer count = map.get(sum);
-      if (count == null) {
-        map.put(sum, 1);
-      } else {
-        map.put(sum, count + 1);
-      }
-    }
-    sum = 0;
     int result = 0;
-    for (int i : nums) {
-      int key = sum + k;
-      if (map.containsKey(key)) {
-        int count = map.get(key);
-        result += count;
+    preSum.put(0, 1);
+    for (int num : nums) {
+      sum += num;
+      if (preSum.containsKey(sum - k)) {
+        result += preSum.get(sum - k);
       }
-      sum += i;
-      if (map.containsKey(sum)) {
-        int count = map.get(sum);
-        if (count - 1 > 0) {
-          map.put(sum, count - 1);
-        } else {
-          map.remove(sum);
-        }
-      }
+      preSum.put(sum, preSum.getOrDefault(sum, 0) + 1);
     }
     return result;
   }
