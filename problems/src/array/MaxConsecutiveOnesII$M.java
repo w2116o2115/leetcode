@@ -18,53 +18,19 @@ package array;
  */
 public class MaxConsecutiveOnesII$M {
   public static void main(String[] args) {
-    //
+    System.out.println(findMaxConsecutiveOnes(new int[]{1,0,1,1,0}));
   }
 
-  public int findMaxConsecutiveOnes(int[] nums) {
-    int[] L = new int[nums.length];
-    int[] R = new int[nums.length];
-    boolean flag = false;
-    int count = 0;
-    int max = 0;
-    for (int j = 0; j < nums.length; j++) {
-      if (nums[j] == 1) {
-        if (!flag) {
-          flag = true;
-        }
-        count++;
-        L[j] = count;
-      } else {
-        count = 0;
-        flag = false;
-        L[j] = count;
+  public static int findMaxConsecutiveOnes(int[] nums) {
+    int res = 0, cur = 0, cnt = 0;//cnt连续1的个数   cur记录第一次遇见0的时候连续1的个数
+    for (int num : nums) {
+      ++cnt;
+      if (num == 0) {
+        cur = cnt;
+        cnt = 0;
       }
-      max = Math.max(max, count);
+      res = Math.max(res, cnt + cur);
     }
-
-    flag = false;
-    count = 0;
-    for (int j = nums.length - 1; j >= 0; j--) {
-      if (nums[j] == 1) {
-        if (!flag) {
-          flag = true;
-        }
-        count++;
-        R[j] = count;
-      } else {
-        count = 0;
-        flag = false;
-        R[j] = count;
-      }
-    }
-
-    for (int i = 0; i < nums.length; i++) {
-      if (nums[i] == 0) {
-        int l = i == 0 ? 0 : L[i - 1];
-        int r = i == nums.length - 1 ? 0 : R[i + 1];
-        max = Math.max(max, l + r + 1);
-      }
-    }
-    return max;
+    return res;
   }
 }
