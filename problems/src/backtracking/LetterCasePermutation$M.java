@@ -4,21 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by gouthamvidyapradhan on 12/04/2018. Given a string S, we can transform every letter
- * individually to be lowercase or uppercase to create another string. Return a list of all possible
- * strings we could create.
+ * 给定一个字符串S，通过将字符串S中的每个字母转变大小写，我们可以获得一个新的字符串。返回所有可能得到的字符串集合。
  *
- * <p>Examples: Input: S = "a1b2" Output: ["a1b2", "a1B2", "A1b2", "A1B2"]
+ * 示例:
+ * 输入: S = "a1b2"
+ * 输出: ["a1b2", "a1B2", "A1b2", "A1B2"]
  *
- * <p>Input: S = "3z4" Output: ["3z4", "3Z4"]
+ * 输入: S = "3z4"
+ * 输出: ["3z4", "3Z4"]
  *
- * <p>Input: S = "12345" Output: ["12345"] Note:
+ * 输入: S = "12345"
+ * 输出: ["12345"]
+ * 注意：
  *
- * <p>S will be a string with length at most 12. S will consist only of letters or digits.
- *
- * <p>Solution: O(N x 2 ^ N) Backtrack and generate all possible combinations.
+ * S 的长度不超过12。
+ * S 仅由数字和字母组成。
  */
-public class LetterCasePermutation {
+public class LetterCasePermutation$M {
 
   /**
    * Main method
@@ -27,7 +29,7 @@ public class LetterCasePermutation {
    * @throws Exception
    */
   public static void main(String[] args) throws Exception {
-    System.out.println(new LetterCasePermutation().letterCasePermutation("a1b2"));
+    System.out.println(new LetterCasePermutation$M().letterCasePermutation("a1b2"));
   }
 
   public List<String> letterCasePermutation(String S) {
