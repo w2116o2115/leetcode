@@ -21,7 +21,7 @@ import java.util.Stack;
  * S 的长度不超过12。
  * S 仅由数字和字母组成。
  */
-public class LetterCasePermutation$M {
+public class LetterCasePermutation$E {
   public static List<String> letterCasePermutation(String S) {
     List<String> res = new ArrayList<>();
     // 特判
