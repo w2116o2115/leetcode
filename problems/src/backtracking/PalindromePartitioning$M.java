@@ -34,12 +34,12 @@ public class PalindromePartitioning$M {
   }
 
   private void backtrack(List<List<String>> res, String s, ArrayList<String> tmp) {
-    if (s == null || s.length() == 0) res.add(new ArrayList<>(tmp));
-    for (int i = 1; i <= s.length(); i++) {
-      if (isPalidrome(s.substring(0, i))) {
-        // System.out.println(s.substring(0, i));
-        tmp.add(s.substring(0, i));
-        backtrack(res, s.substring(i, s.length()), tmp);
+    if (s == null || s.length() == 0)
+      res.add(new ArrayList<>(tmp));
+    for (int i = 1;i<=s.length();i++){
+      if (isPalidrome(s.substring(0,i))){
+        tmp.add(s.substring(0,i));
+        backtrack(res,s.substring(i,s.length()),tmp);
         tmp.remove(tmp.size() - 1);
       }
     }
@@ -54,6 +54,5 @@ public class PalindromePartitioning$M {
       right--;
     }
     return true;
-
   }
 }
