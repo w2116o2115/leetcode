@@ -37,7 +37,7 @@ public class GenerateParentheses$M {
         if (open < n) {
             backTrack(list, str + "(", open+1, close, n);
         }
-        if (open > close && close < n) {
+        if (open > close) {
             backTrack(list, str + ")", open, close+1, n);
         }
     }
