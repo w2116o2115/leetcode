@@ -26,6 +26,11 @@ import java.util.Set;
 public class WordSearch$M {
   private static final Set<String> map = new HashSet<>();
   private static boolean isOk = false;
+  private int[][] direction = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
+  // 盘面上有多少行
+  private int m;
+  // 盘面上有多少列
+  private int n;
   /**
    * Main method
    *
@@ -38,37 +43,40 @@ public class WordSearch$M {
   }
 
   private boolean exist(char[][] board,String word){
+    m = board.length;
+    if (m == 0) {
+      return false;
+    }
+    n = board[0].length;
     for (int i = 0;i< board.length;i++){
       for (int j = 0;j<board[0].length;j++){
-        if (board[i][j] == word.charAt(0))
-            if (search(i,j,word,board,1)) return true;
+        if (search(i,j,word,board,0))
+          return true;
       }
     }
     return false;
   }
 
   private boolean search(int i,int j,String word,char[][] board,int wordIndex){
-    if (wordIndex > word.length()-1) {
-      isOk = true;
-      return isOk;
+    if (wordIndex == word.length()-1) {
+      return board[i][j] == word.charAt(wordIndex);
     }
-    if (i+1 < board.length && board[i+1][j] == word.charAt(wordIndex)){
-      if (!map.contains(i+1 + "#" + j))
-        map.add(i+1 + "#" + j);
-        search(i+1,j,word,board,wordIndex+1);
-    }else if (i-1 >=0 &&board[i-1][j] == word.charAt(wordIndex)){
-      if (!map.contains(i-1 + "#" + j))
-        map.add(i-1 + "#" + j);
-        search(i-1,j,word,board,wordIndex+1);
-    }else if (j+1 < board[0].length  && board[i][j+1] == word.charAt(wordIndex)){
-      if (!map.contains(i + "#" + (j+1)))
-        map.add(i + "#" + (j+1));
-        search(i,j+1,word,board,wordIndex+1);
-    }else if (j-1 >= 0 && board[i][j-1] == word.charAt(wordIndex)){
-      if (!map.contains(i + "#" + (j-1)))
-        map.add(i + "#" + (j-1));
-        search(i,j-1,word,board,wordIndex+1);
+    if (board[i][j] == word.charAt(wordIndex)) {
+      map.add(i + "#" + j);
+      for (int k = 0; k < 4; k++) {
+        int newX = i + direction[k][0];
+        int newY = j + direction[k][1];
+        if (inArea(newX, newY) && !map.contains(newX + "#" + newY)) {
+          if (search(newX, newY, word, board, wordIndex + 1)) {
+            return true;
+          }
+        }
+      }
     }
-    return isOk;
+    return false;
+  }
+
+  private boolean inArea(int x, int y) {
+    return x >= 0 && x < m && y >= 0 && y < n;
   }
 }
