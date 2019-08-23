@@ -1,20 +1,25 @@
 package dynamic_programming;
 
 /**
- * Created by gouthamvidyapradhan on 24/02/2017. Given a string s, find the longest palindromic
- * substring in s. You may assume that the maximum length of s is 1000.
+ * 给定一个字符串s，找到其中最长的回文子序列。可以假设s的最大长度为1000。
  *
- * <p>Example:
+ * 示例 1:
+ * 输入:
  *
- * <p>Input: "babad"
+ * "bbbab"
+ * 输出:
  *
- * <p>Output: "bab"
+ * 4
+ * 一个可能的最长回文子序列为 "bbbb"。
  *
- * <p>Note: "aba" is also a valid answer. Example:
+ * 示例 2:
+ * 输入:
  *
- * <p>Input: "cbbd"
+ * "cbbd"
+ * 输出:
  *
- * <p>Output: "bb"
+ * 2
+ * 一个可能的最长回文子序列为 "bb"。
  */
 public class LongestPaliandromicSubstring {
   /**

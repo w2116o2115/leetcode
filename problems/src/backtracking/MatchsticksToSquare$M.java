@@ -3,32 +3,24 @@ package backtracking;
 import java.util.*;
 
 /**
- * Created by gouthamvidyapradhan on 25/05/2019 Remember the story of Little Match Girl? By now, you
- * know exactly what matchsticks the little match girl has, please find out a way you can make one
- * square by using up all those matchsticks. You should not break any stick, but you can link them
- * up, and each matchstick must be used exactly one time.
+ * 还记得童话《卖火柴的小女孩》吗？现在，你知道小女孩有多少根火柴，请找出一种能使用所有火柴拼成一个正方形的方法。不能折断火柴，可以把火柴连接起来，并且每根火柴都要用到。
  *
- * <p>Your input will be several matchsticks the girl has, represented with their stick length. Your
- * output will either be true or false, to represent whether you could make one square using all the
- * matchsticks the little match girl has.
+ * 输入为小女孩拥有火柴的数目，每根火柴用其长度表示。输出即为是否能用所有的火柴拼成正方形。
  *
- * <p>Example 1: Input: [1,1,2,2,2] Output: true
+ * 示例 1:
  *
- * <p>Explanation: You can form a square with length 2, one side of the square came two sticks with
- * length 1. Example 2: Input: [3,3,3,3,4] Output: false
+ * 输入: [1,1,2,2,2]
+ * 输出: true
  *
- * <p>Explanation: You cannot find a way to form a square with all the matchsticks. Note: The length
- * sum of the given matchsticks is in the range of 0 to 10^9. The length of the given matchstick
- * array will not exceed 15.
+ * 解释: 能拼成一个边长为2的正方形，每边两根火柴。
+ * 示例 2:
  *
- * <p>Solution: O(2 ^ N): Generate a power set of all combination of numbers for the given array
- * which sum up to the length of a side of square. Now, to check if a square can be made using all
- * the sides sticks of different length, generate a hash for for each of the combination which was
- * generated in the previous step. The hash function should be such that it uses unique indexes of
- * each match stick. If 4 different hash values are formed using unique and all indices then a
- * square is possible.
+ * 输入: [3,3,3,3,4]
+ * 输出: false
+ *
+ * 解释: 不能用所有火柴拼成一个正方形。
  */
-public class MatchsticksToSquare {
+public class MatchsticksToSquare$M {
   /**
    * Main method
    *
@@ -36,7 +28,7 @@ public class MatchsticksToSquare {
    */
   public static void main(String[] args) {
     int[] A = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 6, 10, 10};
-    System.out.println(new MatchsticksToSquare().makesquare(A));
+    System.out.println(new MatchsticksToSquare$M().makesquare(A));
   }
 
   class Pair {
