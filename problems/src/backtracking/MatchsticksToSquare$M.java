@@ -19,6 +19,9 @@ import java.util.*;
  * 输出: false
  *
  * 解释: 不能用所有火柴拼成一个正方形。
+ *
+ * 由于每一根火柴都要用上，那么如果可以组成一个正方形，那这个正方形一定是一个确定的，其边长为火柴长度和除4。
+ * 通过这一点我们可以先排除一些不可能的情况： 火柴和不是4的倍数 最长的火柴大于边长 给定数组元素个数小于4 接下来我们将火柴从小到大排序
  */
 public class MatchsticksToSquare$M {
   /**
@@ -31,78 +34,39 @@ public class MatchsticksToSquare$M {
     System.out.println(new MatchsticksToSquare$M().makesquare(A));
   }
 
-  class Pair {
-    int value, i;
-
-    Pair(int value, int i) {
-      this.value = value;
-      this.i = i;
-    }
-  }
-
   public boolean makesquare(int[] nums) {
-    if (nums.length == 0) return false;
     int sum = 0;
-    for (int n : nums) {
-      sum += n;
-    }
-    int side = sum / 4;
-    if ((sum % 4) != 0) return false;
-    List<List<Pair>> list = powerSet(nums, side);
-    Set<Integer> hashIndex = new HashSet<>();
-    int cons = 0;
-    for (int i = 0; i < nums.length; i++) {
-      cons |= (1 << i);
-    }
-    for (int i = 0; i < list.size(); i++) {
-      for (int j = i + 1; j < list.size(); j++) {
-        Set<Integer> indexList = new HashSet<>();
-        List<Pair> list1 = list.get(i);
-        List<Pair> list2 = list.get(j);
-        int hash = 0;
-        for (Pair l1 : list1) {
-          indexList.add(l1.i);
-          hash |= (1 << l1.i);
-        }
-        boolean allUnique = true;
-        for (Pair l2 : list2) {
-          if (indexList.contains(l2.i)) {
-            allUnique = false;
-            break;
-          }
-          indexList.add(l2.i);
-          hash |= (1 << l2.i);
-        }
-        if (allUnique) {
-          hashIndex.add(hash);
-          int complement = ((~hash) & cons);
-          if (hashIndex.contains(complement)) return true;
-        }
-      }
-    }
-    return false;
-  }
+    for(int num : nums)
+      sum += num;
+    if(sum == 0 || sum%4 != 0)
+      return false;
+    int target = sum/4;
 
-  private List<List<Pair>> powerSet(int[] nums, int expectedSum) {
-    List<List<Pair>> result = new ArrayList<>();
-    generate(0, nums, new ArrayList<>(), result, 0, expectedSum);
-    return result;
-  }
+    for(int num : nums)
+      if(num > target)
+        return false;
+    //从大到小的回溯，效率更高
+    Arrays.sort(nums);
+    backtrack(nums.length-1,nums,target,new int[4]);
+    return ans;
 
-  private void generate(
-      int i, int[] nums, List<Pair> subList, List<List<Pair>> result, int sum, int expected) {
-    if (i >= nums.length) {
-      if (sum == expected) {
-        List<Pair> pairs = new ArrayList<>(subList);
-        result.add(pairs);
+  }
+  boolean ans = true;
+  void backtrack(int cur,int[]nums,int target,int[] temp) {
+    if (cur == -1){
+      for (int num : temp){
+        if (num != target)
+          ans = false;
+        return;
       }
-    } else {
-      if (sum + nums[i] <= expected) {
-        subList.add(new Pair(nums[i], i));
-        generate(i + 1, nums, subList, result, sum + nums[i], expected);
-        subList.remove(subList.size() - 1);
+    }
+    for (int i=0;i<temp.length;i++){
+      int last = temp[i];
+      temp[i] += nums[cur];
+      if (temp[i] <= target){
+        backtrack(cur-1,nums,target,temp);
       }
-      generate(i + 1, nums, subList, result, sum, expected);
+      temp[i] = last;
     }
   }
 }
