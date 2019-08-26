@@ -28,9 +28,9 @@ package binary_search;
  *
  * 于是边界值就是 4，那么对 0、1、2、3 分别计算结果，很容易知道，这 4 个数的平方根依次是 0、1、1、1。
  */
-public class SqrtX$M {
+public class SqrtX$E {
   public static void main(String[] args) throws Exception {
-    System.out.println(new SqrtX$M().mySqrt(8));
+    System.out.println(new SqrtX$E().mySqrt(8));
   }
 
   public int mySqrt(int x) {
