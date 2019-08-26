@@ -5,29 +5,27 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by gouthamvidyapradhan on 23/05/2017. There are two sorted arrays nums1 and nums2 of size
- * m and n respectively.
+ * 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
  *
- * <p>Find the median of the two sorted arrays. The overall run time complexity should be O(log
- * (m+n)).
+ * 请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
  *
- * <p>Example 1: nums1 = [1, 3] nums2 = [2]
+ * 你可以假设 nums1 和 nums2 不会同时为空。
  *
- * <p>The median is 2.0 Example 2: nums1 = [1, 2] nums2 = [3, 4]
+ * 示例 1:
  *
- * <p>The median is (2 + 3)/2 = 2.5
+ * nums1 = [1, 3]
+ * nums2 = [2]
  *
- * <p>Solution: Works in worst case time complexity of O(log min(m, n))
+ * 则中位数是 2.0
+ * 示例 2:
  *
- * <p>The basic idea is that if you are given two arrays A and B and know the length of each, you
- * can check whether an element A[i] is the median in constant time. Suppose that the median is
- * A[i]. Since the array is sorted, it is greater than exactly i − 1 values in array A. Then if it
- * is the median, it is also greater than exactly j = [n / 2] − (i − 1) elements in B. It requires
- * constant time to check if B[j] A[i] <= B[j + 1]. If A[i] is not the median, then depending on
- * whether A[i] is greater or less than B[j] and B[j + 1], you know that A[i] is either greater than
- * or less than the median. Thus you can binary search for A[i] in O(log N) worst-case time
+ * nums1 = [1, 2]
+ * nums2 = [3, 4]
+ *
+ * 则中位数是 (2 + 3)/2 = 2.5
+ *
  */
-public class MedianOfTwoSortedArrays {
+public class MedianOfTwoSortedArrays$H {
   /**
    * Main method
    *
@@ -37,7 +35,7 @@ public class MedianOfTwoSortedArrays {
   public static void main(String[] args) throws Exception {
     int[] A = {1, 2, 5, 8, 44, 45, 45};
     int[] B = {1, 2, 3, 4, 5, 6, 7, 23, 23, 23, 33, 44, 45, 45, 56, 77, 5555};
-    System.out.println(new MedianOfTwoSortedArrays().findMedianSortedArrays(A, B));
+    System.out.println(new MedianOfTwoSortedArrays$H().findMedianSortedArrays(A, B));
   }
 
   /**
