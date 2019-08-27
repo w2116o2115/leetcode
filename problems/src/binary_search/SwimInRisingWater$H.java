@@ -36,7 +36,7 @@ import java.util.Set;
  * <p>Solution: O(N ^ 2 x log N ^ 2) Binary search for the possible answers in the range [0 to N *
  * N-1] and dfs through the grid to check if the destination is reachable
  */
-public class SwimInRisingWater {
+public class SwimInRisingWater$H {
 
   private final int[] R = {0, 0, 1, -1};
   private final int[] C = {1, -1, 0, 0};
@@ -75,7 +75,7 @@ public class SwimInRisingWater {
       {11, 17, 18, 19, 20},
       {10, 9, 8, 7, 6}
     };
-    System.out.println(new SwimInRisingWater().swimInWater(grid));
+    System.out.println(new SwimInRisingWater$H().swimInWater(grid));
   }
 
   public int swimInWater(int[][] grid) {
