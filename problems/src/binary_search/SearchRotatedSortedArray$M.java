@@ -28,8 +28,25 @@ public class SearchRotatedSortedArray$M {
    * @throws Exception
    */
   public static void main(String[] args) throws Exception {
-    int[] A = {5, 4, 3, 2, 1};
-    System.out.println(new SearchRotatedSortedArray$M().search(A, 4));
+    int[] A = {4,5,6,7,0,1,2};
+
+    System.out.println(new SearchRotatedSortedArray$M().search(A, 0));
+  }
+
+  public int find_min_index(int left,int right,int[] nums){//找到旋转点
+    while (left <= right){
+      int mid = (left + right) >>> 1;
+      if (nums[mid] > nums[mid+1]){
+        return mid + 1;
+      }else {
+        if (nums[mid] < nums[left]){
+          right = mid -1;
+        }else {
+          left = mid + 1;
+        }
+      }
+    }
+    return 0;
   }
 
   public int search(int[] nums, int target) {
@@ -37,14 +54,18 @@ public class SearchRotatedSortedArray$M {
     if (nums.length == 1) {
       return (nums[0] == target) ? 0 : -1;
     }
-    int low = 0, high = nums.length - 1;
-    while (low < high) {
-      int mid = (low + high) >>> 1;
-      if (nums[mid] == target) return mid;
-      if ((nums[mid] <= nums[low]) && (target > nums[mid] && target <= nums[high])
-          || (nums[low] <= nums[mid] && (target < nums[low] || target > nums[mid]))) low = mid + 1;
-      else high = mid - 1;
+    int left = 0,right = nums.length - 1;
+    while (left <= right){
+      int mid = (left+right) >>> 1;
+      if (nums[mid] == target){
+        return mid;
+      }
+      if (target < nums[mid]){
+        right = mid -1;
+      }else{
+        left = mid + 1;
+      }
     }
-    return (nums[low] == target) ? low : -1;
+    return -1;
   }
 }
