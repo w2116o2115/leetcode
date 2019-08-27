@@ -1,25 +1,28 @@
 package binary_search;
 
 /**
- * Created by gouthamvidyapradhan on 20/05/2017. Given an array of integers sorted in ascending
- * order, find the starting and ending position of a given target value.
+ * 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
  *
- * <p>Your algorithm's runtime complexity must be in the order of O(log n).
+ * 你的算法时间复杂度必须是 O(log n) 级别。
  *
- * <p>If the target is not found in the array, return [-1, -1].
+ * 如果数组中不存在目标值，返回 [-1, -1]。
  *
- * <p>For example, Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4].
+ * 示例 1:
  *
- * <p>Solution: Works with worst case time complexity of O(log n). Recursively binary search to find
- * the target index.
+ * 输入: nums = [5,7,7,8,8,10], target = 8
+ * 输出: [3,4]
+ * 示例 2:
+ *
+ * 输入: nums = [5,7,7,8,8,10], target = 6
+ * 输出: [-1,-1]
  */
-public class SearchForARange {
+public class SearchForARange$M {
   public static void main(String[] args) throws Exception {
     int[] test = {
       5, 7, 7, 8, 8, 10, 10, 10, 10, 18, 19, 20, 21, 21, 21, 21, 22, 23, 28, 28, 90, 101, 101, 101,
       200, 200, 200, 200, 200, 200
     };
-    int[] result = new SearchForARange().searchRange(test, 200);
+    int[] result = new SearchForARange$M().searchRange(test, 200);
     for (int i : result) System.out.print(i + " ");
   }
 
