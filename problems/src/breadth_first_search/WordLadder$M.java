@@ -1,5 +1,6 @@
 package breadth_first_search;
 
+import com.sun.xml.internal.ws.wsdl.writer.document.Part;
 import javafx.util.Pair;
 
 import java.util.*;
@@ -57,59 +58,40 @@ public class WordLadder$M {
   }
 
   public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-    // Since all words are of same length.
     int L = beginWord.length();
+    Map<String,List<String>> allWord = new HashMap<>();
+    wordList.forEach(word ->{//创建图数据模型
+      for (int i=0;i<L;i++){
+        String newWord = word.substring(0,i) + "*" + word.substring(i+1,L);
+        List<String> list = allWord.getOrDefault(newWord,new ArrayList<>());
+        list.add(word);
+        allWord.put(newWord,list);
+      }
+    });
 
-    // Dictionary to hold combination of words that can be formed,
-    // from any given word. By changing one letter at a time.
-    HashMap<String, ArrayList<String>> allComboDict = new HashMap<>();
+    Queue<Pair<String,Integer>> Q = new LinkedList<>();
+    Q.add(new Pair<>(beginWord,1));
 
-    wordList.forEach(
-            word -> {
-              for (int i = 0; i < L; i++) {
-                // Key is the generic word
-                // Value is a list of words which have the same intermediate generic word.
-                String newWord = word.substring(0, i) + '*' + word.substring(i + 1, L);
-                ArrayList<String> transformations =
-                        allComboDict.getOrDefault(newWord, new ArrayList<>());
-                transformations.add(word);
-                allComboDict.put(newWord, transformations);
-              }
-            });
+    Map<String,Boolean> visited = new HashMap<>();
+    visited.put(beginWord,true);
 
-    // Queue for BFS
-    Queue<Pair<String, Integer>> Q = new LinkedList<>();
-    Q.add(new Pair<>(beginWord, 1));
-
-    // Visited to make sure we don't repeat processing same word.
-    HashMap<String, Boolean> visited = new HashMap<>();
-    visited.put(beginWord, true);
-
-    while (!Q.isEmpty()) {
-      Pair<String, Integer> node = Q.remove();
-      String word = node.getKey();
-      int level = node.getValue();
-      for (int i = 0; i < L; i++) {
-
-        // Intermediate words for current word
-        String newWord = word.substring(0, i) + '*' + word.substring(i + 1, L);
-
-        // Next states are all the words which share the same intermediate state.
-        for (String adjacentWord : allComboDict.getOrDefault(newWord, new ArrayList<String>())) {
-          // If at any point if we find what we are looking for
-          // i.e. the end word - we can return with the answer.
-          if (adjacentWord.equals(endWord)) {
+    while (!Q.isEmpty()){
+      Pair<String,Integer> pair = Q.remove();
+      int level = pair.getValue();
+      String word = pair.getKey();
+      for (int i=0;i<L;i++){
+        String newWord = word.substring(0,i) + "*" + word.substring(i+1,L);
+        for (String addWord : allWord.getOrDefault(newWord,new ArrayList<>())){
+          if (addWord.equals(endWord))
             return level + 1;
-          }
-          // Otherwise, add it to the BFS Queue. Also mark it visited
-          if (!visited.containsKey(adjacentWord)) {
-            visited.put(adjacentWord, true);
-            Q.add(new Pair<>(adjacentWord, level + 1));
+
+          if (!visited.containsKey(addWord)){
+            visited.put(addWord,true);
+            Q.add(new Pair<>(addWord,level+1));
           }
         }
       }
     }
-
     return 0;
   }
 }
