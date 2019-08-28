@@ -11,8 +11,8 @@ package bit_manipulation;
  * <p>Output: 6
  *
  * <p>Explanation: In binary representation, the 4 is 0100, 14 is 1110, and 2 is 0010 (just showing
- * the four bits relevant in this case). So the answer will be: HammingDistance(4, 14) +
- * HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 + 2 = 6. Note: Elements of the given array
+ * the four bits relevant in this case). So the answer will be: HammingDistance$E(4, 14) +
+ * HammingDistance$E(4, 2) + HammingDistance$E(14, 2) = 2 + 2 + 2 = 6. Note: Elements of the given array
  * are in the range of 0 to 10^9 Length of the array will not exceed 10^4.
  *
  * <p>Solution: O(N * 32): Count the number of set bits in each of 32 bit positions and then take

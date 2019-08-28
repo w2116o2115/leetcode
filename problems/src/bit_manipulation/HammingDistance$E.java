@@ -20,7 +20,7 @@ package bit_manipulation;
  *
  * <p>Solution O(1): XOR (x, y) and count the number of bits set
  */
-public class HammingDistance {
+public class HammingDistance$E {
 
   /**
    * Main method
