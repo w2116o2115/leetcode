@@ -18,7 +18,7 @@ import java.util.Queue;
  * <p>Solution: O(n x m): Treat each coordinate of grid with 0 as a source and destination as the
  * coordinate of 2147483647 and perform a multi-sources BFS from each source.
  */
-public class WallsAndGates {
+public class WallsAndGates$M {
 
   private static final int[] R = {0, 0, 1, -1};
   private static final int[] C = {1, -1, 0, 0};
@@ -45,7 +45,7 @@ public class WallsAndGates {
       {Integer.MAX_VALUE, -1, Integer.MAX_VALUE, -1},
       {0, -1, Integer.MAX_VALUE, Integer.MAX_VALUE}
     };
-    new WallsAndGates().wallsAndGates(A);
+    new WallsAndGates$M().wallsAndGates(A);
   }
 
   public void wallsAndGates(int[][] rooms) {
