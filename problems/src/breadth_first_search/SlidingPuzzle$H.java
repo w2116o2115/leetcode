@@ -28,7 +28,7 @@ import java.util.*;
  *
  * <p>Solution: Do a bfs of each state of the board to find the least possible moves.
  */
-public class SlidingPuzzle {
+public class SlidingPuzzle$H {
 
   /**
    * Main method
@@ -37,7 +37,7 @@ public class SlidingPuzzle {
    */
   public static void main(String[] args) {
     int[][] board = {{1, 2, 3}, {4, 0, 5}};
-    System.out.println(new SlidingPuzzle().slidingPuzzle(board));
+    System.out.println(new SlidingPuzzle$H().slidingPuzzle(board));
   }
 
   class Node {

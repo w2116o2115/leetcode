@@ -28,7 +28,7 @@ import java.util.*;
  * <p>Solution: O(N x M) ^ 2: Bfs to each height starting from 1 and calculate the total sum of
  * distance.
  */
-public class CutOffTreesForGolfEvent {
+public class CutOffTreesForGolfEvent$H {
 
   public static void main(String[] args) throws Exception {}
 

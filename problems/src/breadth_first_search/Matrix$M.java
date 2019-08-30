@@ -17,7 +17,7 @@ import java.util.*;
  * <p>Solution: Add all the 0th cell to the queue and do a multi-source bfs to count the minimum
  * distance
  */
-public class Matrix {
+public class Matrix$M {
   private static class Node {
     int r, c;
     int d;
@@ -51,7 +51,7 @@ public class Matrix {
    */
   public static void main(String[] args) {
     int[][] temp = {{0, 0, 0}, {0, 1, 0}, {1, 1, 1}};
-    int[][] result = new Matrix().updateMatrix(temp);
+    int[][] result = new Matrix$M().updateMatrix(temp);
     System.out.println();
   }
 

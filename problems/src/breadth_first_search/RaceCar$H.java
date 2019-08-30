@@ -32,7 +32,7 @@ import java.util.*;
  * avoiding negative vertices and keep a boundary target of approximately (target * 2) - beyond this
  * boundary target the race car should not progress in the forward direction.
  */
-public class RaceCar {
+public class RaceCar$H {
 
   /**
    * Main method
@@ -40,7 +40,7 @@ public class RaceCar {
    * @param args
    */
   public static void main(String[] args) {
-    System.out.println(new RaceCar().racecar(1000));
+    System.out.println(new RaceCar$H().racecar(1000));
   }
 
   private class Node {

@@ -20,7 +20,7 @@ import java.util.*;
  * <p>Solution: Model a graph based on interconnection of routes and then run a BFS to find the
  * shortest distance.
  */
-public class BusRoutes {
+public class BusRoutes$H {
 
   private class Node {
     int v, dist;
@@ -43,7 +43,7 @@ public class BusRoutes {
     int[][] R = {
       {1, 2, 3, 9}, {9, 3, 4, 5, 8}, {5, 6, 7, 8}, {9, 8, 10, 11}, {12, 13, 14, 6, 1, 2, 3, 5, 7}
     };
-    System.out.println(new BusRoutes().numBusesToDestination(R, 1, 14));
+    System.out.println(new BusRoutes$H().numBusesToDestination(R, 1, 14));
   }
 
   public int numBusesToDestination(int[][] routes, int S, int T) {
