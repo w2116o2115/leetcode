@@ -41,30 +41,28 @@ public class IslandPerimeter$E {
   public int islandPerimeter(int[][] grid) {
     done = new boolean[grid.length][grid[0].length];
     perimeter = 0;
-    for (int i = 0; i < grid.length; i++) {
-      for (int j = 0; j < grid[0].length; j++) {
-        if (grid[i][j] == 1 && !done[i][j]) {
-          dfs(i, j, grid);
+    for (int i=0;i<grid.length;i++){
+      for (int j=0;j<grid[0].length;j++){
+        if (grid[i][j] == 1 && !done[i][j])
+          dfs(i,j,grid);
           break;
-        }
       }
     }
-
     return perimeter;
   }
 
   private void dfs(int r, int c, int[][] grid) {
     done[r][c] = true;
-    for (int i = 0; i < 4; i++) {
+    for (int i=0;i<4;i++){
       int newR = r + R[i];
       int newC = c + C[i];
-      if (newR < 0 || newC < 0 || newR >= grid.length || newC >= grid[0].length) {
+      if (newC < 0 || newR < 0 || newR >= grid.length || newC >= grid[0].length){
         perimeter++;
-      } else if (grid[newR][newC] == 0) {
+      }else if (grid[newR][newC] == 0){
         perimeter++;
-      } else {
-        if (!done[newR][newC]) {
-          dfs(newR, newC, grid);
+      }else {
+        if (!done[newR][newC]){
+          dfs(newR,newC,grid);
         }
       }
     }
