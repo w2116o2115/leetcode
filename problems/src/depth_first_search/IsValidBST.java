@@ -28,6 +28,8 @@ package depth_first_search;
  * 输出: false
  * 解释: 输入为: [5,1,4,null,null,3,6]。
  *      根节点的值为 5 ，但是其右子节点值为 4 。
+ *
+ * 问题是，这种方法并不总是正确。不仅右子结点要大于该节点，整个右子树的元素都应该大于该节点
  */
 public class IsValidBST {
 
@@ -38,15 +40,15 @@ public class IsValidBST {
       TreeNode(int x) { val = x; }
     }
 
-    private static boolean isValidBST(TreeNode root,Integer lower,Integer upper) {
+    private static boolean isValidBST(TreeNode root,Integer min_val,Integer max_val) {
         if (root == null)
             return true;
         int val = root.val;
-        if (lower != null && val <= lower) return false;
-        if (upper != null && val >= upper) return false;
+        if (min_val != null && val <= min_val) return false;
+        if (max_val != null && val >= max_val) return false;
 
-        if (!isValidBST(root.right,val,upper)) return false;
-        if (!isValidBST(root.left,lower,val)) return false;
+        if (!isValidBST(root.right,val,max_val)) return false;
+        if (!isValidBST(root.left,min_val,val)) return false;
         return true;
      }
 
