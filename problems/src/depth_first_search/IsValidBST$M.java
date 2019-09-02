@@ -31,7 +31,7 @@ package depth_first_search;
  *
  * 问题是，这种方法并不总是正确。不仅右子结点要大于该节点，整个右子树的元素都应该大于该节点
  */
-public class IsValidBST {
+public class IsValidBST$M {
 
     public static class TreeNode {
       int val;
