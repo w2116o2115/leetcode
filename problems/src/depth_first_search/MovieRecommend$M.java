@@ -3,7 +3,7 @@ package depth_first_search;
 import java.util.*;
 
 /** Created by gouthamvidyapradhan on 25/02/2017. Accepted */
-public class MovieRecommend {
+public class MovieRecommend$M {
   Set<Integer> visited = new HashSet<>();
   List<Movie> list = new ArrayList<>();
 
