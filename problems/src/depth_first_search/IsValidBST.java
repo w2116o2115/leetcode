@@ -38,20 +38,22 @@ public class IsValidBST {
       TreeNode(int x) { val = x; }
     }
 
-    private static boolean isValidBST(TreeNode root) {
+    private static boolean isValidBST(TreeNode root,Integer lower,Integer upper) {
         if (root == null)
             return true;
-        if (root.left == null && root.right == null)
-            return true;
-        if ((root.left == null && root.right != null) || (root.left != null && root.right == null))
-            return false;
-        return (root.left.val < root.val && root.right.val > root.val) && isValidBST(root.left) && isValidBST(root.right);
-    }
+        int val = root.val;
+        if (lower != null && val <= lower) return false;
+        if (upper != null && val >= upper) return false;
+
+        if (!isValidBST(root.right,val,upper)) return false;
+        if (!isValidBST(root.left,lower,val)) return false;
+        return true;
+     }
 
     public static void main(String[] args) {
-        TreeNode node1 = new TreeNode(2);
-        node1.left = new TreeNode(1);
-        node1.right = new TreeNode(3);
-        System.out.println(isValidBST(node1));
+        TreeNode node1 = new TreeNode(1);
+        node1.left = null;
+        node1.right = new TreeNode(1);
+        System.out.println(isValidBST(node1,null,null));
     }
 }
