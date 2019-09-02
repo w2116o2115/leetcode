@@ -46,7 +46,7 @@ package depth_first_search;
  * you don't need to reveal all the unrevealed mines when the game is over, consider any cases that
  * you will win the game or flag any squares.
  */
-public class Minesweeper {
+public class Minesweeper$M {
   private static final int[] R = {1, 1, 1, 0, 0, -1, -1, -1};
   private static final int[] C = {-1, 0, 1, -1, 1, -1, 0, 1};
 
@@ -64,7 +64,7 @@ public class Minesweeper {
       {'E', 'E', 'E', 'E', 'E'}
     };
     int[] click = {3, 0};
-    new Minesweeper().updateBoard(board, click);
+    new Minesweeper$M().updateBoard(board, click);
     for (int i = 0; i < board.length; i++) System.out.println(board[i]);
   }
 
