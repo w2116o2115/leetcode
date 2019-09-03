@@ -38,14 +38,13 @@ public class Flatten$M {
 
     private static TreeNode last = null;
     private static void recursion(TreeNode root) {
-        if (root == null) return;
-        // 前序：注意更新last节点，包括更新左右子树
-        if (last != null) {
+        if (root==null)
+            return;
+        if (last != null){
             last.left = null;
             last.right = root;
         }
         last = root;
-        // 前序：注意备份右子节点，规避下一节点篡改
         TreeNode copyRight = root.right;
         recursion(root.left);
         recursion(copyRight);
