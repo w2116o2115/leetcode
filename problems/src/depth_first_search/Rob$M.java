@@ -33,6 +33,12 @@ package depth_first_search;
  *
  * 输出: 9
  * 解释: 小偷一晚能够盗取的最高金额 = 4 + 5 = 9.
+ *
+ *
+ * DFS函数返回一个数组，第一位代表不包括当前结点值的最大值，第二位代表包括当前结点的最大值。
+ * 对树进行前序遍历，遍历到node结点。如果不选node结点，则其对应的最大值为max(l)+max(r)，此
+ * 时需要各个情况，左右结点包括和不包括。如果选这个结点，则对应的最大值为cur.val+l[0]+r[0]。
+ *
  */
 public class Rob$M {
     public static class TreeNode {
@@ -50,6 +56,14 @@ public class Rob$M {
         return Math.max(res[0],res[1]);
     }
     //res[0]为不包括根节点的最大值，res[1]为包括根节点的最大值
+
+    /**
+     *        3
+     *       / \
+     *      2   3
+     *       \   \
+     *        3   1
+     */
     private int[] doRob(TreeNode root){
         int[] res = new int[2];
         if(root == null)
