@@ -1,7 +1,5 @@
 package depth_first_search;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 /**
