@@ -29,6 +29,8 @@ package depth_first_search;
  * 输出：0
  * 解释：
  * 所有 1 都在边界上或可以到达边界。
+ *
+ * 思路  把以四个边为起点的1 全部变成0  然后遍历上下图中的1
  */
 public class NumEnclaves {
     private boolean isLand = false;
