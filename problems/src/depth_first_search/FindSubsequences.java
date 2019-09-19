@@ -45,7 +45,7 @@ public class FindSubsequences {
                 continue;
             stack.add(nums[i]);
             dfs(ans, stack, nums, i + 1);
-            stack.pop();//
+            stack.pop();//弹出已经元素
         }
     }
 
