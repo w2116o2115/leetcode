@@ -1,5 +1,8 @@
 package string;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 0 1 2 3 4
  * 6. Z 字形变换
@@ -9,19 +12,24 @@ package string;
  */
 public class Convert {
     public String convert(String s, int numRows) {
-        StringBuilder s1 = new StringBuilder();
-        StringBuilder s2 = new StringBuilder();
-        StringBuilder s3 = new StringBuilder();
-        for (int i=0;i<s.length();i++){
-            if (i%numRows == 0){
-                s1.append(s.charAt(i));
-            }else if (i%numRows == 1){
-                s2.append(s.charAt(i));
-            }else if (i%numRows == 2){
-                s3.append(s.charAt(i));
-            }
+        if (numRows == 1) return s;
+
+        List<StringBuilder> rows = new ArrayList<>();
+        for (int i = 0; i < Math.min(numRows, s.length()); i++)
+            rows.add(new StringBuilder());
+
+        int curRow = 0;
+        boolean goingDown = false;
+
+        for (char c : s.toCharArray()) {
+            rows.get(curRow).append(c);
+            if (curRow == 0 || curRow == numRows - 1) goingDown = !goingDown;
+            curRow += goingDown ? 1 : -1;
         }
-        return s1.append(s2).append(s3).toString();
+
+        StringBuilder ret = new StringBuilder();
+        for (StringBuilder row : rows) ret.append(row);
+        return ret.toString();
     }
 
     public static void main(String[] args) {
