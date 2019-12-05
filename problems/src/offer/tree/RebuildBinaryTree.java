@@ -45,7 +45,7 @@ public class RebuildBinaryTree {
         return root;
     }
 
-    public TreeNode rebuildBinaryTree(int preorder[], int inorder[]) {
+    public TreeNode buildTree(int preorder[], int inorder[]) {
         if (preorder == null || inorder == null) { //如果前序或者中序有一个是空直接返回
             return null;
         }
