@@ -1,7 +1,5 @@
 package binary_search;
 
-import array.HIndex$M;
-
 /**
  * 给定一位研究者论文被引用次数的数组（被引用次数是非负整数），数组已经按照升序排列。编写一个方法，计算出研究者的 h 指数。
  *
