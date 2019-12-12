@@ -14,7 +14,7 @@ import java.util.Map;
  * 输出: 2
  * 解释: 第一步将"sea"变为"ea"，第二步将"eat"变为"ea"
  *
- * 最长公共子序列
+ * LongestCommonSubsequence
  */
 public class MinDistance {
     public int minDistance(String word1, String word2) {
