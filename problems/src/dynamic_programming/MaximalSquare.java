@@ -19,23 +19,17 @@ package dynamic_programming;
  */
 public class MaximalSquare {
     public int maximalSquare(char[][] matrix) {
-        if (matrix == null || matrix.length < 1 || matrix[0].length < 1) return 0;
-
-        int height = matrix.length;
-        int width = matrix[0].length;
-        int maxSide = 0;
-
-        // 相当于已经预处理新增第一行、第一列均为0
-        int[][] dp = new int[height + 1][width + 1];
-
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < width; col++) {
-                if (matrix[row][col] == 1) {
-                    dp[row + 1][col + 1] = Math.min(Math.min(dp[row + 1][col], dp[row][col + 1]), dp[row][col]) + 1;
-                    maxSide = Math.max(maxSide, dp[row + 1][col + 1]);
+        int rows = matrix.length, cols = rows > 0 ? matrix[0].length : 0;
+        int[][] dp = new int[rows + 1][cols + 1];
+        int maxsqlen = 0;
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= cols; j++) {
+                if (matrix[i-1][j-1] == '1'){
+                    dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                    maxsqlen = Math.max(maxsqlen, dp[i][j]);
                 }
             }
         }
-        return maxSide * maxSide;
+        return maxsqlen * maxsqlen;
     }
 }
