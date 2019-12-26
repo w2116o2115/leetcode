@@ -1,4 +1,4 @@
-package dynamic_programming;
+package dynamic_programming.unboundedKnapsack;
 
 import java.util.Arrays;
 
@@ -16,6 +16,13 @@ import java.util.Arrays;
  *
  * 输入: coins = [2], amount = 3
  * 输出: -1
+ *
+ * 思路：这道题是完全背包问题的变种，采用动态规划维护一个二维数组dp，
+ * dp[i][j]表示从第一个元素到第i个元素累计总金额为j时的最少硬币数量，递推公式为：
+ * dp[i][j] = min(dp[i - 1][j], dp[i][j - coins[i]]+1);
+ *
+ * dp[i] 表示 凑够i需要的最小货币数
+ * dp[i] = min(dp[i-1],dp[i-coin]+1)  对所有的价值进行遍历，每一个价值去遍历所有的货币
  */
 public class CoinChange {
     public int coinChange(int[] coins, int amount) {
