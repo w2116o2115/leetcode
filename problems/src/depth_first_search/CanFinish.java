@@ -69,7 +69,7 @@ public class CanFinish {
         }
         int[] marked = new int[numCourses];
 
-        // 初始化有向图 begin
+        // 初始化有向图 begin  邻接矩阵  数组 + 链表/hash表
         HashSet<Integer>[] graph = new HashSet[numCourses];
         for (int i = 0; i < numCourses; i++) {
             graph[i] = new HashSet<>();
@@ -113,7 +113,7 @@ public class CanFinish {
         }
         // 走到这里，是因为初始化呢，此时 marked[i] == 0
         // 表示正在访问中
-        marked[i] = 1;
+        marked[i] = 1; //先定义自己有环   如果最后还是访问到自己就说有环儿
         // 后继结点的集合
         HashSet<Integer> successorNodes = graph[i];
 
