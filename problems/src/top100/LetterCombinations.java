@@ -14,6 +14,45 @@ import java.util.Map;
  *
  * 输入："23"
  * 输出：["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+ *
+ * 如果输入的是23，应该怎么做呢？23的结果是["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]，我们仍然不考虑怎么去写递归，只是考虑怎么把这个结果给弄出来。代码如下：
+ *
+ * result = List()
+ * for(i=0;i<len("abc");i++) {
+ *     for(j=0;j<len("def");j++)
+ *         tmp = i+j
+ *         result.add(tmp)
+ * }
+ * return result
+ * 也就是说23这样的长度为2的字符串可以用两层循环搞定。
+ * 如果输入的是234呢，仍然不要考虑怎么去写递归，而是想怎么把结果打印出来。
+ *
+ * result = List()
+ * for(i=0;i<len("abc");i+=1) {
+ *     for(j=0;j<len("def");j+=1) {
+ *         for(k=0;k<len("ghi");k+=1) {
+ *             tmp = i+j+k
+ *             result.add(tmp)
+ *         }
+ *     }
+ * }
+ * return result
+ * 这次用了三层循环。
+ * 如果输入的是2345，那么代码可以这么写：
+ *
+ * result = List()
+ * for(i=0;i<len("abc");i+=1) {
+ *     for(j=0;j<len("def");j+=1) {
+ *         for(k=0;k<len("ghi");k+=1) {
+ *             for(n=0;n<len("jkl");n+=1)
+ *                 tmp = i+j+k+n
+ *                 result.add(tmp)
+ *         }
+ *     }
+ * }
+ * return result
+ *
+ * 要用递归循环
  */
 public class LetterCombinations {
     public static List<String> letterCombinations(String digits) {
