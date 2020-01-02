@@ -20,24 +20,27 @@ package top100;
  * 给定 target = 5，返回 true。
  *
  * 给定 target = 20，返回 false。
+ *
+ * 从最右上角的元素开始找，如果这个元素比target大，则说明找更小的，往左走；如果这个元素比target小，则说明应该找更大的，往下走。
  */
 public class SearchMatrix {
     public boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix.length == 0 || matrix[0].length == 0)
+        if(matrix == null || matrix.length < 1 || matrix[0].length < 1){
             return false;
-        int c = matrix.length;
-        int r = matrix[0].length;
-        for (int i=0;i<c;i++){
-            if (target >= matrix[i][0] && target <= matrix[i][r-1]){
-                for (int j=0;j>r;j++){
-                    if (matrix[i][j] > target)
-                        break;
-                    if (matrix[i][j] == target){
-                        return true;
-                    }
-                }
+        }
+        //起点为最右上角的元素
+        int row = 0, col = matrix[0].length - 1;
+        //判断当前数组元素和target，如果当前大于target，往左走；小与target，往下走
+        while(row < matrix.length && col >= 0){
+            if(matrix[row][col] < target){
+                row++;
+            }else if(matrix[row][col] > target){
+                col--;
+            }else{
+                return true;
             }
         }
+        //走出边界了还没找到，说明不存在，返回false
         return false;
     }
 }
