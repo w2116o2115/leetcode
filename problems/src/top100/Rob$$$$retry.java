@@ -49,7 +49,7 @@ import java.util.Queue;
  * root[0] = Math.max(rob(root.left)[0], rob(root.left)[1]) + Math.max(rob(root.right)[0], rob(root.right)[1])
  * root[1] = rob(root.left)[0] + rob(root.right)[0] + root.val;
  */
-public class Rob$$$$retry {
+public class Rob {
     public static class TreeNode {
         int val;
         TreeNode left;
