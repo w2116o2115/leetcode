@@ -20,6 +20,8 @@ package dynamic_programming.easy;
  * 输入: [7,6,4,3,1]
  * 输出: 0
  * 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
+ *
+ * 贪心算法
  */
 public class MaxProfit {
     public int maxProfit(int[] prices) {
