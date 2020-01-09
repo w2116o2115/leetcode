@@ -39,7 +39,7 @@ public class SqrtX$E {
     long right = x / 2 + 1;
     while (left < right) {
       // 注意：这里一定取右中位数，如果取左中位数，代码会进入死循环
-      // long mid = left + (right - left + 1) / 2;
+      // long top250 = left + (right - left + 1) / 2;
       long mid = (left + right + 1) / 2;
       long square = mid * mid;
       if (square > x) {
