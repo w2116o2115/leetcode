@@ -1,6 +1,5 @@
 package depth_first_search;
 
-import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -52,32 +51,30 @@ public class SumNumbers$M {
     }
 
     public int sumNumbers(TreeNode root) {
-        Set<String> list = new HashSet<>();
-        dsf(root,list,new StringBuffer());
-        BigInteger bigInteger = new BigInteger("0");
-        for (String s:list){
-            bigInteger = bigInteger.add(new BigInteger(s));
+        int count = 0;
+        if (root == null)
+            return count;
+        List<Integer> res = new ArrayList<>();
+        dfs(root,res,"");
+        for (int n:res){
+            count+=n;
         }
-        return bigInteger.intValue();
+        return count;
     }
 
-    public void dsf(TreeNode node, Set<String> list,StringBuffer sb){
-        if (node == null) {
-            list.add(new String(sb));
+    private void dfs(TreeNode root, List<Integer> list,String sb){
+        if (root.left == null && root.right == null){
+            list.add(Integer.valueOf(sb+=root.val));
             return;
         }
-        sb.append(node.val);
-        dsf(node.left,list,sb);
-        dsf(node.right,list,sb);
-        sb.delete(sb.length()-1,sb.length());
+        if (root.left != null) dfs(root.left,list,sb+root.val);
+        if (root.right != null) dfs(root.right,list,sb+root.val);
     }
 
     public static void main(String[] args) {
-        TreeNode node = new TreeNode(4);
-        node.left = new TreeNode(9);
-        node.right = new TreeNode(0);
-        node.left.left = new TreeNode(5);
-        node.left.right = new TreeNode(1);
-        System.out.println(new SumNumbers$M().sumNumbers(node));
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        System.out.println(new SumNumbers$M().sumNumbers(root));
     }
 }
