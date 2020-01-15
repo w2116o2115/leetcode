@@ -30,10 +30,10 @@ public class RightSideView$M {
         }
     }
 
-    public void rightSideView(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        dsf(root,result,0);
-        System.out.println(result);
+    public  List<Integer> rightSideView(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        dsf(root,res,0);
+        return res;
     }
 
     public void dsf(TreeNode node,List<Integer> list,int level){
