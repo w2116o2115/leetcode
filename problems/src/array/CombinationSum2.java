@@ -42,13 +42,11 @@ public class CombinationSum2 {
             return;
         }
         for (int i = begin; i < len; i++) {
-            // 为了避免将负数传递到下一个分支，这里剪枝
             if (residue - candidates[i] < 0) {
                 break;
             }
 
-            // 相同部分剪枝
-            if (i > begin && candidates[i] == candidates[i - 1]) {
+            if (i > begin && candidates[i] == candidates[i - 1]) {//如果数字已经存在了就跳过
                 continue;
             }
 
@@ -71,7 +69,7 @@ public class CombinationSum2 {
     }
 
     public static void main(String[] args) {
-        int[] candidates = new int[]{10,1,2,7,6,1,5};
-        System.out.println(new CombinationSum2().combinationSum2(candidates,8));
+        int[] candidates = new int[]{2,5,2,1,2};
+        System.out.println(new CombinationSum2().combinationSum2(candidates,5));
     }
 }
