@@ -3,6 +3,7 @@ package array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 18. 四数之和
@@ -26,32 +27,29 @@ import java.util.List;
  */
 public class FourSum {
     public List<List<Integer>> fourSum(int[] nums, int target) {
-        List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
-        int len = nums.length;
-        for (int i=0;i<len-3;i++){
-            for (int j = i+1;j<len-2;j++){
-                int L = j+1;
-                int R = len-1;
-                while (L<R){
-                    int sum = nums[i] + nums[j] + nums[L] + nums[R];
-                    if (sum == target){
-                        result.add(Arrays.asList(nums[i],nums[j],nums[L],nums[R]));
-                        while (L<R && nums[L] == nums[L+1]) L++; // 去重
-                        while (L<R && nums[R] == nums[R-1]) R--; // 去重
-                        L++;
-                        R--;
-                    }
-                    else if (sum < 0) L++;
-                    else if (sum > 0) R--;
-                }
-            }
+        List<List<Integer>> res = new ArrayList<>();
+        bankTrack(nums,0,0,target,new Stack<>(),res);
+        return res;
+    }
+
+    private void bankTrack(int[] nums, int index,int sum,int target, Stack<Integer> stack, List<List<Integer>> res) {
+        if (sum == target && stack.size() == 4) {
+            res.add(new ArrayList<>(stack));
+            return;
         }
-        System.out.println(result);
-        return result;
+        for (int i = index; i < nums.length; i++) {
+            if (i > index && nums[i] == nums[i - 1]) {//如果数字已经存在了就跳过
+                continue;
+            }
+
+            stack.add(nums[i]);
+            bankTrack(nums, i + 1, sum+nums[i], target, stack, res);
+            stack.pop();
+        }
     }
 
     public static void main(String[] args) {
-        new FourSum().fourSum(new int[]{1, 0, -1, 0, -2, 2},0);
+        System.out.println(new FourSum().fourSum(new int[]{1, 0, -1, 0, -2, 2},0));
     }
 }
