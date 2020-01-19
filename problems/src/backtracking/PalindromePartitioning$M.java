@@ -28,7 +28,7 @@ public class PalindromePartitioning$M {
 
   public List<List<String>> partition(String s) {
     List<List<String>> res = new ArrayList<>();
-    backtrack(res, s,  new ArrayList<String>());
+    backtrack(res, s,  new ArrayList<>());
     return res;
 
   }
@@ -39,7 +39,7 @@ public class PalindromePartitioning$M {
     for (int i = 1;i<=s.length();i++){
       if (isPalidrome(s.substring(0,i))){
         tmp.add(s.substring(0,i));
-        backtrack(res,s.substring(i,s.length()),tmp);
+        backtrack(res,s.substring(i),tmp);
         tmp.remove(tmp.size() - 1);
       }
     }
