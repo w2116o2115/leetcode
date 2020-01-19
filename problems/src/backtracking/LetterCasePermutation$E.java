@@ -60,7 +60,7 @@ public class LetterCasePermutation$E {
 //    List<String> letterCasePermutation = letterCasePermutation(S);
 //    System.out.println(letterCasePermutation);
 
-    char a = 'a';
+    char a = 'A';
     System.out.println((char)(a ^ (1<<5)));
   }
 }
