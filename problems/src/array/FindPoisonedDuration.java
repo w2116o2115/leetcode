@@ -31,12 +31,12 @@ public class FindPoisonedDuration {
         if (timeSeries.length==1){
             return duration;
         }
-        int time=0;
-        for (int i = 0; i < timeSeries.length-1; i++) {
-            if (timeSeries[i]+duration<=timeSeries[i+1]){
-                time+=duration;
-            }else {
-                time+= timeSeries[i+1]-timeSeries[i];
+        int time = 0;
+        for (int i=0;i<timeSeries.length-1;i++){
+            if (timeSeries[i]+duration <= timeSeries[i+1]){
+                time += duration;
+            }else{
+                time+=timeSeries[i+1]-timeSeries[i];
             }
         }
         time+=duration;
