@@ -34,17 +34,17 @@ public class SubarraySum {
      * 把所有的sum放入map中，key sum  value sum的次数
      */
     public int subarraySum(int[] nums, int k) {
-        int sum = 0;int count = 0;
+        int sum = 0;int res = 0;
         Map<Integer,Integer> map = new HashMap<>();
         map.put(0,1);
-        for (int num : nums) {
-            sum += num;
-            if (map.containsKey(sum - k)) {
-                count += map.get(sum - k);
+        for (int num:nums){
+            sum+=num;
+            if (map.containsKey(sum-k)){
+                res+=map.get(num-k);
             }
-            map.put(sum, map.getOrDefault(sum, 0) + 1);
+            map.put(sum,map.getOrDefault(sum,0)+1);
         }
-        return count;
+        return res;
     }
 
     public static void main(String[] args) {
