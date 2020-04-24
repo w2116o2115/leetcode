@@ -21,6 +21,8 @@ package array;
  *
  * 输入: nums = [4,5,6,7,0,1,2], target = 3
  * 输出: -1
+ *
+ * 思路  ： 有序部分和无序部分分开处理
  */
 public class Search {
     public int search(int[] nums, int target) {
