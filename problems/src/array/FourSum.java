@@ -27,29 +27,35 @@ import java.util.Stack;
  */
 public class FourSum {
     public List<List<Integer>> fourSum(int[] nums, int target) {
-        Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();
-        bankTrack(nums,0,0,target,new Stack<>(),res);
+        Arrays.sort(nums);
+        for (int first=0;first<nums.length;first++){
+            if (first > 0 && nums[first] == nums[first-1]) continue;
+            for (int second = first+1;second < nums.length;second++) {
+                if (second>first+1 && nums[second] == nums[second-1]) continue;
+                int L = second + 1;
+                int R = nums.length - 1;
+                while (L < R) {
+                    int sum = nums[first] + nums[second] + nums[L] + nums[R];
+                    if (sum == target) {
+                        res.add(Arrays.asList(nums[first], nums[second], nums[L], nums[R]));
+                        while (L<R && nums[L]==nums[L+1]) L++;
+                        while (L<R && nums[R]==nums[R-1]) R--;
+                        L++;
+                        R--;
+                    } else if (sum > target) {
+                        R--;
+                    } else if (sum < target) {
+                        L++;
+                    }
+                }
+            }
+        }
         return res;
     }
 
-    private void bankTrack(int[] nums, int index,int sum,int target, Stack<Integer> stack, List<List<Integer>> res) {
-        if (sum == target && stack.size() == 4) {
-            res.add(new ArrayList<>(stack));
-            return;
-        }
-        for (int i = index; i < nums.length; i++) {
-            if (i > index && nums[i] == nums[i - 1]) {//如果数字已经存在了就跳过
-                continue;
-            }
-
-            stack.add(nums[i]);
-            bankTrack(nums, i + 1, sum+nums[i], target, stack, res);
-            stack.pop();
-        }
-    }
 
     public static void main(String[] args) {
-        System.out.println(new FourSum().fourSum(new int[]{1, 0, -1, 0, -2, 2},0));
+        System.out.println(new FourSum().fourSum(new int[]{-1,-5,-5,-3,2,5,0,4},-7));
     }
 }
