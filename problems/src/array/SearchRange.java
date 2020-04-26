@@ -20,29 +20,24 @@ package array;
  */
 public class SearchRange {
     private int[] search(int[] nums, int target,int l,int r,int[] result){
-        if (l == r){
-            if (nums[l] == target){
-                result[0] = result[0] == -1?l:Math.min(l,result[0]);
-                result[1] = Math.max(l,result[1]);
-            }
+        if (l>r)
             return result;
-        }
-        int mid = (l+r) >>> 1;
+        int mid = l+r >> 1;
         if (nums[mid] == target){
-            result[0] = result[0] == -1?mid:Math.min(mid,result[0]);
-            result[1] = Math.max(mid,result[1]);
-        }
-        if (nums[mid] >= target){
-            result = search(nums,target,l,mid-1,result);
-        }
-        if (nums[mid+1] <= target){
-            result = search(nums,target,mid+1,r,result);
+            result[0] = result[0] == -1?mid:Math.min(result[0],mid);
+            result[1] = result[1] == -1?mid:Math.max(result[1],mid);
+            search(nums,target,l,mid-1,result);
+            search(nums,target,mid+1,r,result);
+        }else if (nums[mid] > target){
+            search(nums,target,l,mid-1,result);
+        }else {
+            search(nums,target,mid+1,r,result);
         }
         return result;
     }
 
     public int[] searchRange(int[] nums, int target) {
-        return search(nums,target,0,nums.length-1,new int[]{});
+        return search(nums,target,0,nums.length-1,new int[]{-1,-1});
     }
 
     public static void main(String[] args) {
