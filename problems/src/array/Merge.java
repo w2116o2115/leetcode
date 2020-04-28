@@ -20,7 +20,7 @@ import java.util.List;
  * 输出: [[1,5]]
  * 解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。
  *
- * 思路首先去要对数据进行排序
+ * 思路:首先去要对数据进行排序
  */
 public class Merge {
     public int[][] merge(int[][] intervals) {
@@ -36,6 +36,7 @@ public class Merge {
                 index++;
                 right = Math.max(right,intervals[index][1]);
             }
+            res.add(new int[]{left,right});
             index++;
         }
         return res.toArray(new int[0][]);
