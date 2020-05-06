@@ -21,7 +21,7 @@ package array;
  * 思路：先序序列的第一个节点是根节点，凭此去遍历中序序列，得到中序遍历根节点的位置，
  * 于是可以从中序遍历得出左右子树的结点数，再以同样的方式去递归求出左子树结点和右子树结点
  */
-public class BuildTree {
+public class BuildTree$$SOS {
     public class TreeNode {
         int val;
         TreeNode left;
