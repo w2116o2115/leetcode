@@ -19,7 +19,7 @@ package array;
  *     /  \
  *    15   7
  */
-public class BuildTreeII {
+public class BuildTreeII$$SOS {
     public class TreeNode {
         int val;
         TreeNode left;
