@@ -46,7 +46,7 @@ public class BuildTree {
         for (int i = inorderStar;i<=inorderEnd;i++){
             if (preOrder[preOrderStar] == inorder[i]){
                 root.left = dfsBuild(preOrder,preOrderStar+1,inorder,inorderStar,i-1);
-                root.right = dfsBuild(preOrder,(i-inorderStar)+preOrderStar+1,inorder,i+1,inorderEnd);
+                root.right = dfsBuild(preOrder,(i-inorderStar)+preOrderStar+1,inorder,i+1,inorderEnd);// (i-inorderStar)获取左树的元素数
             }
         }
         return root;
