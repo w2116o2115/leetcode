@@ -33,7 +33,7 @@ public class CombinationSum3 {
             return;
         }
 
-        for (int i=index;i<=n;i++){
+        for (int i=index;i<=9;i++){
             stack.add(i);
             backTrack(i+1,k,n-i,res,stack);
             stack.pop();
@@ -41,7 +41,7 @@ public class CombinationSum3 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new CombinationSum3().combinationSum3(3,9));
+        System.out.println(new CombinationSum3().combinationSum3(2,18));
     }
 
 
