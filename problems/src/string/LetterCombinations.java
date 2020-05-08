@@ -1,5 +1,6 @@
 package string;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,12 @@ import java.util.Map;
  */
 public class LetterCombinations {
     public List<String> letterCombinations(String digits) {
+        List<String> rest = new ArrayList<>();
+        backTrad(digits,"",rest);
+        return rest;
+    }
+
+    private void backTrad(String next_digits,String str,List<String> rest){
         Map<String, String> map = new HashMap<>();
         map.put("2", "abc");
         map.put("3", "def");
@@ -24,6 +31,18 @@ public class LetterCombinations {
         map.put("7", "pqrs");
         map.put("8", "tuv");
         map.put("9", "wxyz");
-        return null;
+        if (next_digits.length() == 0) {
+            rest.add(str);
+        }else {
+            String digit = next_digits.substring(0, 1);
+            String letters = map.get(digit);
+            for (int i = 0; i < letters.length(); i++) {
+                backTrad(next_digits.substring(1), str + letters.substring(i, i + 1), rest);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new LetterCombinations().letterCombinations("23"));
     }
 }
