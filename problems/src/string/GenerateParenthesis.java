@@ -18,26 +18,32 @@ import java.util.Stack;
  * "()(())",
  * "()()()"
  * ]
+ *
+ * 思路： 回溯
  */
 public class GenerateParenthesis {
-    private void bankTrade(int n, int start, int end, List<String> rst, StringBuilder sb) {
-        if (sb.length() == n*2) {
-            rst.add(sb.toString());
-            return;
+    private void bankTrade(int n, int start, int end, List<String> rst, Stack<String> sb) {
+        if (sb.size() == 2*n){
+            rst.add(sb.toString().replace(",",""));
         }
-        if (start < n) {
-            bankTrade(n, start + 1, end, rst, sb.append("("));
-            sb.deleteCharAt(sb.length()-1);
+
+        if (start < n){
+            sb.add("(");
+            bankTrade(n,start+1,end,rst,sb);
+            sb.pop();
         }
-        if (end < start){
-            bankTrade(n, start, end+1, rst, sb.append(")"));
-            sb.deleteCharAt(sb.length()-1);
+        if (start>end){
+            sb.add(")");
+            bankTrade(n,start,end+1,rst,sb);
+            sb.pop();
         }
     }
 
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
-        bankTrade(n, 1, 0, res, new StringBuilder().append("("));
+        Stack<String> stack = new Stack<>();
+        stack.add("(");
+        bankTrade(n, 1, 0, res, stack);
         return res;
     }
 
