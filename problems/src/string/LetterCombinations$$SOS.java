@@ -14,7 +14,7 @@ import java.util.Map;
  * 输出：["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
  * 思路： 回溯
  */
-public class LetterCombinations {
+public class LetterCombinations$$SOS {
     public List<String> letterCombinations(String digits) {
         List<String> rest = new ArrayList<>();
         backTrad(digits,"",rest);
@@ -43,6 +43,6 @@ public class LetterCombinations {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LetterCombinations().letterCombinations("23"));
+        System.out.println(new LetterCombinations$$SOS().letterCombinations("23"));
     }
 }
