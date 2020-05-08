@@ -21,29 +21,22 @@ import java.util.Arrays;
  */
 public class LongestPalindrome {
     public String longestPalindrome(String s) {
-        char[] c = s.toCharArray();
+        String res = "";
         boolean[][] dp = new boolean[s.length()][s.length()];
-        int longest = Integer.MIN_VALUE;
-        String rest = "";
-        for (int len=1;len<=c.length;len++){
-            for (int start=0;start<c.length;start++){
-                int end = start + len -1;
-                if (end >= s.length())
-                    break;
-                int length = end - start;
-                if ((len==1||len ==2|| dp[start+1][end-1]) && c[end]==c[start]){
+        for (int len=1;len<s.length();len++){
+            for (int start = 0;start<s.length();start++){
+                int end = start+len-1;
+                if (end >= s.length()) break;
+                if ((len == 1 || len == 2 || dp[start+1][end-1]) && s.charAt(start) == s.charAt(end)){
                     dp[start][end] = true;
-                    if (length > longest) {
-                        rest = s.substring(start,end+1);
-                        longest = length;
-                    }
+                    res = res.length() > end-start+1?res:s.substring(start,end+1);
                 }
             }
         }
-        return rest;
+        return res;
     }
 
     public static void main(String[] args) {
-        System.out.println(new LongestPalindrome().longestPalindrome("aaaa"));
+        System.out.println(new LongestPalindrome().longestPalindrome("cbbd"));
     }
 }
