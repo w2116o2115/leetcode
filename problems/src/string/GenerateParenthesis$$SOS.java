@@ -21,7 +21,7 @@ import java.util.Stack;
  *
  * 思路： 回溯
  */
-public class GenerateParenthesis {
+public class GenerateParenthesis$$SOS {
     private void bankTrade(int n, int start, int end, List<String> rst, Stack<String> sb) {
         if (sb.size() == 2*n){
             rst.add(sb.toString().replace(",",""));
@@ -48,6 +48,6 @@ public class GenerateParenthesis {
     }
 
     public static void main(String[] args) {
-        System.out.println(new GenerateParenthesis().generateParenthesis(3));
+        System.out.println(new GenerateParenthesis$$SOS().generateParenthesis(3));
     }
 }
