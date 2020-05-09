@@ -1,8 +1,6 @@
 package string;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 91. 解码方法
@@ -27,7 +25,7 @@ import java.util.List;
 
  思路 ： 变相爬楼梯问题
  */
-public class NumDecodings {
+public class NumDecodings$$SOS {
 
     public int numDecodings(String s) {
         int[] dp = new int[s.length()];
@@ -42,6 +40,6 @@ public class NumDecodings {
     }
 
     public static void main(String[] args) {
-        System.out.println(new NumDecodings().numDecodings("12"));
+        System.out.println(new NumDecodings$$SOS().numDecodings("12"));
     }
 }
