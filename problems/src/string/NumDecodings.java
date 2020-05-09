@@ -1,5 +1,9 @@
 package string;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 91. 解码方法
  * 一条包含字母 A-Z 的消息通过以下方式进行了编码：
@@ -20,35 +24,24 @@ package string;
  输入: "226"
  输出: 3
  解释: 它可以解码为 "BZ" (2 26), "VF" (22 6), 或者 "BBF" (2 2 6) 。
- 太坑爹!不会
+
+ 思路 ： 变相爬楼梯问题
  */
 public class NumDecodings {
-    private int count;
 
     public int numDecodings(String s) {
-        return getAns(s, 0);
+        int[] dp = new int[s.length()];
+        Arrays.fill(dp,1);
+        char[] c = s.toCharArray();
+        for (int i=2;i<c.length;i++){
+            dp[i] += c[i] == '0'?0:dp[i-1];
+            if ((c[i-2] == '2' || c[i-2] == '1') && c[i-1] <= '6')
+                dp[i] += dp[i-2];
+        }
+        return dp[s.length()-1];
     }
 
-    private int getAns(String s, int start) {
-        //划分到了最后返回 1
-        if (start == s.length()) {
-            return 1;
-        }
-        //开头是 0,0 不对应任何字母，直接返回 0
-        if (s.charAt(start) == '0') {
-            return 0;
-        }
-        //得到第一种的划分的解码方式
-        int ans1 = getAns(s, start + 1);
-        int ans2 = 0;
-        //判断前两个数字是不是小于等于 26 的
-        if (start < s.length() - 1) {
-            int ten = (s.charAt(start) - '0') * 10;
-            int one = s.charAt(start + 1) - '0';
-            if (ten + one <= 26) {
-                ans2 = getAns(s, start + 2);
-            }
-        }
-        return ans1 + ans2;
+    public static void main(String[] args) {
+        System.out.println(new NumDecodings().numDecodings("12"));
     }
 }
