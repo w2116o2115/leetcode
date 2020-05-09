@@ -26,19 +26,23 @@ import java.util.Stack;
  */
 public class ReverseWords {
     public String reverseWords(String s) {
-        StringBuilder ans = new StringBuilder();
-        //去掉s的首尾空格 然后将字符串拆分
-        String[] s1 = s.trim().split(" ");
-        for(int i = s1.length - 1; i >= 0; i--){
-            //空格后面的空格会变成空字符串
-            if(!s1[i].equals("")) ans.append(s1[i] + " ");
+        if (s.length() == 0) return "";
+        Stack<String> stack = new Stack<>();
+        String[] c = s.split(" ");
+        for (int i=0;i<c.length;i++){
+            if (!"".equals(c[i]))stack.add(c[i].trim());
         }
-        //去掉最后添加上的空格
-        ans = new StringBuilder(ans.toString().trim());
-        return ans.toString();
+        String res = "";
+        if (stack.isEmpty()) return res;
+        do {
+            res += stack.pop();
+            if (!stack.isEmpty()) res += " ";
+        }while (!stack.isEmpty());
+        return res;
     }
 
+
     public static void main(String[] args) {
-        System.out.println(new ReverseWords().reverseWords("a good   example"));
+        System.out.println(new ReverseWords().reverseWords(" "));
     }
 }
