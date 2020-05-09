@@ -43,7 +43,7 @@ import java.util.LinkedList;
  *
  * 思路 ：栈解决,把当前目录压入栈中,遇到..弹出栈顶,最后返回栈中元素.
  */
-public class SimplifyPath {
+public class SimplifyPath$$SOS {
     public String simplifyPath(String path) {
         Deque<String> stack = new LinkedList<>();
         for (String item : path.split("/")) {
@@ -57,6 +57,6 @@ public class SimplifyPath {
     }
 
     public static void main(String[] args) {
-        System.out.println(new SimplifyPath().simplifyPath("/a/../../b/../c//.//"));
+        System.out.println(new SimplifyPath$$SOS().simplifyPath("/a/../../b/../c//.//"));
     }
 }
