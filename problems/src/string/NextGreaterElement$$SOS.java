@@ -18,7 +18,7 @@ package string;
  *        然后从右边的数据中找到 a[j] > a[i] 的数据，然后进行交换就得到了 最小的32位整数
  *        最后反转 i+1后边的数据
  */
-public class NextGreaterElement {
+public class NextGreaterElement$$SOS {
     public int nextGreaterElement(int n) {
         char[] a = ("" + n).toCharArray();
         int i = a.length - 2;
@@ -34,6 +34,7 @@ public class NextGreaterElement {
         swap(a, i, j);
         reverse(a, i + 1);
         try {
+
             return Integer.parseInt(new String(a));
         } catch (Exception e) {
             return -1;
@@ -54,6 +55,6 @@ public class NextGreaterElement {
     }
 
     public static void main(String[] args) {
-        System.out.println(new NextGreaterElement().nextGreaterElement(1487531));
+        System.out.println(new NextGreaterElement$$SOS().nextGreaterElement(1487531));
     }
 }
