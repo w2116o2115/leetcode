@@ -28,7 +28,7 @@ import java.util.Arrays;
  *
  * 上述我们讨论的是在有这种排列的情况下如何找到，那自然也是有可能不存在这种排列的。在字符串长度为 N 的情况下，如果有一个字母出现的次数超过 (N+1) / 2，这时候就不存在这样一种排列。
  */
-public class ReorganizeString {
+public class ReorganizeString$$SOS {
     public String reorganizeString(String S) {
         int N = S.length();
         int[] counts = new int[26];
@@ -54,6 +54,6 @@ public class ReorganizeString {
     }
 
     public static void main(String[] args) {
-        System.out.println(new ReorganizeString().reorganizeString("aab"));
+        System.out.println(new ReorganizeString$$SOS().reorganizeString("aab"));
     }
 }
