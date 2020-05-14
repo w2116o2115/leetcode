@@ -16,12 +16,9 @@ import java.util.Comparator;
  *
  * 输入: "aba", "cdc", "eae"
  * 输出: 3
- *
- * 思路：方法二 中需要判断每个字符串是否为特殊序列。如果最开始可以先将所有字符串排序，则可以节省一部分计算。
- *
- * 本方法中，首先按照长度降序排序所有字符串。然后，依次使用序列中的每个字符串与其他字符串比较，如果不存在字符串是当前字符串的子序列，则返回当前字符串的长度。否则返回 -1。
+ * 思路：先对字符串数组进行排序，然后从长的往短的进行遍历， 拿出每一个字符串与其他的字符串进行对比，找到那个特殊字符串
  */
-public class FindLUSlength {
+public class FindLUSlength$$SOS {
     public boolean isSubsequence(String x, String y) {
         int j = 0;
         for (int i = 0; i < y.length() && j < x.length(); i++)
