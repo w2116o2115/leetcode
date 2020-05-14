@@ -25,7 +25,7 @@ package string;
  * 思路：这题咋看起来很复杂，好像是有限空间搜索的问题，但是由于所以数都是正整数，结果就只有一种可能了，就是
  * A/(B/C/D/...).
  */
-public class OptimalDivision {
+public class OptimalDivision$$SOS {
     public String optimalDivision(int[] nums) {
         StringBuilder sb = new StringBuilder();
         sb.append(nums[0]);
