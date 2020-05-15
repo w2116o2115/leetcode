@@ -1,4 +1,4 @@
-package breadth_first_search;
+package tree;
 
 import java.util.*;
 
@@ -22,7 +22,7 @@ import java.util.*;
  *   [15,7]
  * ]
  */
-public class ZigzagLevelOrder {
+public class ZigzagLevelOrder$$SOS {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -32,7 +32,6 @@ public class ZigzagLevelOrder {
             val = x;
         }
     }
-
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
@@ -75,6 +74,6 @@ public class ZigzagLevelOrder {
         root.right.left = new TreeNode(15);
         root.right.right = new TreeNode(7);
 
-        System.out.println(new ZigzagLevelOrder().zigzagLevelOrder(root));
+        System.out.println(new ZigzagLevelOrder$$SOS().zigzagLevelOrder(root));
     }
 }
