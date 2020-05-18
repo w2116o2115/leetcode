@@ -21,6 +21,8 @@ import java.util.Queue;
  * iterator.hasNext(); // 返回 true
  * iterator.next();    // 返回 20
  * iterator.hasNext(); // 返回 false
+ *
+ * 二叉搜索树： 中序遍历，可以有序输出
  *  
  *
  * 提示：
