@@ -68,6 +68,20 @@ public class Flatten {
 
     private TreeNode pre = null;
 
+    /**
+     * 利用  前序遍历 输出每一个点  然后逐个点的去链接
+     * public void PrintBinaryTreeBacRecur(TreeNode<T> root){
+     *     if (root == null)
+     *         return;
+     *
+     *     PrintBinaryTreeBacRecur(root.right);
+     *     PrintBinaryTreeBacRecur(root.left);
+     *     System.out.print(root.data);
+     *
+     * }
+     * @param root
+     */
+
     public void flatten(TreeNode root) {
         if (root == null)
             return;
