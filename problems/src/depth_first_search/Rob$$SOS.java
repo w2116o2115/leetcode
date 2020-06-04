@@ -40,7 +40,7 @@ package depth_first_search;
  * 时需要各个情况，左右结点包括和不包括。如果选这个结点，则对应的最大值为cur.val+l[0]+r[0]。
  *
  */
-public class Rob$M {
+public class Rob$$SOS {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -83,6 +83,6 @@ public class Rob$M {
         root.right = new TreeNode(3);
         root.left.right = new TreeNode(3);
         root.right.right = new TreeNode(1);
-        System.out.println(new Rob$M().rob(root));
+        System.out.println(new Rob$$SOS().rob(root));
     }
 }
