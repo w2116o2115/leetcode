@@ -68,7 +68,7 @@ import java.util.*;
  *  遍历入度数组，有课的入度不为 0 ，则返回false，说明完成不了所有课程
  *  否则，返回true，能找到一种排序，完成所有课程
  */
-public class CanFinish {
+public class CanFinish$$SOS {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         if (numCourses <= 0) return false;
         //建立邻接表
@@ -116,6 +116,6 @@ public class CanFinish {
     public static void main(String[] args) {
         int numCourses = 2;
         int[][] prerequisites = new int[][]{{1,0}};
-        System.out.println(new CanFinish().canFinish(numCourses,prerequisites));
+        System.out.println(new CanFinish$$SOS().canFinish(numCourses,prerequisites));
     }
 }
