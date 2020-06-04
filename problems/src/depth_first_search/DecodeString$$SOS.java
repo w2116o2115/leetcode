@@ -21,7 +21,7 @@ import java.util.Stack;
  *
  * 遇见各种括号就用栈！
  */
-public class DecodeString {
+public class DecodeString$$SOS {
     public String decodeString(String s) {
         StringBuilder  res = new StringBuilder();
         Stack<String> stack_res = new Stack<>();
@@ -34,12 +34,12 @@ public class DecodeString {
                 res = new StringBuilder();
                 cur_num = 0;
             }else if (c == ']'){
-                StringBuilder  temp = new StringBuilder();
+                StringBuilder sb = new StringBuilder();
                 int current_num = stack_num.pop();
-                for (int i=0;i<current_num;i++) temp.append(res.toString());
-                res = new StringBuilder(stack_res.pop() + temp);
-            }else if (c >= '0' && c<= '9'){
-                cur_num = Integer.parseInt(c+"");
+                while (current_num -->0) sb.append(res);
+                res = new StringBuilder(stack_res.pop() + sb);
+            }else if (c >='0' && c<='9'){
+                cur_num = Integer.valueOf(c+"");
             }else {
                 res.append(c);
             }
@@ -48,6 +48,6 @@ public class DecodeString {
     }
 
     public static void main(String[] args) {
-        System.out.println(new DecodeString().decodeString("3[a2[c]]"));
+        System.out.println(new DecodeString$$SOS().decodeString("3[a2[c]]"));
     }
 }
