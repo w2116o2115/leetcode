@@ -36,7 +36,7 @@ import java.util.List;
  * 你需要买1A，2B和1C，所以你付了¥4买了1A和1B（大礼包1），以及¥3购买1B， ¥4购买1C。
  * 你不可以购买超出待购清单的物品，尽管购买大礼包2更加便宜。
  */
-public class ShoppingOffers$M {
+public class ShoppingOffers {
     public static int minPrice = Integer.MAX_VALUE;
 
     public int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
@@ -75,6 +75,6 @@ public class ShoppingOffers$M {
         special.add(Arrays.asList(3,0,5));
         special.add(Arrays.asList(1,2,10));
         List<Integer> needs = Arrays.asList(3,2);
-        System.out.println(new ShoppingOffers$M().shoppingOffers(price,special,needs));
+        System.out.println(new ShoppingOffers().shoppingOffers(price,special,needs));
     }
 }
