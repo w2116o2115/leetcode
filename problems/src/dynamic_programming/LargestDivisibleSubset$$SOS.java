@@ -36,36 +36,42 @@ import java.util.List;
  *
  * Plus: 本题还要求求出具体的集合,将dp过程记忆化便可.
  * pre[i]: 表示以nums[i]为最大元素的最大整除子集第二大元素在nums数组的索引.
+ *
+ * 排序后，dp【i】是第i个数字结尾的数组段所能拥有的最大整数子集长度。
+ * 很显然，dp【i】=max（dp【a1】，dp【a2】。。。dp【ak】）+1，其中dp【ax】代表能实现dp【i】%dp【ax】==0，
+ * 也就是说dp【i】是所有在i前面的数字能构造最大整除子集的最长的再加1.
  */
-public class LargestDivisibleSubset {
+public class LargestDivisibleSubset$$SOS {
     public List<Integer> largestDivisibleSubset(int[] nums) {
-        List<Integer> ans = new ArrayList<Integer>();
-        if(nums.length == 0) return ans;
-        int[] dp = new int[nums.length];
-        int[] pre = new int[nums.length];
-        int maxx = 0;
-        int idx = -1;
+        List<Integer> res = new ArrayList<>();
+        int[]dp = new int[nums.length];
+        int[]pre = new int[nums.length];
+        int max = 1;
         Arrays.sort(nums);
         Arrays.fill(dp,1);
         Arrays.fill(pre,-1);
-        maxx = 1;
-        idx = 0;
-        for(int i = 0; i < nums.length; i++) {
-            for(int j = 0; j < i; j++) {
-                if(nums[i] % nums[j] == 0 && dp[j] + 1 > dp[i]) {
+        int index = 0;
+        for (int i=0;i<nums.length;i++){
+            for (int j=0;j<i;j++){
+                if (nums[i] % nums[j] == 0 && dp[i] < dp[j] + 1){
                     dp[i] = dp[j] + 1;
                     pre[i] = j;
-                    if(maxx < dp[i]) {
-                        maxx = dp[i];
-                        idx = i;
+                    if (max < dp[i]){
+                        max = dp[i];
+                        index =  i;
                     }
                 }
             }
         }
-        while(idx != -1) {
-            ans.add(nums[idx]);
-            idx = pre[idx];
+        while (index != -1){
+            res.add(nums[index]);
+            index = pre[index];
         }
-        return ans;
+        return res;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1,2,4,8};
+        System.out.println(new LargestDivisibleSubset$$SOS().largestDivisibleSubset(nums));
     }
 }
