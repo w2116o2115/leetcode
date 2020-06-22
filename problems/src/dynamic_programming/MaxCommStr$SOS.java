@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @version 1.0
  * @date 2019/10/15 17:33
  */
-public class MaxCommStr {
+public class MaxCommStr$SOS {
     public static void main(String[] args) {
 
         String a = "damdfac";
@@ -18,10 +18,7 @@ public class MaxCommStr {
     }
 
     public static String findComString(String a, String b) {
-        //  a的第i个和b的第j个最大公共子序列长度：如果第i和第j个字符相同，则为a的i-1和b的j-1最大公共子序列长度+1.
-        //否则取 a的第i-1个b的j个与a的i个b的j-1个中最大的。因为对比a[i-1][j-1],要不是新增的a[i]个字符与前b[j-1]的字符产生了新的匹配，
-        // 要不是增加的b[j]个字符与a[i-1]个字符产生了新的匹配。如果新增的a[i]和b[j]都贡献了，
-        // （如字符串ad和da，在i=1，j=1时，a[1]=d与下面的字符产生了匹配，同时b[1]=a与前者产生匹配）。因为是序列，新增的匹配要作为最后一位，所以只能任选一个作为新增的匹配。
+        //https://blog.csdn.net/hrn1216/article/details/51534607
         int[][] matrix = new int[a.length() + 1][b.length() + 1];
         for (int i = 0; i < a.length(); i++) {
             for (int j = 0; j < b.length(); j++) {
