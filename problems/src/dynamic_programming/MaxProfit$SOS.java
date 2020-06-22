@@ -35,7 +35,7 @@ package dynamic_programming;
  * 昨天不持有，今天继续不持有unhold_dp[i] = unhold_dp[i-1]
  *
  */
-public class MaxProfit {
+public class MaxProfit$SOS {
     public int maxProfit(int[] prices) {
         int n = prices.length;
         if (n <= 1) return 0;

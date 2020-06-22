@@ -23,8 +23,13 @@ import java.util.List;
  *
  * 如果你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题，那么你的算法会很加分。
  * 从下往上 去相加
+ *
+   res[i, j] - 当前元素的最短路径
+   当前元素的最短路径等于其下一层的相邻元素中的较小者与当前元素之和：
+   状态转移方程：
+   res[i][j] = min(res[i + 1][j], res[i + 1][j + 1]) + triangle[i][j]
  */
-public class MinimumTotal {
+public class MinimumTotal$SOS {
     public int minimumTotal(List<List<Integer>> triangle) {
         int row=triangle.size();
         int column=triangle.get(row-1).size();//最后一行数最多，作为数组列数来用
@@ -51,6 +56,6 @@ public class MinimumTotal {
         triangle.add(a2);
         triangle.add(a3);
 
-        System.out.println(new MinimumTotal().minimumTotal(triangle));
+        System.out.println(new MinimumTotal$SOS().minimumTotal(triangle));
     }
 }

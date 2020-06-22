@@ -18,7 +18,7 @@ package dynamic_programming;
  *
  * 我们只要记录前i的最小值, 和最大值, 那么 dp[i] = max(nums[i] * pre_max, nums[i] * pre_min, nums[i]), 这里0 不需要单独考虑, 因为当相乘不管最大值和最小值,都会置0
  */
-public class MaxProduct {
+public class MaxProduct$SOS {
     public int maxProduct(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         int res = nums[0];
@@ -36,6 +36,6 @@ public class MaxProduct {
 
     public static void main(String[] args) {
         int[] nums = new int[]{2,3,-2,4};
-        System.out.println(new MaxProduct().maxProduct(nums));
+        System.out.println(new MaxProduct$SOS().maxProduct(nums));
     }
 }
