@@ -31,15 +31,15 @@ import java.util.List;
  */
 public class MinimumTotal$SOS {
     public int minimumTotal(List<List<Integer>> triangle) {
-        int row=triangle.size();
-        int column=triangle.get(row-1).size();//最后一行数最多，作为数组列数来用
-        int dp[][]=new int[row][column];
-
-        for(int i=0;i<column;i++)
-            dp[row-1][i]=triangle.get(row-1).get(i);//最后一行到底部的距离就等于它自身的值
-        for(int i=row-2;i>=0;i--) {
-            for(int j=0;j<=i;j++) {
-                dp[i][j]=Math.min(dp[i+1][j],dp[i+1][j+1])+triangle.get(i).get(j);
+        int row = triangle.size();
+        int col = triangle.get(row-1).size();
+        int[][] dp = new int[row][col];
+        for (int i=0;i<col;i++){
+            dp[row-1][i] = triangle.get(row-1).get(i);
+        }
+        for (int i = row-2;i>=0;i--){
+            for (int j=0;j<triangle.get(i).size();j++){
+                dp[i][j] = Math.min(dp[i+1][j],dp[i+1][j+1]) + triangle.get(i).get(j);
             }
         }
         return dp[0][0];
