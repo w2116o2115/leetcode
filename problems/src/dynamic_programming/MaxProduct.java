@@ -15,22 +15,23 @@ package dynamic_programming;
  * 输入: [-2,0,-1]
  * 输出: 0
  * 解释: 结果不能为 2, 因为 [-2,-1] 不是子数组。
+ *
+ * 我们只要记录前i的最小值, 和最大值, 那么 dp[i] = max(nums[i] * pre_max, nums[i] * pre_min, nums[i]), 这里0 不需要单独考虑, 因为当相乘不管最大值和最小值,都会置0
  */
 public class MaxProduct {
     public int maxProduct(int[] nums) {
-        int max = Integer.MIN_VALUE, imax = 1, imin = 1;
-        for(int i=0; i<nums.length; i++){
-            if(nums[i] < 0){
-                int tmp = imax;
-                imax = imin;
-                imin = tmp;
-            }
-            imax = Math.max(imax*nums[i], nums[i]);
-            imin = Math.min(imin*nums[i], nums[i]);
-
-            max = Math.max(max, imax);
+        if (nums == null || nums.length == 0) return 0;
+        int res = nums[0];
+        int pre_max = nums[0];
+        int pre_min = nums[0];
+        for (int i=1;i<nums.length;i++){
+            int cur_max = Math.max(Math.max(pre_max*nums[i],pre_min*nums[i]),nums[i]);
+            int cur_min = Math.min(Math.min(pre_max*nums[i],pre_min*nums[i]),nums[i]);
+            res = Math.max(cur_max,res);
+            pre_max = cur_max;
+            pre_min = cur_min;
         }
-        return max;
+        return res;
     }
 
     public static void main(String[] args) {
