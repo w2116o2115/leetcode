@@ -22,8 +22,6 @@ public class Knapsack {
     static int[] w = new int[6];//每件物品的重量
     static int[] v = new int[6];//每件物品的价值
     public static void solution(){
-
-
         int[][] temp = new int[6][9];//8表示背包最多能放8公斤的重量
         for(int j = 0;j < 9;j++){//初始化每一行
             temp[0][j] = 0;
