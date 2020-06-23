@@ -33,13 +33,13 @@ package dynamic_programming.zeroOrOneknapsack;
  * dp[i][j] = dp[i - 1][j] or dp[i - 1][j - nums[i]], (nums[i] <= j)
  *
  */
-public class CanPartition {
+public class CanPartition$SOS {
     public boolean canPartition(int[] nums) {
         int count = 0;
         for (Integer num:nums){
             count += num;
         }
-        if ((count & 1) == 1) {
+        if ((count & 1) == 1) {//因为n为奇数时，对应的二进制数最低位一定为1，n&1的结果就是1
             return false;
         }
         int target = count / 2;
