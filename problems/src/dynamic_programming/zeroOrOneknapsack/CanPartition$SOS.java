@@ -36,24 +36,21 @@ package dynamic_programming.zeroOrOneknapsack;
 public class CanPartition$SOS {
     public boolean canPartition(int[] nums) {
         int count = 0;
-        for (Integer num:nums){
-            count += num;
+        for (int num:nums){
+            count+=num;
         }
-        if ((count & 1) == 1) {//因为n为奇数时，对应的二进制数最低位一定为1，n&1的结果就是1
-            return false;
-        }
-        int target = count / 2;
-
-        boolean[][] dp = new boolean[nums.length][target + 1];
+        if ((count & 1) == 1) return false;
+        int target = count/2;
+        boolean[][] dp = new boolean[nums.length][target+1];
 
         for (int i=1;i<target+1;i++){
-            dp[0][i] = true;
+            dp[0][i] = true;//都不选当前数组
         }
-        for (int i=1;i<nums.length;i++){
-            for (int j=0;j<target+1;j++){
-                dp[i][j] = dp[i-1][j];
+
+        for (int i=0;i<nums.length;i++){
+            for (int j = 0;j<=target;j++){
                 if (j>=nums[i]){
-                    dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]];
+                    dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]];//选当前数字 或者 不选当前数字
                 }
             }
         }
