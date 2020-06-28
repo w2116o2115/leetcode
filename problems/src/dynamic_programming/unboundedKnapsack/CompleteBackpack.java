@@ -1,7 +1,7 @@
 package dynamic_programming.unboundedKnapsack;
 
 /**
- *  完全背包问题
+ *  B完全背包问题
  *
 f[i][v]:前i件物品放入背包容量为v的背包获得的最大收益
 f[i][v] = max(f[i - 1][v],f[i - 1][v - k * Wi] + k * Vi,其中 1<=k<= v/Wi)
