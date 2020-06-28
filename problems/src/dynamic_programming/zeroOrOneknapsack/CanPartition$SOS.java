@@ -41,19 +41,13 @@ public class CanPartition$SOS {
         }
         if ((count & 1) == 1) return false;
         int target = count/2;
-        boolean[][] dp = new boolean[nums.length][target+1];
-
-        for (int i=1;i<target+1;i++){
-            dp[0][i] = true;//都不选当前数组
-        }
-
-        for (int i=0;i<nums.length;i++){
-            for (int j = 0;j<=target;j++){
-                if (j>=nums[i]){
-                    dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]];//选当前数字 或者 不选当前数字
-                }
+        int[] dp = new int[target+1];
+        dp[0] = 1;
+        for (int num:nums){
+            for (int i = target;i>=num;i--){
+                dp[i] += dp[i-num];
             }
         }
-        return dp[nums.length-1][target];
+        return dp[target]>=1;
     }
 }
