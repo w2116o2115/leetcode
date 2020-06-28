@@ -7,27 +7,23 @@ package dynamic_programming.zeroOrOneknapsack;
  *
  * Input:  set[] = {3, 34, 4, 12, 5, 2}, sum = 9
  * Output:  True  //There is a subset (4, 5) with sum 9.
+ *
+ * 典型的 0 1 背包问题
  */
 public class SubsetSum {
     public boolean subsetSum(int[] nums,int sum){
-        int size = nums.length;
-        boolean[][] dp = new boolean[size][sum+1];
-        for (int i=0;i<size;i++){
-            dp[0][i] = true;
-        }
-        for (int i=1;i<size;i++){
-            for (int j=0;j<sum+1;j++){
-                dp[i][j] = dp[i-1][j];
-                if (j>=nums[i]){
-                    dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]];
-                }
+        int[] f = new int[sum+1];
+        f[0] = 1;//一个物品都不选
+        for (int num : nums) {
+            for (int j = sum; j >= num; j--) {
+                f[j] += f[j - num];
             }
         }
-        return dp[nums.length-1][sum];
+        return f[sum]>=1;
     }
 
     public static void main(String[] args) {
-        int[] set = new int[]{3, 34, 4, 12, 5, 2};
+        int[] set = new int[]{3, 34, 4, 12, 5, 99};
         System.out.println(new SubsetSum().subsetSum(set,9));
     }
 }
