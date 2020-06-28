@@ -22,17 +22,24 @@ package dynamic_programming.unboundedKnapsack;
  *
  * 输入: amount = 10, coins = [10]
  * 输出: 1
+ *
+ * amount = x: dp[x] = dp[x] + dp[x - coin]
  */
 public class Change {
     public int change(int amount, int[] coins) {
         int[] dp = new int[amount + 1];
         dp[0] = 1;
 
-        for (int coin : coins) {
-            for (int x = coin; x < amount + 1; ++x) {
-                dp[x] += dp[x - coin];
+        for (int coin:coins){
+            for (int i=coin;i<=amount;i++){
+                dp[i] += dp[i-coin];
             }
         }
         return dp[amount];
+    }
+
+    public static void main(String[] args) {
+        int[] coins = new int[]{1,2,5};
+        System.out.println(new Change().change(5,coins));
     }
 }
