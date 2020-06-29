@@ -18,35 +18,41 @@ import java.util.List;
  * 输出: 9973
  * 解释: 不需要交换。
  *
- * 这题我们的想法肯定是，尽量交换前面的大数位，并且和它交换的数还得是在它后面大于它的最大数
- *
- * 倒序使用数组存储下来每个位置，在它及它以后的最大数的索引
- * 然后再正序从一个数开始遍历，如果它及它以后的最大数不是它本身，那么这个数就是我们需要交换的。
+ * 解题思路
+ * 首先保留一个cache,存放的是每个位置的字符以及下标。
+ * 然后开始从头循环，对于每一个数，从'9'开始找是否存在比当前位置大的最大的数字，有则交换.
+ * 时间复杂度分析:O(9*n) 空间复杂度O(n)
  */
 public class MaximumSwap {
     public int maximumSwap(int num) {
-        char[] c = String.valueOf(num).toCharArray();
-        int max = Integer.MIN_VALUE;
-        int max_index = 0;
-        int[] array = new int[c.length];
-        array[c.length-1] = c.length-1;
-
-        for (int i=c.length-1;i>=0;i--){
-            if (c[i] - '0' > max){
-                max = c[i] = '0';
-                max_index = i;
-            }
-            array[i] = max_index;
+        int[] count = new int[10];
+        char[] chs = String.valueOf(num).toCharArray();
+        for(int i = 0 ; i < chs.length ; i++) {
+            count[(chs[i] - '0')] = i;
         }
-
-        for (int i=0;i<c.length;i++){
-            if (array[i] != i && c[array[i]] != c[i]){
-                char tmp = c[i];
-                c[i] = c[array[i]];
-                c[array[i]] = tmp;
-                break;
+        for(int i = 0 ; i < chs.length ; i++) {
+            int cur = (chs[i] - '0');
+            int j = 9;
+            for(;j > cur; j--) {
+                if(count[j] > i) {
+                    break;
+                }
+            }
+            if(j != cur) {
+                swap(chs, i, count[j]);
+                return Integer.valueOf(String.valueOf(chs));
             }
         }
-        return Integer.parseInt(new String(c));
+        return num;
+    }
+
+    public void swap(char[] chs, int i, int j) {
+        char tmp = chs[i];
+        chs[i] = chs[j];
+        chs[j] = tmp;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new MaximumSwap().maximumSwap(9973));
     }
 }
