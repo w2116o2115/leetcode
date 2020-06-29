@@ -21,15 +21,15 @@ public class MaxProduct {
     public int maxProduct(int[] nums) {
         int res = Integer.MIN_VALUE;
         int imax = 1;int imin = 1;
-        for (int i=0;i<nums.length;i++){
-            if (nums[i] < 0){
+        for (int num:nums){
+            if (num < 0){
                 int temp = imax;
                 imax = imin;
                 imin = temp;
             }
-            imax = Math.max(imax*nums[i],nums[i]);
-            imin = Math.min(imin*nums[i],nums[i]);
-            res = Math.max(imax,res);
+            imax = Math.max(imax*num,num);
+            imin = Math.min(imin*num,num);
+            res = Math.max(res,imax);
         }
         return res;
     }
