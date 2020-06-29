@@ -15,6 +15,8 @@ import java.util.Set;
  *
  * 输入: [3,1,3,4,2]
  * 输出: 3
+ *
+ * n*(n-1)/2+n   公式
  */
 public class FindDuplicate {
     public static void main(String[] args) {
