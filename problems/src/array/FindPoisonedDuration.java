@@ -31,16 +31,17 @@ public class FindPoisonedDuration {
         if (timeSeries.length==1){
             return duration;
         }
-        int time = 0;
-        for (int i=0;i<timeSeries.length-1;i++){
-            if (timeSeries[i]+duration <= timeSeries[i+1]){
-                time += duration;
-            }else{
-                time+=timeSeries[i+1]-timeSeries[i];
+        int res = 0;
+        int maxIndex = timeSeries[0] + duration;
+        for (int i=1;i<timeSeries.length;i++){
+            if (timeSeries[i] - maxIndex >= 0){
+                res+=duration;
+            }else {
+                res += (timeSeries[i]-timeSeries[i-1]);
             }
+            maxIndex = Math.max(timeSeries[i] + duration,maxIndex);
         }
-        time+=duration;
-        return time;
+        return res+duration;
     }
 
     public static void main(String[] args) {
