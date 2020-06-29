@@ -21,6 +21,8 @@ package array;
  * 但是第 2 秒初，提莫再次攻击了已经处于中毒状态的艾希。
  * 由于中毒状态不可叠加，提莫在第 2 秒初的这次攻击会在第 3 秒末结束。
  * 所以最终输出 3 。
+ *
+ * 跟 @See array.CanJump$SOS  很相似  都是用贪心算法
  */
 public class FindPoisonedDuration {
     public int findPoisonedDuration(int[] timeSeries, int duration) {
