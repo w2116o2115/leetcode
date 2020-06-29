@@ -19,27 +19,33 @@ import java.util.Arrays;
  *      在本示例中，两个相同类型任务之间必须间隔长度为 n = 2 的冷却时间，而执行一个任务只需要一个单位时间，所以中间出现了（待命）状态。
  *
  * 思路：对任务进行排序，首先执行不同的任务，不同的任务执行的之间大于冷却时间就不用待命，如果小于冷却时间就需要待命
+ *
+ * ASCII和字符互相转换
+ *   0~9：48~57
+ *   A~Z：65~90
+ *   a~z：97~122
  */
 public class LeastInterval {
     public int leastInterval(char[] tasks, int n) {
         int[] map = new int[26];
-        for (char c: tasks)
-            map[c - 'A']++;
+        for (char c:tasks)
+            map[c-'A']++;
         Arrays.sort(map);
-        int time = 0;
-        while (map[25] > 0) {
-            int i = 0;
-            while (i <= n) {//判断冷却时间，如果执行的任务<=冷却时间，就说明还要继续跑
+        int res = 0;
+        while (map[25] >0){
+            int i=0;
+            while (i<=n){
                 if (map[25] == 0)
                     break;
-                if (i < 26 && map[25 - i] > 0)
-                    map[25 - i]--;
-                time++;
+                if (i<26 && map[25-i] > 0){
+                    map[25-i]--;
+                }
+                res++;
                 i++;
             }
             Arrays.sort(map);
         }
-        return time;
+        return res;
     }
 
     public static void main(String[] args) {
