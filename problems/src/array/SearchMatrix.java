@@ -1,4 +1,4 @@
-package src.array;
+package array;
 
 /**
  * 74. 搜索二维矩阵

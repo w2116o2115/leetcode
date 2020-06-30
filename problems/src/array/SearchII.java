@@ -1,4 +1,4 @@
-package src.array;
+package array;
 
 /**
  * 81. 搜索旋转排序数组 II 元素可重复
@@ -16,6 +16,8 @@ package src.array;
  *
  * 输入: nums = [2,5,6,0,0,1,2], target = 3
  * 输出: false
+ *
+ * 思路： 分段处理
  */
 public class SearchII {
     public boolean search(int[] nums, int target) {
