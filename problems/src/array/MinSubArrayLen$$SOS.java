@@ -14,24 +14,26 @@ package array;
  *
  * 如果你已经完成了O(n) 时间复杂度的解法, 请尝试 O(n log n) 时间复杂度的解法。
  * 思路：滑动窗口
+ *  我们把数组中的元素不停的入队，直到总和大于等于s为止，接着记录下队列中元素的个数，然后再不停的出队，
+ *  直到队列中元素的和小于s为止（如果不小于s，也要记录下队列中元素的个数，这个个数其实就是不小于s的连
+ *  续子数组长度，我们要记录最小的即可）。接着再把数组中的元素添加到队列中……重复上面的操作，直到数组中的元素全部使用完为止。
+ *  这里以[2,3,1,2,4,3]举例画个图来看下
  */
 public class MinSubArrayLen$$SOS {
     public int minSubArrayLen(int s, int[] nums) {
-        if (nums == null || nums.length == 0)
-            return 0;
-        int sum = 0;
-        int left = 0;
-        int right = 0;
-        int res = Integer.MIN_VALUE;
-        while (right < nums.length){
-            sum += nums[right];
-            while (left <= right && sum >= s){
-                res = right-left+1 > res?right-left+1:res;
-                sum-=nums[left];
-                left++;
+        int lo = 0, hi = 0, sum = 0, min = Integer.MAX_VALUE;
+        while (hi < nums.length) {
+            sum += nums[hi++];
+            while (sum >= s) {
+                min = Math.min(min, hi - lo);
+                sum -= nums[lo++];
             }
-            right++;
         }
-        return res;
+        return min == Integer.MAX_VALUE ? 0 : min;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{2,3,1,2,4,3};
+        System.out.println(new MinSubArrayLen$$SOS().minSubArrayLen(7,nums));
     }
 }
