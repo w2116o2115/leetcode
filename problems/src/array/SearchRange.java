@@ -17,6 +17,8 @@ package array;
  *
  * 输入: nums = [5,7,7,8,8,10], target = 6
  * 输出: [-1,-1]
+ *
+ * 思路： 二分法查找 ，找到以后  比较 找到最大 以及 最小的位置
  */
 public class SearchRange {
     private int[] search(int[] nums, int target,int l,int r,int[] result){

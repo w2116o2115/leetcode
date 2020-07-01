@@ -35,6 +35,8 @@ import java.util.Set;
  *   [0,4,5,0],
  *   [0,3,1,0]
  * ]
+ *
+ * 思路： 先把0筛选出来，放进set中，然后统一处理
  */
 public class SetZeroes {
     public void setZeroes(int[][] matrix) {
