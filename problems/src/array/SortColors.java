@@ -25,20 +25,22 @@ public class SortColors {
             return;
         int left = l;
         int right = r;
-        int temp = nums[l];
+        int sentry = nums[l];
         while (left < right){
-            while (left<right && nums[right]>=temp)
+            while (left<right && nums[right] >= sentry){
                 right--;
-            while (left<right && nums[left] <= temp)
+            }
+            while (left<right && nums[left] <= sentry){
                 left++;
-            if (left<right){
+            }
+            if (left < right){
                 int t = nums[left];
                 nums[left] = nums[right];
                 nums[right] = t;
             }
         }
         nums[l] = nums[left];
-        nums[left] = temp;
+        nums[left] = sentry;
         quickSort(l,left-1,nums);
         quickSort(left+1,r,nums);
     }
