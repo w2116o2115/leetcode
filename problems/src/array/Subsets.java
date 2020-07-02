@@ -1,4 +1,4 @@
-package src.array;
+package array;
 
 import java.util.*;
 

@@ -1,9 +1,6 @@
 package array;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
 
 /**
  * 611. 有效三角形的个数
