@@ -28,8 +28,9 @@ public class GenerateParentheses$M {
     }
 
     private void backTrack(List<String> list, String str, int open, int close, int n) {
-        if (str.length() == 2*n){
+        if (open+close == 2*n) {
             list.add(str);
+            return;
         }
 
         if (open < n){
