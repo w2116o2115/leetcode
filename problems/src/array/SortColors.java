@@ -1,4 +1,4 @@
-package src.array;
+package array;
 
 /**
  * 75. 颜色分类
