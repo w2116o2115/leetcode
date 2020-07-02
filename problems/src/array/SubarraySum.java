@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * 560. 和为K的子数组
- * 给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的z`的个数。
+ * 给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的子数组的个数。
  *
  * 示例 1 :
  *
@@ -40,7 +40,7 @@ public class SubarraySum {
         for (int num:nums){
             sum+=num;
             if (map.containsKey(sum-k)){
-                res+=map.get(num-k);
+                res += map.get(sum-k);
             }
             map.put(sum,map.getOrDefault(sum,0)+1);
         }
