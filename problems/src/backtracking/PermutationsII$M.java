@@ -21,7 +21,7 @@ import java.util.Stack;
  */
 public class PermutationsII$M {
   public static void main(String[] args) {
-    int[] A = {1, 2, 2};
+    int[] A = {1, 1, 2};
     System.out.println(new PermutationsII$M().permute(A));
     System.out.println(1);
   }
@@ -39,6 +39,7 @@ public class PermutationsII$M {
   private void nextPermutation(List<Integer> nums, List<List<Integer>> result,Stack<Integer> stack) {
     if (nums == null || nums.size() == 0) result.add(new ArrayList<>(stack));
     for (int i=0;i<nums.size();i++){
+      if (i>0 && nums.get(i).equals(nums.get(i - 1))) continue;
       stack.add(nums.get(i));
       List<Integer> copyList = new ArrayList<>(nums);
       copyList.remove(i);

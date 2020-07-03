@@ -50,28 +50,26 @@ public class WordSearch$M {
     n = board[0].length;
     for (int i = 0;i< board.length;i++){
       for (int j = 0;j<board[0].length;j++){
-        if (search(i,j,word,board,0))
-          return true;
+        if (board[i][j] == word.charAt(0)) {
+          if (search(i, j, word, board, 0,new boolean[m][n])) return true;
+        }
       }
     }
     return false;
   }
 
-  private boolean search(int i,int j,String word,char[][] board,int wordIndex){
-    if (wordIndex == word.length()-1) {
-      return board[i][j] == word.charAt(wordIndex);
-    }
-    if (board[i][j] == word.charAt(wordIndex)) {
-      map.add(i + "#" + j);
-      for (int k = 0; k < 4; k++) {
-        int newX = i + direction[k][0];
-        int newY = j + direction[k][1];
-        if (inArea(newX, newY) && !map.contains(newX + "#" + newY)) {
-          if (search(newX, newY, word, board, wordIndex + 1)) {
-            return true;
-          }
-        }
+  private boolean search(int x,int y,String word,char[][] board,int wordIndex,boolean[][] maked){
+    if (wordIndex == word.length()-1)
+      return board[x][y] == word.charAt(wordIndex);
+    if (board[x][y] == word.charAt(wordIndex)){
+      maked[x][y] = true;
+      for (int[] dir:direction){
+        int xx = x+dir[0];
+        int yy = y+dir[1];
+        if (inArea(xx,yy) && !maked[xx][yy])
+          if (search(xx,yy,word,board,wordIndex+1,maked)) return true;
       }
+      maked[x][y] = false;
     }
     return false;
   }
