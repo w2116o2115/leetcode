@@ -34,22 +34,25 @@ public class PalindromePartitioning$M {
   }
 
   private void backtrack(List<List<String>> res, String s, ArrayList<String> tmp) {
-    if (s == null || s.length() == 0)
+    if (s == null || s.length() == 0){
       res.add(new ArrayList<>(tmp));
-    for (int i = 1;i<=s.length();i++){
+      return;
+    }
+
+    for (int i=1;i<=s.length();i++){
       if (isPalidrome(s.substring(0,i))){
         tmp.add(s.substring(0,i));
         backtrack(res,s.substring(i),tmp);
-        tmp.remove(tmp.size() - 1);
+        tmp.remove(tmp.size()-1);
       }
     }
   }
 
   private  boolean isPalidrome(String sb) {
     int left = 0;
-    int right = sb.length() - 1;
-    while (left < right) {
-      if (sb.charAt(left) != sb.charAt(right)) return false;
+    int right = sb.length()-1;
+    while (left<right){
+      if (sb.charAt(left)!= sb.charAt(right)) return false;
       left++;
       right--;
     }
