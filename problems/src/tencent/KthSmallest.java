@@ -18,18 +18,36 @@ package tencent;
  * 输出: 1
  */
 public class KthSmallest {
-    public class TreeNode {
+    public static class TreeNode {
       int val;
       TreeNode left;
       TreeNode right;
       TreeNode(int x) { val = x; }
     }
 
+    int res = 0;
+    int index = 1;
+
     public int kthSmallest(TreeNode root, int k) {
-        return 0;
+        dfs(root,k);
+        return res;
     }
 
-    public int dfs(TreeNode root,int k){
-        return 0;
+    public void dfs(TreeNode root,int target){
+        if (root == null) return;
+        dfs(root.left,target);
+        if (index == target) {
+            res = root.val;
+        }
+        index+=1;
+        dfs(root.right,target);
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(4);
+        root.left.right = new TreeNode(2);
+        System.out.println(new KthSmallest().kthSmallest(root,2));
     }
 }
