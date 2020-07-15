@@ -11,20 +11,19 @@ import java.util.PriorityQueue;
  * 输入: [3,2,1,5,6,4] 和 k = 2
  * 输出: 5
  *
- * 优先队列
+ * 优先队列（用堆）
  */
 public class FindKthLargest {
     public int findKthLargest(int[] nums, int k) {
-        int len = nums.length;
-        // 使用一个含有 len 个元素的最小堆，默认是最小堆，可以不写 lambda 表达式：(a, b) -> a - b
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>(); //默认小顶堆
-        for (int i = 0; i < len; i++) {
-            minHeap.add(nums[i]);
+        PriorityQueue<Integer> heap = new PriorityQueue<>();//默认小顶堆
+        for (int num:nums){
+            heap.add(num);
         }
-        for (int i = 0; i < len - k; i++) {
-            minHeap.poll();
+
+        for (int i=0;i<nums.length-k;i++){
+            heap.poll();
         }
-        return minHeap.peek();
+        return heap.peek();
     }
 
     public static void main(String[] args) {
