@@ -20,7 +20,7 @@ package binary_search;
  * 输入: nums = [4,5,6,7,0,1,2], target = 3
  * 输出: -1
  */
-public class SearchRotatedSortedArray$M {
+public class SearchRotatedSortedArray {
   /**
    * Main method
    *
@@ -30,7 +30,7 @@ public class SearchRotatedSortedArray$M {
   public static void main(String[] args) throws Exception {
     int[] A = {4,5,6,7,0,1,2};
 
-    System.out.println(new SearchRotatedSortedArray$M().search(A, 0));
+    System.out.println(new SearchRotatedSortedArray().search(A, 2));
   }
 
   public int find_min_index(int left,int right,int[] nums){//找到旋转点
@@ -50,21 +50,33 @@ public class SearchRotatedSortedArray$M {
   }
 
   public int search(int[] nums, int target) {
-    if (nums.length == 0) return -1;
-    if (nums.length == 1) {
-      return (nums[0] == target) ? 0 : -1;
+    if (nums == null || nums.length == 0) {
+      return -1;
     }
-    int left = 0,right = nums.length - 1;
-    while (left <= right){
-      int mid = (left+right) >>> 1;
-      if (nums[mid] == target){
+    int start = 0;
+    int end = nums.length - 1;
+    int mid;
+    while (start <= end) {
+      mid = (start + end) >>> 1;
+      if (nums[mid] == target) {
         return mid;
       }
-      if (target < nums[mid]){
-        right = mid -1;
-      }else{
-        left = mid + 1;
+      //前半部分有序,注意此处用小于等于
+      if (nums[start] <= nums[mid]) {
+        //target在前半部分
+        if (target >= nums[start] && target < nums[mid]) {
+          end = mid - 1;
+        } else {
+          start = mid + 1;
+        }
+      } else {
+        if (target <= nums[end] && target > nums[mid]) {
+          start = mid + 1;
+        } else {
+          end = mid - 1;
+        }
       }
+
     }
     return -1;
   }

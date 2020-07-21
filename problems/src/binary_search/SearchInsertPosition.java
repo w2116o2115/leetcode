@@ -24,10 +24,10 @@ package binary_search;
  *
  * 注意 二分查找  最关键的是边界处理！
  */
-public class SearchInsertPosition$E {
+public class SearchInsertPosition {
   public static void main(String[] args) throws Exception {
     int[] A = {1, 3, 5, 6,7};
-    new SearchInsertPosition$E().searchInsert(A, 5);
+    new SearchInsertPosition().searchInsert(A, 5);
   }
 
   public int searchInsert(int[] nums, int target) {

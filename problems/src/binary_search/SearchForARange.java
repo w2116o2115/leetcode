@@ -16,12 +16,12 @@ package binary_search;
  * 输入: nums = [5,7,7,8,8,10], target = 6
  * 输出: [-1,-1]
  */
-public class SearchForARange$M {
+public class SearchForARange {
   public static void main(String[] args) throws Exception {
     int[] test = {
             5,7,7,8,8,10
     };
-    int[] result = new SearchForARange$M().searchRange(test, 8);
+    int[] result = new SearchForARange().searchRange(test, 8);
     for (int i : result) System.out.print(i + " ");
   }
 
