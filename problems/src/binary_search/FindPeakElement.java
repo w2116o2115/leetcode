@@ -33,10 +33,10 @@ package binary_search;
  *
  * 就这样，我们不断地缩小搜索空间，直到搜索空间中只有一个元素，该元素即为峰值元素
  */
-public class FindPeakElement$M {
+public class FindPeakElement {
   public static void main(String[] args) throws Exception {
     int[] nums = {3, 4, 3, 2, 1};
-    System.out.println(new FindPeakElement$M().findPeakElement(nums));
+    System.out.println(new FindPeakElement().findPeakElement(nums));
   }
 
   public int findPeakElement(int[] nums) {

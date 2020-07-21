@@ -13,9 +13,8 @@ package binary_search;
  * 解释: 给定数组表示研究者总共有 5 篇论文，每篇论文相应的被引用了 0, 1, 3, 5, 6 次。
  *      由于研究者有 3 篇论文每篇至少被引用了 3 次，其余两篇论文每篇被引用不多于 3 次，所以她的 h 指数是 3。
  *
- * @see HIndex$M
  */
-public class HIndexII$m {
+public class HIndexII$$$SOS {
   /**
    * Main method
    *
@@ -24,7 +23,7 @@ public class HIndexII$m {
    */
   public static void main(String[] args) throws Exception {
     int[] A = {1, 1, 1, 1, 1, 15, 20};
-    System.out.println(new HIndexII$m().hIndex(A));
+    System.out.println(new HIndexII$$$SOS().hIndex(A));
   }
 
   public int hIndex(int[] citations) {

@@ -15,7 +15,7 @@ package binary_search;
  * 输入: dividend = 7, divisor = -3
  * 输出: -2
  */
-public class Divide {
+public class Divide$$$SOS {
     public int divide(int dividend, int divisor) {
         /* 除数为零就返回-1 按照测试样例的要求写的*/
         if (divisor==0)
@@ -56,6 +56,6 @@ public class Divide {
     }
 
     public static void main(String[] args) {
-
+        System.out.println(new Divide$$$SOS().divide(100,3));
     }
 }

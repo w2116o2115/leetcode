@@ -18,7 +18,7 @@ package binary_search;
  * 输入: [4,5,6,7,0,1,2]
  * 输出: 0
  */
-public class MinSortedRotatedArray$M {
+public class MinSortedRotatedArray {
   /**
    * Main method
    *
@@ -27,7 +27,7 @@ public class MinSortedRotatedArray$M {
    */
   public static void main(String[] args) throws Exception {
     int[] A = {3,4,5,1,2};
-    System.out.println(new MinSortedRotatedArray$M().findMin(A));
+    System.out.println(new MinSortedRotatedArray().findMin(A));
   }
 
   public int findMin(int[] nums) {
