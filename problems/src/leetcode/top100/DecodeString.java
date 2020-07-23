@@ -20,35 +20,35 @@ import java.util.Stack;
  */
 public class DecodeString {
     public String decodeString(String s) {
-        Stack<Integer> nums = new Stack<>();
-        Stack<String> chars= new Stack<>();
-        char[] cs = s.toCharArray();
         StringBuilder res = new StringBuilder();
+        Stack<Integer> nums = new Stack<>();
+        Stack<String> chars = new Stack<>();
         int multi = 0;
-        for (char c:cs){
-            if (c>='0' && c<='9'){
-                multi = multi * 10 + Integer.valueOf(String.valueOf(c));
-            }else if (c == '['){
+        for (int i =0;i<s.length();i++){
+            char x = s.charAt(i);
+            if (Character.isDigit(x)){
+                multi = multi * 10 + Integer.valueOf(String.valueOf(x));
+            }else if (x == '['){
                 nums.add(multi);
                 chars.add(res.toString());
                 multi = 0;
                 res = new StringBuilder();
-            }else if (c == ']'){
+            }else if (x == ']'){
                 int count = nums.pop();
                 String temp = "";
                 while (count --> 0){
-                    temp += res;
+                    temp+=res;
                 }
                 res = new StringBuilder();
                 res.append(chars.pop()).append(temp);
             }else {
-                res.append(c);
+                res.append(x);
             }
         }
         return res.toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(new DecodeString().decodeString("100[leetcode]"));
+        System.out.println(new DecodeString().decodeString("3[a]2[bc]"));
     }
 }
