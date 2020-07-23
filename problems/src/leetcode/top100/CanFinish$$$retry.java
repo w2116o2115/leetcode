@@ -1,5 +1,7 @@
 package leetcode.top100;
 
+import java.util.*;
+
 /**
  * 207. 课程表
  * 现在你总共有 n 门课需要选，记为 0 到 n-1。
@@ -23,6 +25,44 @@ package leetcode.top100;
  */
 public class CanFinish$$$retry {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
+        //建立邻接表
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        //入度表
+        int[] inDegree = new int[numCourses];
+
+        for (int[] x:prerequisites){
+            List<Integer> list = map.getOrDefault(x[1],new ArrayList<>());
+            list.add(x[0]);
+            map.put(x[1],list);
+            inDegree[x[0]]++;
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+
+        for (int degree:inDegree){
+            if (degree == 0)
+                queue.offer(degree);
+        }
+
+        dfs(inDegree,queue,map);
+
+        for (int degree:inDegree){
+            if (degree != 0)
+                return false;
+        }
+
         return true;
+    }
+
+    private void dfs(int[] inDegrees ,Queue<Integer> queue,Map<Integer, List<Integer>> map){
+        while (!queue.isEmpty()){
+            List<Integer> list = map.get(queue.poll());
+            if (list == null || list.size() == 0) continue;
+            for (int next:list){
+                inDegrees[next]--;
+                if (inDegrees[next] == 0)
+                    queue.offer(next);
+            }
+        }
     }
 }

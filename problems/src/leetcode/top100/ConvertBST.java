@@ -34,8 +34,17 @@ public class ConvertBST {
         if (root == null) return root;
         convertBST(root.right);//遍历右子树
         root.val += add;//遍历顶点
+        System.out.println(add);
         add = root.val;
         convertBST(root.left);//遍历左子树
         return root;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(13);
+
+        TreeNode head = new ConvertBST().convertBST(root);
     }
 }
