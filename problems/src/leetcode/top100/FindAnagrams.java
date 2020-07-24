@@ -72,34 +72,29 @@ public class FindAnagrams {
 //        }
         // 用数组记录答案
         List<Integer> res = new ArrayList<>();
-        int left = 0, right = 0;
-        Map<Character,Integer> needs = new HashMap<>();
+        int left = 0;int right = 0;
+        Map<Character,Integer> need = new HashMap<>();
         Map<Character,Integer> window = new HashMap<>();
-        for (char c : p.toCharArray()) needs.put(c,needs.getOrDefault(c,0)+1);
+        for (char c:p.toCharArray()) need.put(c,need.getOrDefault(c,0)+1);
         int match = 0;
-
-        while (right < s.length()) {
+        while (right < s.length()){
             char c1 = s.charAt(right);
-            if (needs.containsKey(c1)) {
+            if (need.containsKey(c1)){
                 window.put(c1,window.getOrDefault(c1,0)+1);
-                if (window.get(c1).equals(needs.get(c1)))
+                if (window.get(c1).equals(need.get(c1))){
                     match++;
+                }
             }
             right++;
-
-            while (match == needs.size()) {
-                // 如果 window 的大小合适
-                // 就把起始索引 left 加入结果
-                if (right - left == p.length()) {
-                    res.add(left);
-                }
+            while (match == need.size()){
+                if (right - left == p.length()) res.add(left);
                 char c2 = s.charAt(left);
-                if (needs.containsKey(c2)) {
+                if (need.containsKey(c2)){
                     window.put(c2,window.get(c2)-1);
-                    if (window.get(c2) < needs.get(c2))
+                    if (window.get(c2) < need.get(c2))
                         match--;
                 }
-                left++;
+                left--;
             }
         }
         return res;
@@ -107,6 +102,6 @@ public class FindAnagrams {
 
 
     public static void main(String[] args) {
-        System.out.println(new FindAnagrams().findAnagrams("abab","ab"));
+        System.out.println(new FindAnagrams().findAnagrams("ccabab","ab"));
     }
 }
