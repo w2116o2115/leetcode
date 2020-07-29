@@ -21,6 +21,8 @@ import java.util.Set;
  *
  * 输出:
  * [5,6]
+ *
+ * 思路：把数组当字典      记录出现的数字【吧改位置的数变为负的】
  */
 public class FindDisappearedNumbers {
     public List<Integer> findDisappearedNumbers(int[] nums) {
@@ -37,7 +39,23 @@ public class FindDisappearedNumbers {
         return res;
     }
 
+    public List<Integer> findDisappearedNumbers2(int[] nums) {
+        //n和下标n-1 一一对应
+        List<Integer> list = new ArrayList<>();
+        for(int i=0; i<nums.length; i++) {
+            //数都是正的，该位置可能已被修改为负的，所以
+            int n = Math.abs(nums[i]);
+            //有可能已经出现过【表现为数为负的】，让所有出现的n对应的下标n-1的元素为负
+            nums[n-1]=-Math.abs(nums[n-1]);
+        }
+        //返回所有 没有修改的数的下标+1
+        for (int i=0; i<nums.length; i++)
+            if (nums[i]>0) list.add(i+1);
+        return list;
+
+    }
+
     public static void main(String[] args) {
-        System.out.println(new FindDisappearedNumbers().findDisappearedNumbers(new int[]{4,3,2,7,8,2,3,1}));
+        System.out.println(new FindDisappearedNumbers().findDisappearedNumbers2(new int[]{4,3,2,7,8,2,3,1}));
     }
 }

@@ -22,6 +22,8 @@ import java.util.Arrays;
  * nums2 = [3, 4]
  *
  * 则中位数是 (2 + 3)/2 = 2.5
+ *
+ * 先归并再找中位数
  */
 public class FindMedianSortedArrays {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
