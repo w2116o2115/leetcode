@@ -1,7 +1,7 @@
 package leetcode.top100;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 3. 无重复字符的最长子串
@@ -27,23 +27,24 @@ import java.util.Map;
  */
 public class LengthOfLongestSubstring {
     public int lengthOfLongestSubstring(String s) {
-        if (s.length() == 0)
-            return 0;
-        Map<Character,Integer> map = new HashMap<>();
-        int max = Integer.MIN_VALUE;
-        int count=0;
+        if (s == null || s.length() == 0) return 0;
+        Set<Character> set = new HashSet<>();
+        int left = 0,right =0;
+        int res = 0;
         for (int i=0;i<s.length();i++){
-            if (map.containsKey(s.charAt(i))){
-                i = map.get(s.charAt(i)) +1;
-                map.clear();
-                max = Math.max(max,count);
-                count =1;
+            right = i;
+            if (!set.contains(s.charAt(right))) {
+                set.add(s.charAt(right));
+                res = Math.max(res,right-left+1);
             }else {
-                count++;
+                while (s.charAt(left) != s.charAt(right)) {
+                    set.remove(s.charAt(left));
+                    left++;
+                }
+                left++;
             }
-            map.put(s.charAt(i),i);
         }
-        return Math.max(max,count);
+        return res;
     }
 
     public static void main(String[] args) {
