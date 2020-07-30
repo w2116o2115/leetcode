@@ -22,6 +22,14 @@ import java.util.Arrays;
  再找出另一个最大索引 l 满足 nums[l] > nums[k]；
  交换 nums[l] 和 nums[k]；
  最后翻转 nums[k+1:]。
+
+ 举个例子:
+ 比如nums = [1,2,7,4,3,1],下一个排列是什么?
+ 我们找到第一个最大索引是nums[1] = 2
+ 再找到第二个最大索引是nums[5] = 3
+ 交换,nums = [1,3,7,4,2,1];
+ 翻转,nums = [1,3,1,2,4,7]
+
  */
 public class NextPermutation {
     public void nextPermutation(int[] nums) {
@@ -63,6 +71,6 @@ public class NextPermutation {
     }
 
     public static void main(String[] args) {
-        new NextPermutation().nextPermutation(new int[]{1,3,2});
+        new NextPermutation().nextPermutation(new int[]{1,2,7,4,3,1});
     }
 }
