@@ -18,28 +18,21 @@ import java.util.Arrays;
  *
  * 输入: [4,1,2,1,2]
  * 输出: 4
+ *
+ * 任何数与 0 异或都不改变它的值，即 a^0=a
+ * 任何数与其自身异或都为 0，即 a^a=0
  */
 public class SingleNumber {
     public int singleNumber(int[] nums) {
-        Arrays.sort(nums);
-        Integer pre = null;
-        Integer res = null;
-        for (Integer num:nums){
-            if (pre == null){
-                pre = num;
-            }else {
-                if (!pre.equals(num)) {
-                    res = pre;
-                    break;
-                }
-                pre = null;
-            }
+        int res = nums[0];
+        for (int i=1;i<nums.length;i++){
+            res ^= nums[i];
         }
-        return res==null?pre:res;
+        return res;
     }
 
     public static void main(String[] args) {
-        System.out.println(new SingleNumber().singleNumber(new int[]{4,1,2,1,2}));
+        System.out.println(new SingleNumber().singleNumber(new int[]{4,-1,2,-1,2}));
     }
 
 }
