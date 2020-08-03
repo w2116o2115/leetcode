@@ -25,6 +25,21 @@ import java.util.List;
  * ((2*(3-4))*5) = -10
  * (2*((3-4)*5)) = -10
  * (((2*3)-4)*5) = 10
+ *
+ * 思路:
+ *     一看到题就觉得有点复杂，可以考虑一下递归的方式，去寻找子问题和原问题解的关系。
+ *     可以通过运算符把整个式子分成两部分，两部分再利用递归解决。
+ *     以 2 * 3 - 4 * 5 为例。
+ *     2 和 3 - 4 * 5 两部分，中间是 * 号相连。
+ *     2 * 3 和 4 * 5 两部分，中间是 - 号相连。
+ *     2 * 3 - 4 和 5 两部分，中间是 * 号相连。
+ *     有了两部分的结果，然后再通过中间的符号两两计算加入到最终的结果中即可。
+ *     比如第一种情况，2 和 3 - 4 * 5 两部分，中间是 * 号相连。
+ *     2 的解就是 [2]，3 - 4 * 5 的解就是 [-5, -17]。
+ *     把两部分解通过 * 号计算，最终结果就是 [-10, -34]。
+ *     另外两种情况也类似。
+ *     然后还需要递归出口。
+ *     如果给定的字符串只有数字，没有运算符，那结果就是给定的字符串转为数字。
  */
 public class DiffWaysToCompute {
     public List<Integer> diffWaysToCompute(String input) {
@@ -53,5 +68,9 @@ public class DiffWaysToCompute {
             }
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new DiffWaysToCompute().partition("2*3-4*5"));
     }
 }
