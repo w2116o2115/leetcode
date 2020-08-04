@@ -28,14 +28,18 @@ public class FindMin {
     public int findMin(int[] nums) {
         int left = 0;
         int right = nums.length-1;
-        while (left < right){
-            int mid = (left+right) >>1;
-            if (nums[mid] > nums[right]){
-                left = mid+1;
+        while (left<right){
+            int min = (left+right) >> 1;
+            if (nums[min] > nums[right]){
+                left = min+1;
             }else {
-                right = mid;
+                right = min-1;
             }
         }
         return nums[left];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new FindMin().findMin(new int[]{4,5,6,7,0,1,2}));
     }
 }
