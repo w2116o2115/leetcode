@@ -28,17 +28,17 @@ public class MyPow {
     }
 
     private double fastPow(double x,long n){
-        if (n == 0)
+        if (n == 0){
             return 1;
-        double half = fastPow(x,n/2);
-        if (n % 2 == 0){
-            return  half*half;
+        }else if ((n&1) == 1){
+            return fastPow(x,n-1)*x;
         }else {
-            return x*half*half;
+            double res = fastPow(x,n/2);
+            return res*res;
         }
     }
 
     public static void main(String[] args) {
-        System.out.println(new MyPow().myPow(2.00000,-2));
+        System.out.println(new MyPow().myPow(2.00000,2));
     }
 }
