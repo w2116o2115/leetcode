@@ -23,14 +23,14 @@ package leetcode.top250;
  */
 public class RemoveDuplicates {
     public int removeDuplicates(int[] nums) {
-        int i = 0;
-        for (int n : nums){
-            if (i < 2 || n != nums[i-2]){
-                nums[i] = n;
-                i++;
+        int index = 0;
+        for (int num:nums){
+            if (index < 2 || nums[index-2] != num){
+                nums[index] = num;
+                index++;
             }
         }
-        return i;
+        return index;
     }
 
     public static void main(String[] args) {

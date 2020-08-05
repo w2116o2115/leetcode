@@ -18,6 +18,8 @@ import java.util.List;
  *
  * 输出: [1,2,3]
  * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
+ *
+ * https://www.jianshu.com/p/f5f1b271b179
  */
 public class PreorderTraversal {
     public static class TreeNode {
