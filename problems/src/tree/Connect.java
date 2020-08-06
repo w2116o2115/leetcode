@@ -46,22 +46,13 @@ public class Connect {
     public Node connect(Node root) {
         if (root == null)
             return null;
-        bfsHepler(root);
-        return root;
-    }
-
-    private void bfsHepler(Node root){
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()){
-            int count = queue.size();
-            while (count --> 0) {
-                Node node = queue.poll();
-                node.next = count==0?null:queue.peek();
-                if (node.left!=null) queue.add(node.left);
-                if (node.right!=null) queue.add(node.right);
-            }
+        if (root.left!=null){
+            root.left.next = root.right;
+            if (root.next != null) root.right.next = root.next.left;
         }
+        connect(root.left);
+        connect(root.right);
+        return root;
     }
 
     public static void main(String[] args) {
