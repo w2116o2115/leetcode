@@ -100,5 +100,7 @@ public int countNodes(TreeNode root) {
         root.left.right = new TreeNode(5);
         root.right.left = new TreeNode(6);
         System.out.println(new CountNodes$$SOS().countNodes(root));
+
+        System.out.println( 1<<2);
     }
 }
