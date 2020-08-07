@@ -67,6 +67,9 @@ package tree;
  *
  *      要删除的节点不是叶子节点，且没有右节点但是有左节点。这意味着它的后继节点在它的上面，但是我们并不想返回。
  *      我们可以使用它的前驱节点进行替代，然后再递归的向下删除前驱节点。
+ *
+ * 二叉搜索树的性质：
+ *  1 二叉搜索树的中序遍历的序列是递增排序的序列。中序遍历的遍历次序：Left -> Node -> Right。
  */
 public class DeleteNode$$SOS$$SOS {
     public static class TreeNode {
@@ -80,7 +83,8 @@ public class DeleteNode$$SOS$$SOS {
     }
 
     /*
-      One step right and then always left
+      Successor 代表的是中序遍历序列的下一个节点。即比当前节点大的最小节点，简称后继节点。 先取当前节点的右节点，
+                然后一直取该节点的左节点，直到左节点为空，则最后指向的节点为后继节点。
       */
     public int successor(TreeNode root) {
         root = root.right;
@@ -89,7 +93,8 @@ public class DeleteNode$$SOS$$SOS {
     }
 
     /*
-    One step left and then always right
+     Predecessor 代表的是中序遍历序列的前一个节点。即比当前节点小的最大节点，简称前驱节点。先取当前节点的左节点，
+                 然后取该节点的右节点，直到右节点为空，则最后指向的节点为前驱节点。
     */
     public int predecessor(TreeNode root) {
         root = root.left;
