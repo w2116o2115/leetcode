@@ -45,26 +45,15 @@ public class PathSum {
     }
 
     private void dfsHelper(List<List<Integer>> res, TreeNode root, int sum, Stack<Integer> stack){
-        if (sum < 0)
-            return;
-        if (sum - root.val == 0 && root.left == null && root.right == null){
-            stack.add(root.val);
+        if (root == null) return;
+        stack.add(root.val);
+        if (sum == root.val && root.left == null && root.right == null){
             res.add(new ArrayList<>(stack));
-            stack.pop();
-            return;
         }
-        if (root == null)
-            return;
-        if (root.left!=null) {
-            stack.add(root.val);
-            dfsHelper(res,root.left,sum-root.val,stack);
-            stack.pop();
-        }
-        if (root.right!=null) {
-            stack.add(root.val);
-            dfsHelper(res, root.right, sum - root.val, stack);
-            stack.pop();
-        }
+
+        dfsHelper(res,root.left,sum-root.val,stack);
+        dfsHelper(res,root.right,sum-root.val,stack);
+        stack.pop();
     }
 
     public static void main(String[] args) {

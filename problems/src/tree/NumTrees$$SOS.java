@@ -21,10 +21,22 @@ import java.util.List;
  *    2     1         2                 3
  *
  *   动态规划 : f(i)=G(i−1)∗G(n−i)
+ *
+ *   当以k为根节点的时候，它左面有k-1个元素，右面有n-k个元素，组成的二叉树共有C(k-1)*C(n-k)种，所以对于这个整数n来讲，
+ *   所有的二叉树的个数re=C(0)*C(n-1) +C(1)*C(n-2) +....+C(k-1)*C(n-k)+...+C(n-1)*C(0)。
  */
 public class NumTrees$$SOS {
 
     public int numTrees(int n) {
+        int res = 0;
+        if (n == 0 || n == 1) return 1;
+        for (int k=0;k<n;k++){
+            res+= numTrees(k)*numTrees(n-k-1);
+        }
+        return res;
+    }
+
+    public int numTrees1(int n) {
         int[] dp = new int[n+1];
         dp[0] = 1;
         dp[1] = 1;
@@ -34,5 +46,9 @@ public class NumTrees$$SOS {
                 dp[i] += dp[j-1] * dp[i-j];
 
         return dp[n];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new NumTrees$$SOS().numTrees(3));
     }
 }
