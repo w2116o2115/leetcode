@@ -29,6 +29,8 @@ import java.util.Stack;
  *         5
  *          \
  *           6
+ *
+ * 后续遍历
  */
 public class Flatten {
     public static class TreeNode {
@@ -41,30 +43,15 @@ public class Flatten {
         }
     }
 
-    public void flatten(TreeNode root) {
-        helper(root,new Stack<>());
-        System.out.println(1);
-    }
+    private TreeNode pre = null;
 
-    private void helper(TreeNode root, Stack<TreeNode> stack){
-        TreeNode master = new TreeNode(-1);
-        master.right = root;
-        while (root.left!=null) {
-            if (root.right != null) {
-                stack.add(root.right);
-            }
-            root.right = root.left;
-            root.left = null;
-            root = root.right;
-        }
-        TreeNode current = master.right;
-        while (!stack.isEmpty()){
-            while (current.right!=null){
-                current = current.right;
-            }
-            current.right = stack.pop();
-        }
-        root = master.right;
+    public void flatten(TreeNode root) {
+        if (root == null) return;
+        flatten(root.right);
+        flatten(root.left);
+        root.left = null;
+        root.right = pre;
+        pre = root;
     }
 
     public static void main(String[] args) {
@@ -75,5 +62,6 @@ public class Flatten {
         root.left.right = new TreeNode(4);
         root.right.right = new TreeNode(6);
         new Flatten().flatten(root);
+        System.out.println(1);
     }
 }
