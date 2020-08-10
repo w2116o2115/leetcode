@@ -1,5 +1,6 @@
 package tree;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -30,24 +31,20 @@ public class PreorderTraversal$$SOS {
         }
     }
 
-    public static void preorderTraversal(TreeNode head) {
-        if(head == null){
-            System.out.println("二叉树为空");
-            return;
-        }
-        System.out.println("先序遍历，非递归方式");
-        Stack<TreeNode> s = new Stack<>();
-        s.push(head);
-        while( !s.isEmpty() ){
-            head = s.pop();
-            System.out.print(head.val+", ");
-            if(head.right != null){
-                s.push(head.right);
+    public static List<Integer> preorderTraversal(TreeNode head) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = head;
+        while (current != null || !stack.isEmpty()){
+            while (current!=null){
+                stack.add(current);
+                res.add(current.val);
+                current = current.left;
             }
-            if(head.left != null){
-                s.push(head.left);
-            }
+            current = stack.pop();
+            current = current.right;
         }
+        return res;
     }
 
     public static void main(String[] args) {
@@ -67,6 +64,6 @@ public class PreorderTraversal$$SOS {
         n2.left = n5;
         n2.right = n6;
         //非递归方式，先序遍历二叉树
-        preorderTraversal(head);
+        System.out.println(preorderTraversal(head));
     }
 }

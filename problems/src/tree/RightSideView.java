@@ -1,9 +1,8 @@
 package tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import SwordForOffer.MaxDepth;
+
+import java.util.*;
 
 /**
  * 199. 二叉树的右视图
@@ -33,20 +32,22 @@ public class RightSideView {
         }
     }
 
+    int max = Integer.MIN_VALUE;
+
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()){
-            int count  =  queue.size();
-            while (count --> 0) {
-                if (count == 0) res.add(queue.peek().val);
-                TreeNode node = queue.poll();
-                if (node.left != null) queue.add(node.left);
-                if (node.right != null) queue.add(node.right);
-            }
+        Map<Integer,Integer> map = new HashMap<>();
+        helper(map,root,1);
+        return new ArrayList<>(map.values());
+    }
+
+    private void helper(Map<Integer,Integer> map,TreeNode root,int level){
+        if (root == null) return;
+        if (level > max){
+            map.put(level,root.val);
+            max = level;
         }
-        return res;
+        helper(map,root.right,level+1);
+        helper(map,root.left,level+1);
     }
 
     public static void main(String[] args) {
