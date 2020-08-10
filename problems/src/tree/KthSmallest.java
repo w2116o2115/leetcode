@@ -41,13 +41,12 @@ public class KthSmallest {
         }
     }
 
-    Integer count = 0;
     Integer res = 0;
 
     public void kthSmallest(TreeNode root, int k) {
         if (root == null) return;
         kthSmallest(root.left,k);
-        if (++count == k) {
+        if (--k == 0) {
             res = root.val;
             return;
         }
