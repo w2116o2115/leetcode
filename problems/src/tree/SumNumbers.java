@@ -49,21 +49,15 @@ public class SumNumbers {
     public int sumNumbers(TreeNode root) {
         Integer sum = 0;
         if (root == null) return sum;
-        sum = dfsHelper(root,"");
+        sum = dfsHelper(root,0);
         return sum;
     }
 
-    private Integer dfsHelper(TreeNode root,String str){
-        int sum = 0;
-        if (root == null) return sum;
-        if (root.left == null && root.right == null){
-            sum+=Integer.parseInt(str+root.val);
-            return sum;
-        }
-        String newStr = str+root.val;
-        int left = dfsHelper(root.left,newStr);
-        int right = dfsHelper(root.right,newStr);
-        return left + right;
+    private Integer dfsHelper(TreeNode root,int i){
+        if (root == null) return 0;
+        int temp = i*10 + root.val;
+        if (root.left == null && root.right == null) return temp;
+        return dfsHelper(root.left,temp) + dfsHelper(root.right,temp);
     }
 
     public static void main(String[] args) {
