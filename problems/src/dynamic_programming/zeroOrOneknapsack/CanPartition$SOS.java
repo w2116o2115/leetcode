@@ -37,17 +37,21 @@ public class CanPartition$SOS {
     public boolean canPartition(int[] nums) {
         int count = 0;
         for (int num:nums){
-            count+=num;
+            count += num;
         }
         if ((count & 1) == 1) return false;
-        int target = count/2;
+        int target = count / 2;
         int[] dp = new int[target+1];
         dp[0] = 1;
         for (int num:nums){
-            for (int i = target;i>=num;i--){
-                dp[i] += dp[i-num];
+            for (int i=target;i>=num;i--){
+                dp[i] = Math.max(dp[i-num],dp[i]);
             }
         }
-        return dp[target]>=1;
+        return dp[target] >= 1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new CanPartition$SOS().canPartition(new int[]{1, 2, 5}));
     }
 }
