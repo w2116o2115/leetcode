@@ -1,7 +1,5 @@
 package dynamic_programming.unboundedKnapsack;
 
-import org.omg.PortableInterceptor.INACTIVE;
-
 import java.util.Arrays;
 
 /**
