@@ -12,14 +12,14 @@ package dynamic_programming.zeroOrOneknapsack;
  */
 public class SubsetSum {
     public boolean subsetSum(int[] nums,int sum){
-        int[] f = new int[sum+1];
-        f[0] = 1;//一个物品都不选
-        for (int num : nums) {
-            for (int j = sum; j >= num; j--) {
-                f[j] += f[j - num];
+        int[] dp = new int[sum+1];
+        dp[0] = 1;
+        for (int num:nums){
+            for (int i = sum;i>=num;i--){
+                dp[i] += dp[i-num];
             }
         }
-        return f[sum]>=1;
+        return dp[sum] >= 1;
     }
 
     public static void main(String[] args) {

@@ -45,13 +45,13 @@ public class CanPartition$SOS {
         dp[0] = 1;
         for (int num:nums){
             for (int i=target;i>=num;i--){
-                dp[i] = Math.max(dp[i-num],dp[i]);
+                dp[i] =+ dp[i-num];
             }
         }
         return dp[target] >= 1;
     }
 
     public static void main(String[] args) {
-        System.out.println(new CanPartition$SOS().canPartition(new int[]{1, 2, 5}));
+        System.out.println(new CanPartition$SOS().canPartition(new int[]{1, 5, 11, 5}));
     }
 }
