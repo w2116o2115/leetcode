@@ -19,22 +19,21 @@ import java.util.Arrays;
  * 进阶: 你能将算法的时间复杂度降低到 O(n log n) 吗?
  *
  * 子序问题 --> 动态规划
+ *            dp[ i ] 来表示前 i 个字符中的最长的公共子序列
  * 转移方程： dp[i] = max(dp[i], dp[j] + 1) for j in [0, i)。
  */
 public class LengthOfLIS {
     public int lengthOfLIS(int[] nums) {
-        if (nums.length == 0)
-            return 0;
+        if (nums.length == 0) return 0;
         int[] dp = new int[nums.length];
-        int res = 0;
         Arrays.fill(dp,1);
+
         for (int i=0;i<nums.length;i++){
             for (int j=0;j<i;j++){
-                if (nums[i]>nums[j]) dp[i] = Math.max(dp[i],dp[j]+1);
+                if (nums[i] > nums[j]) dp[i] = Math.max(dp[i],dp[j]+1);
             }
-            res = Math.max(res,dp[i]);
         }
-        return res;
+        return dp[nums.length-1];
     }
 
     public static void main(String[] args) {
