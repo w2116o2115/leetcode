@@ -1,5 +1,7 @@
 package dynamic_programming;
 
+import java.util.Arrays;
+
 /**
  * 516. 最长回文子序列
  * 给定一个字符串s，找到其中最长的回文子序列。可以假设s的最大长度为1000。

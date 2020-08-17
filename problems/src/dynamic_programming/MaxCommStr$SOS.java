@@ -1,7 +1,5 @@
 package dynamic_programming;
 
-import java.util.ArrayList;
-
 /**
  * 2个字符串的最长公共子序列
  * @author Carlose wei
@@ -20,25 +18,23 @@ public class MaxCommStr$SOS {
     public static String findComString(String a, String b) {
         //https://blog.csdn.net/hrn1216/article/details/51534607
         int[][] matrix = new int[a.length() + 1][b.length() + 1];
-        for (int i = 0; i < a.length(); i++) {
-            for (int j = 0; j < b.length(); j++) {
+        matrix[0][0] = a.charAt(0) == b.charAt(0) ? 1:0;
+        for (int i = 1; i < a.length(); i++) {
+            for (int j = 1; j < b.length(); j++) {
                 if (a.charAt(i) == b.charAt(j)) {
-                    int maxLen = (i == 0 || j == 0) ? 0 : matrix[i - 1][j - 1];
-                    matrix[i][j] = maxLen + 1;
+                    matrix[i][j] = matrix[i - 1][j - 1] + 1;
                 } else {
-                    int maxLen = (i == 0 || j == 0) ? 0 : Math.max(
-                            matrix[i - 1][j], matrix[i][j - 1]);
-                    matrix[i][j] = maxLen;
+                    matrix[i][j] = Math.max(matrix[i - 1][j], matrix[i][j - 1]);
                 }
             }
         }
 
         int i = a.length() - 1;
         int j = b.length() - 1;
-        ArrayList<Character> restList = new ArrayList<>();
-        while (i >= 0 && j >= 0) {
+        StringBuilder reBuilder = new StringBuilder();
+        while (i > 0 && j > 0) {
             if (a.charAt(i) == b.charAt(j)) {
-                restList.add(a.charAt(i));
+                reBuilder.append(a.charAt(i));
                 i--;
                 j--;
             } else {
@@ -49,10 +45,6 @@ public class MaxCommStr$SOS {
                 }
             }
         }
-        StringBuilder reBuilder = new StringBuilder(restList.size());
-        for (int k = restList.size() - 1; k >= 0; k--) {
-            reBuilder.append(restList.get(k));
-        }
-        return reBuilder.toString();
+        return reBuilder.reverse().toString();
     }
 }
