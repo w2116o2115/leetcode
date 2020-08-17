@@ -22,14 +22,14 @@ public class MaxProduct$SOS {
     public int maxProduct(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         int res = nums[0];
-        int pre_max = nums[0];
-        int pre_min = nums[0];
+        int max = nums[0];
+        int min = nums[0];
         for (int i=1;i<nums.length;i++){
-            int cur_max = Math.max(Math.max(pre_max*nums[i],pre_min*nums[i]),nums[i]);
-            int cur_min = Math.min(Math.min(pre_max*nums[i],pre_min*nums[i]),nums[i]);
-            res = Math.max(cur_max,res);
-            pre_max = cur_max;
-            pre_min = cur_min;
+            int curr_max = Math.max(Math.max(max*nums[i],min*nums[i]),nums[i]);
+            int curr_min = Math.min(Math.min(max*nums[i],min*nums[i]),nums[i]);
+            res = Math.max(res,curr_max);
+            max = curr_max;
+            min = curr_min;
         }
         return res;
     }
