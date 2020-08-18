@@ -51,6 +51,4 @@ public class MaxProfit$SOS {
         }
         return Math.max(hold_dp[n-1], unhold_dp[n-1]);
     }
-
-
 }
