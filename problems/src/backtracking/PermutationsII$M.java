@@ -28,22 +28,24 @@ public class PermutationsII$M {
 
   public List<List<Integer>> permute(int[] nums) {
     List<List<Integer>> result = new ArrayList<>();
-    List<Integer> list = new ArrayList<>();
-    for (int num : nums){
-      list.add(num);
-    }
-    nextPermutation(list, result , new Stack<>());
+    int[] visited = new int[nums.length];
+    nextPermutation(nums, result , new Stack<>(),visited);
     return result;
   }
 
-  private void nextPermutation(List<Integer> nums, List<List<Integer>> result,Stack<Integer> stack) {
-    if (nums == null || nums.size() == 0) result.add(new ArrayList<>(stack));
-    for (int i=0;i<nums.size();i++){
-      if (i>0 && nums.get(i).equals(nums.get(i - 1))) continue;
-      stack.add(nums.get(i));
-      List<Integer> copyList = new ArrayList<>(nums);
-      copyList.remove(i);
-      nextPermutation(copyList,result,stack);
+  private void nextPermutation(int[] nums, List<List<Integer>> result,Stack<Integer> stack,int[] visited) {
+    if (stack.size() == nums.length){
+      result.add(new ArrayList<>(stack));
+      return;
+    }
+
+    for (int i=0;i<nums.length;i++){
+      if (visited[i] == 1) continue;
+      if (i>0 && nums[i] == nums[i-1] && visited[i-1]==0) continue;
+      visited[i] = 1;
+      stack.add(nums[i]);
+      nextPermutation(nums,result,stack,visited);
+      visited[i] = 0;
       stack.pop();
     }
   }
