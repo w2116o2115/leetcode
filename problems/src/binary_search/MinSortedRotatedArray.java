@@ -26,7 +26,7 @@ public class MinSortedRotatedArray {
    * @throws Exception
    */
   public static void main(String[] args) throws Exception {
-    int[] A = {3,4,5,1,2};
+    int[] A = {4,5,6,7,0,1,2};
     System.out.println(new MinSortedRotatedArray().findMin(A));
   }
 
@@ -38,12 +38,12 @@ public class MinSortedRotatedArray {
     int left = 0,right = nums.length - 1;
     while (left < right){
       int mid = (left + right) >>> 1;
-      if (nums[mid] < left){
-        right = mid;
-      }else {
+      if (nums[mid] > nums[right]){
         left = mid+1;
+      }else {
+        right = mid;
       }
     }
-    return left;
+    return nums[left];
   }
 }
