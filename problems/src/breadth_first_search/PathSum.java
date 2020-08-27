@@ -2,6 +2,7 @@ package breadth_first_search;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 113. 路径总和 II
@@ -38,30 +39,24 @@ public class PathSum {
         }
     }
 
-    private List<List<Integer>> dfsHelp(TreeNode root,int sum,List<Integer> list,int target,List<List<Integer>> lists){
-        if (root == null){
-            return lists;
+    private void dfsHelp(TreeNode root, int sum, Stack<Integer> stack, int target, List<List<Integer>> lists){
+        if (root == null) return ;
+        stack.add(root.val);
+        if (sum+root.val == target && root.left==null && root.right == null){
+            lists.add(new ArrayList<>(stack));
         }
 
-        sum = sum + root.val;
-        if (root.left == null && root.right == null){
-            if (target == sum){
-                list.add(root.val);
-                lists.add(list);
-            }
+        if (sum+root.val < target){
+            dfsHelp(root.left,sum+root.val,stack,target,lists);
+            dfsHelp(root.right,sum+root.val,stack,target,lists);
         }
-
-        List myList = new ArrayList(list);
-        myList.add(root.val);
-        lists = dfsHelp(root.left,sum,myList,target,lists);
-        List myList2 = new ArrayList(list);
-        myList2.add(root.val);
-        list.containsAll(dfsHelp(root.right,sum,myList2,target,lists));
-        return lists;
+        stack.pop();
     }
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        return dfsHelp(root,0,new ArrayList<>(),sum,new ArrayList<>());
+        List<List<Integer>> res = new ArrayList<>();
+        dfsHelp(root,0,new Stack<>(),sum,res);
+        return res;
     }
 
     public static void main(String[] args) {
