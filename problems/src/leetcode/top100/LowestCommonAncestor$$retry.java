@@ -46,7 +46,7 @@ package leetcode.top100;
  * 5 p,qp,q 两节点都在 rootroot 的 右子树 中，此时的 rightright 指向 最近公共祖先节点 ；
  * 6 当 leftleft 不为空 ， rightright 为空 ：与情况 3. 同理；
  */
-public class LowestCommonAncestor {
+public class LowestCommonAncestor$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
