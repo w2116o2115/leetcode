@@ -39,37 +39,6 @@ import java.util.*;
  */
 public class FindAnagrams {
     public List<Integer> findAnagrams(String s, String p) {
-//        List<Integer> list = new ArrayList<>();
-//        if (p.length() > s.length())
-//            return list;
-//        Set<String> set = getSet(p);
-//        for (int i=0;i<=s.length()-p.length();i++){
-//            System.out.println(s.substring(i,i+p.length()));
-//            if (set.contains(s.substring(i,i+p.length()))){
-//                list.add(i);
-//            }
-//        }
-//        return list;
-//    }
-//
-//    private Set<String> getSet(String p){
-//        Set<String> set = new HashSet<>();
-//        bankTrack(p.toCharArray(),new boolean[p.length()],new StringBuilder(),set);
-//        return set;
-//    }
-//
-//    private void bankTrack(char[] s, boolean[] visited, StringBuilder queue,Set<String> set){
-//        if (queue.length() == s.length){
-//            set.add(queue.toString());
-//        }
-//        for (int i=0;i<s.length;i++){
-//            if (visited[i]) continue;
-//            queue.append(s[i]);
-//            visited[i] = true;
-//            bankTrack(s,visited,queue,set);
-//            queue.deleteCharAt(queue.length()-1);
-//            visited[i] = false;
-//        }
         // 用数组记录答案
         List<Integer> res = new ArrayList<>();
         int left = 0;int right = 0;
