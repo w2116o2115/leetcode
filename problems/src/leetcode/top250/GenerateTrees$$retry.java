@@ -32,7 +32,7 @@ import java.util.List;
  * 使用分治+递归的方法建树，[1,n]中取k(1<=k<=n)为根节点，则他的左子树必定为[1,k-1]，
  * 右子树为[k+1,n]，所以递归调用建树的方法，最后把他所有的左右子树整合在一起
  */
-public class GenerateTrees {
+public class GenerateTrees$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
