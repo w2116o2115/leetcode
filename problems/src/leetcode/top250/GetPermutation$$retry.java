@@ -62,7 +62,7 @@ import java.util.List;
  * 代码大同小异, 逻辑都是一样的! 大家可以自己动手写,如有更好的写法分享一下!哈哈!
  *
  */
-public class GetPermutation {
+public class GetPermutation$$retry {
     public String getPermutation(int n, int k) {
         /**
          直接用回溯法做的话需要在回溯到第k个排列时终止就不会超时了, 但是效率依旧感人
@@ -118,6 +118,6 @@ public class GetPermutation {
     }
 
     public static void main(String[] args) {
-        System.out.println(new GetPermutation().getPermutation(3,3));
+        System.out.println(new GetPermutation$$retry().getPermutation(3,3));
     }
 }
