@@ -22,23 +22,6 @@ package leetcode.top250;
  */
 public class MaxSlidingWindow {
     public int[] maxSlidingWindow(int[] nums, int k) {
-//        int[] res = new int[nums.length-k+1];
-//        if (nums.length == 0 || k == 0) return new int[]{};
-//        int i = 0;
-//        int left = 0;
-//        int max = Integer.MIN_VALUE;
-//        for (int right=0;right<nums.length;){
-//            if ((right - left) < k-1){
-//                right ++;
-//            }else if ((right - left) == k-1) {
-//                if (right == nums.length) break;
-//                max = getMax(left,right,nums);
-//                if (i<res.length) res[i++] = max;
-//                right ++;
-//                left ++;
-//            }
-//        }
-//        return res;
         if (nums.length < 2) {
             return nums;
         }
