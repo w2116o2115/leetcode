@@ -1,7 +1,6 @@
 package leetcode.top250;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,7 +18,7 @@ import java.util.List;
  * 输入: [1,1,1,3,3,2,2,2]
  * 输出: [1,2]
  *
- * 思路： 摩尔投票法
+ * 思路： 摩尔投票法  将众数和其他数进行相抵，到最后剩下的一定是众数
  *
  * 明确一点就是众数最多只能有2个，如果两个数出现的次数分别为a和b，a>n/ 3, b>n/3，这两个数为众数，设其他数字的出现次数为c，那么a+b+c=n，有a+b>2n/3，c<n/3，因此最多只能有两个众数。
  * 我们每次移除3个不同的数，因为a和b都大于c，a-c以及b-c都大于0，最后剩下的就一定是众数。
@@ -34,7 +33,7 @@ import java.util.List;
  *      最后为了确保选出来的候选者是众数，还要一次遍历统计判断是否为众数
  *
  */
-public class MajorityElement {
+public class MajorityElement$$retry {
     public List<Integer> majorityElement(int[] nums) {
         int cand1 = 0, cnt1 = 0;
         int cand2 = 0, cnt2 = 0;
@@ -87,6 +86,6 @@ public class MajorityElement {
     }
 
     public static void main(String[] args) {
-        System.out.println(new MajorityElement().majorityElement(new int[]{1,1,1,3,3,2,2,2}));
+        System.out.println(new MajorityElement$$retry().majorityElement(new int[]{1,1,1,3,3,2,2,2}));
     }
 }

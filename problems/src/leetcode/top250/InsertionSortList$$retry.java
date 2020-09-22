@@ -21,7 +21,7 @@ package leetcode.top250;
  * 思路:
  * 这个道题就像排队,先找个排头dummy,然后依次从head节点放入dummy,只需要依次dummy现有节点比较,插入其中!
  */
-public class InsertionSortList {
+public class InsertionSortList$$retry {
     public static class ListNode {
         int val;
         ListNode next;
@@ -60,7 +60,7 @@ public class InsertionSortList {
         head.next.next = new ListNode(1);
         head.next.next.next = new ListNode(3);
 
-        ListNode root = new InsertionSortList().insertionSortList(head);
+        ListNode root = new InsertionSortList$$retry().insertionSortList(head);
         System.out.println(1);
     }
 }
