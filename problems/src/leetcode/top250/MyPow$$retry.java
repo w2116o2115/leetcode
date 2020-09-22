@@ -20,7 +20,7 @@ package leetcode.top250;
  *
  * 二分法
  */
-public class MyPow {
+public class MyPow$$retry {
     public double myPow(double x, int n) {
         double res = fastPow(x,n);
         int y = Math.abs(n);
@@ -30,8 +30,8 @@ public class MyPow {
     private double fastPow(double x,long n){
         if (n == 0){
             return 1;
-        }else if ((n&1) == 1){
-            return fastPow(x,n-1)*x;
+        }else if ((n & 1) == 1){
+            return x*fastPow(x,n-1);
         }else {
             double res = fastPow(x,n/2);
             return res*res;
@@ -39,6 +39,6 @@ public class MyPow {
     }
 
     public static void main(String[] args) {
-        System.out.println(new MyPow().myPow(2.00000,2));
+        System.out.println(new MyPow$$retry().myPow(2.00000,2));
     }
 }
