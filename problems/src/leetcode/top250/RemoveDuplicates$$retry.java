@@ -21,7 +21,7 @@ package leetcode.top250;
  *
  * 你不需要考虑数组中超出新长度后面的元素。
  */
-public class RemoveDuplicates {
+public class RemoveDuplicates$$retry {
     public int removeDuplicates(int[] nums) {
         int index = 0;
         for (int num:nums){
@@ -34,6 +34,6 @@ public class RemoveDuplicates {
     }
 
     public static void main(String[] args) {
-        System.out.println(new RemoveDuplicates().removeDuplicates(new int[]{0,0,1,1,1,1,2,3,3}));
+        System.out.println(new RemoveDuplicates$$retry().removeDuplicates(new int[]{0,0,1,1,1,1,2,3,3}));
     }
 }
