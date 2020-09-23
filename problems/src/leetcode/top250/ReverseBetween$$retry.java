@@ -15,7 +15,7 @@ package leetcode.top250;
  * 如果 m != 1 怎么办？如果我们把 head 的索引视为 1，那么我们是想从第 m 个元素开始反转对吧；
  * 如果把 head.next 的索引视为 1 呢？那么相对于 head.next，反转的区间应该是从第 m - 1 个元素开始的；那么对于 head.next.next 呢……
  */
-public class ReverseBetween {
+public class ReverseBetween$$retry {
     public static class ListNode {
         int val;
         ListNode next;
@@ -61,7 +61,7 @@ public class ReverseBetween {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
 
-        ListNode root = new ReverseBetween().reverseBetween(head,2,4);
+        ListNode root = new ReverseBetween$$retry().reverseBetween(head,2,4);
         System.out.println(1);
     }
 }
