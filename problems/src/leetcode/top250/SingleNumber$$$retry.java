@@ -27,7 +27,7 @@ package leetcode.top250;
  *
  * 每一个数组都可以用一个32位的二进制表示，累加二进制位上的数字，如果一个数字出3次  %3 ==0  就剔除了，上下的位加起来就是剩下的数字
  */
-public class SingleNumber$$$SOS {
+public class SingleNumber$$$retry {
     public int singleNumber(int[] nums) {
         int[] bit = new int[32];
 
@@ -50,6 +50,6 @@ public class SingleNumber$$$SOS {
     }
 
     public static void main(String[] args) {
-        System.out.println(new SingleNumber$$$SOS().singleNumber(new int[]{22,22,23,22}));
+        System.out.println(new SingleNumber$$$retry().singleNumber(new int[]{22,22,23,22}));
     }
 }
