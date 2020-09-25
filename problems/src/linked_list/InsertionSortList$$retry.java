@@ -48,7 +48,7 @@ public class InsertionSortList$$retry {
         while (cur!=null){
             last = cur.next;//记录下一个要出入排序的值
             if (last!=null && last.val<cur.val){
-                while (pre.next != null && pre.val < last.val){
+                while (pre.next != null && pre.next.val < last.val){
                     pre = pre.next;
                 }
                 ListNode tmp = pre.next;
@@ -64,10 +64,10 @@ public class InsertionSortList$$retry {
     }
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(1);
+        ListNode head = new ListNode(4);
         ListNode node1 = new ListNode(2);
-        ListNode node2 = new ListNode(3);
-        ListNode node3 = new ListNode(4);
+        ListNode node2 = new ListNode(1);
+        ListNode node3 = new ListNode(3);
 
         head.next = node1;
         node1.next = node2;
