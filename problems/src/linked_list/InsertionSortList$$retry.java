@@ -28,7 +28,7 @@ package linked_list;
  * 多指针  用纸画
  *
  */
-public class InsertionSortList {
+public class InsertionSortList$$retry {
     public static class ListNode {
         int val;
         ListNode next;
@@ -73,7 +73,7 @@ public class InsertionSortList {
         node1.next = node2;
         node2.next = node3;
 
-        ListNode node = new InsertionSortList().insertionSortList(head);
+        ListNode node = new InsertionSortList$$retry().insertionSortList(head);
 
         System.out.println(1);
     }
