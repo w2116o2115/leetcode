@@ -34,7 +34,7 @@ package merge;
  *  。据此可以提出以下的算法： 如果 K 在第二部分，就找 K -= (1 << N-2) 在第一部分的答案，然后将答案翻转。
  *
  */
-public class KthGrammar$$SOS {
+public class KthGrammar$$retry {
     public int kthGrammar(int N, int K) {
         if (N == 1) return 0;
         if (K <= 1 << N-2)
