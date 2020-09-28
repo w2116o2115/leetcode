@@ -14,7 +14,7 @@ package linked_list;
  * 给定 1->2->3->4, 你应该返回 2->1->4->3.
 
  */
-public class SwapPairs {
+public class SwapPairs$$nb {
     public static class ListNode {
         int val;
         ListNode next;
@@ -26,23 +26,27 @@ public class SwapPairs {
     public ListNode swapPairs(ListNode head) {
         if (head == null || head.next == null)
             return head;
-        ListNode root  = new ListNode(-1);
-        root.next = head;
-        ListNode pre = root;
-        ListNode left = head;
-        ListNode right = head.next;
-        ListNode last = right.next;
-        while (right != null){
-            pre.next = right;
-            right.next = left;
-            left.next = last;
+        return helper(head);
+    }
 
-            pre = left;
-            left = last;
-            right = last != null ? last.next : null;
-            last = right != null ? right.next : null;
+    private ListNode next = null;
+
+    public ListNode helper(ListNode head){
+        if (head.next!=null && head.next.next != null){
+            head.next.next = helper(head.next.next);
         }
-        return root.next;
+
+        if (head.next == null){
+            head.next = next;
+            next = head;
+            return head;
+        }else {
+            ListNode temp = head.next;
+            head.next.next = head;
+            head.next = next;
+            next = temp;
+            return temp;
+        }
     }
 
     public static void main(String[] args) {
@@ -55,7 +59,7 @@ public class SwapPairs {
         node1.next = node2;
         node2.next = node3;
 
-        ListNode root = new SwapPairs().swapPairs(head);
+        ListNode root = new SwapPairs$$nb().swapPairs(head);
         System.out.println(1);
     }
 }
