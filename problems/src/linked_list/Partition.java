@@ -9,8 +9,7 @@ package linked_list;
  *
  * 示例:
  *
- * 输入: head = 1->4->
- *                              3->2->5->2, x = 3
+ * 输入: head = 1->4->3->2->5->2, x = 3
  * 输出: 1->2->2->4->3->5
  */
 public class Partition {
