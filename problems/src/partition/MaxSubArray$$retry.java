@@ -13,7 +13,7 @@ package partition;
  *
  * 如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
  */
-public class MaxSubArray {
+public class MaxSubArray$$retry {
     int [] nums;
     public int maxSubArray(int[] nums) {
         this.nums=nums;

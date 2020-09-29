@@ -18,7 +18,7 @@ import java.util.PriorityQueue;
  *
  * PriorityQueue 一个基于优先级的无界优先级队列。
  */
-public class SmallestK$$SOS {
+public class SmallestK$$retry {
     public int[] smallestK(int[] arr, int k) {
         PriorityQueue<Integer> heap = new PriorityQueue<>(k + 1);
         for (int num : arr)
@@ -32,6 +32,6 @@ public class SmallestK$$SOS {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1,3,5,7,2,4,6,8};
-        System.out.println(Arrays.toString(new SmallestK$$SOS().smallestK(arr,4)));
+        System.out.println(Arrays.toString(new SmallestK$$retry().smallestK(arr,4)));
     }
 }
