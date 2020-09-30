@@ -28,10 +28,10 @@ import java.util.Map;
  *
  * 思路： 求对应map，如果不匹配则value会出现重复
  */
-public class FindAndReplacePattern$SOS {
+public class FindAndReplacePattern$retry {
 
     public List<String> findAndReplacePattern(String[] words, String pattern) {
-        List<String> ans = new ArrayList();
+        List<String> ans = new ArrayList<>();
         for (String word: words)
             if (match(word, pattern))
                 ans.add(word);
@@ -39,7 +39,7 @@ public class FindAndReplacePattern$SOS {
     }
 
     public boolean match(String word, String pattern) {
-        Map<Character, Character> M = new HashMap();
+        Map<Character, Character> M = new HashMap<>();
         for (int i = 0; i < word.length(); ++i) {
             char w = word.charAt(i);
             char p = pattern.charAt(i);
@@ -47,6 +47,7 @@ public class FindAndReplacePattern$SOS {
             if (M.get(w) != p) return false;
         }
 
+        //模式串values 不能有重复的
         boolean[] seen = new boolean[26];
         for (char p: M.values()) {
             System.out.println(p - 'a');
@@ -58,6 +59,6 @@ public class FindAndReplacePattern$SOS {
 
     public static void main(String[] args) {
         String[] world = new String[]{"abc","deq","mee","aqq","dkd","ccc"};
-        System.out.println(new FindAndReplacePattern$SOS().findAndReplacePattern(world,"mnn"));
+        System.out.println(new FindAndReplacePattern$retry().findAndReplacePattern(world,"mnn"));
     }
 }
