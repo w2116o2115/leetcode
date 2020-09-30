@@ -21,21 +21,17 @@ public class CustomSortString {
     public String customSortString(String S, String T) {
         StringBuilder str = new StringBuilder();
         while (S.length() > 0){
-            if (T.contains(S.substring(0,1))){
-                str.append(S.substring(0,1));
-                if (T.length() == 1){
-                    T = "";
-                    break;
-                }
-                int strIndex = T.indexOf(S.substring(0,1));
-                T = T.substring(0,strIndex) + T.substring(strIndex+1);
+            String target = S.substring(0,1);
+            S = S.substring(1);
+            while (T.contains(target)){
+                str.append(target);
+                T = T.substring(0,T.indexOf(target)) + T.substring(T.indexOf(target)+1);
             }
-            S = T.contains(S.substring(0,1))?S:S.substring(1);
         }
         return str.toString()+T;
     }
 
     public static void main(String[] args) {
-        System.out.println(new CustomSortString().customSortString("kqep","pekeq"));
+        System.out.println(new CustomSortString().customSortString("cba","abcd"));
     }
 }
