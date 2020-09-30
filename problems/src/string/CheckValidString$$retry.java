@@ -32,7 +32,7 @@ import java.util.Stack;
  *  分别开出三种可能继续探索
  *  任何一种成了即可
  */
-public class CheckValidString$$SOS {
+public class CheckValidString$$retry {
     public boolean checkValidString(String s) {
         return check(s,0,0);
     }
