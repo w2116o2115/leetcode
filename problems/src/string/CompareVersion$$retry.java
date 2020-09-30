@@ -39,7 +39,7 @@ package string;
  *
  * 思路很简单，按照「点」对版本号进行切割，然后依次比较每个数字即可。
  */
-public class CompareVersion$$SOS {
+public class CompareVersion$$retry {
     public int compareVersion(String version1, String version2) {
         String[] nums1 = version1.split("\\.");
         String[] nums2 = version2.split("\\.");
