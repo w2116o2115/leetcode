@@ -34,31 +34,29 @@ import java.util.List;
  *
  * 思路： 一行一个list
  */
-public class Convert$$SOS {
+public class Convert$$retry {
     public String convert(String s, int numRows) {
         if (numRows == 1) return s;
-        List<List<String>> res = new ArrayList<>();
+        List<StringBuilder> res = new ArrayList<>();
         for (int i=0;i<numRows;i++){
-            res.add(new ArrayList<>());
+            res.add(new StringBuilder());
         }
         int index = 0;
         boolean flag = false;
         for (int i=0;i<s.length();i++){
-            res.get(index).add(String.valueOf(s.charAt(i)));
+            res.get(index).append(s.charAt(i));
             if (index == 0) flag = !flag;
             if (index+1 == numRows) flag = !flag;
             index = flag?++index:--index;
         }
         StringBuilder sb = new StringBuilder();
-        for (List<String> ss:res){
-            for (String str:ss){
-                sb.append(str);
-            }
+        for (StringBuilder ss:res){
+            sb.append(ss.toString());
         }
         return sb.toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(new Convert$$SOS().convert("AB",1));
+        System.out.println(new Convert$$retry().convert("LEETCODEISHIRING",4));
     }
 }
