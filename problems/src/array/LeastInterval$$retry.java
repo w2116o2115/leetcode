@@ -27,21 +27,21 @@ import java.util.Arrays;
  */
 public class LeastInterval$$retry {
     public int leastInterval(char[] tasks, int n) {
-        int[] map = new int[26];
-        for (char c:tasks)
-            map[c-'A']++;
-        Arrays.sort(map);
         int res = 0;
-        while (map[25] >0){
-            int i=0;
-            while (i<=n){
-                if (map[25] == 0)
-                    break;
-                if (i<26 && map[25-i] > 0){
-                    map[25-i]--;
+        int[] map = new int[26];
+        for (char c:tasks){
+            map[c-'A'] ++;
+        }
+        Arrays.sort(map);
+        while (map[25] > 0){
+            int i = 0;
+            while (i <= n){
+                if (map[25] == 0) break;
+                if (i < 26 && map[25-i] > 0){
+                    map[25-i] --;
                 }
-                res++;
                 i++;
+                res++;
             }
             Arrays.sort(map);
         }
