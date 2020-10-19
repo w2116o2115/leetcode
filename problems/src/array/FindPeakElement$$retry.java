@@ -25,7 +25,7 @@ package array;
  * 思路：假设一定有峰值，不用考虑临界问题
  *       二分查找  nums[mid]>nums[mid+1]  说明峰值一定在左边
  */
-public class FindPeakElement$$SOS {
+public class FindPeakElement$$retry {
     public int findPeakElement(int[] nums) {
         int left = 0;
         int right = nums.length-1;
@@ -42,6 +42,6 @@ public class FindPeakElement$$SOS {
 
     public static void main(String[] args) {
         int[] nums = new int[]{1,2,1,3,5,6,4};
-        System.out.println(new FindPeakElement$$SOS().findPeakElement(nums));
+        System.out.println(new FindPeakElement$$retry().findPeakElement(nums));
     }
 }
