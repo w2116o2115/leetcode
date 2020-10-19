@@ -25,7 +25,7 @@ import java.util.Arrays;
  *   A~Z：65~90
  *   a~z：97~122
  */
-public class LeastInterval {
+public class LeastInterval$$retry {
     public int leastInterval(char[] tasks, int n) {
         int[] map = new int[26];
         for (char c:tasks)
@@ -50,6 +50,6 @@ public class LeastInterval {
 
     public static void main(String[] args) {
         char[] tasks = new char[]{'A','A','A','B','B','B'};
-        System.out.println(new LeastInterval().leastInterval(tasks,2));
+        System.out.println(new LeastInterval$$retry().leastInterval(tasks,2));
     }
 }
