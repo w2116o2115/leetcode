@@ -23,7 +23,7 @@ package array;
  *  *
  *  * 当nums[mid] <= nums[right说明在mid右半边的递增区域, 说明最小元素在<= mid区域
  */
-public class FindMin$$SOS {
+public class FindMin$$retry {
     public int findMin(int[] nums) {
         int left = 0;
         int right = nums.length-1;
@@ -40,6 +40,6 @@ public class FindMin$$SOS {
 
     public static void main(String[] args) {
         int[] nums = new int[]{4,5,6,7,0,1,2};
-        System.out.println(new FindMin$$SOS().findMin(nums));
+        System.out.println(new FindMin$$retry().findMin(nums));
     }
 }
