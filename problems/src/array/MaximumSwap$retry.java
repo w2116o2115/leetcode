@@ -20,7 +20,7 @@ package array;
  * 然后开始从头循环，对于每一个数，从'9'开始找是否存在比当前位置大的最大的数字，有则交换.
  * 时间复杂度分析:O(9*n) 空间复杂度O(n)
  */
-public class MaximumSwap$SOS {
+public class MaximumSwap$retry {
     public int maximumSwap(int num) {
         int[] count = new int[10];
         char[] chs = String.valueOf(num).toCharArray();
@@ -50,6 +50,6 @@ public class MaximumSwap$SOS {
     }
 
     public static void main(String[] args) {
-        System.out.println(new MaximumSwap$SOS().maximumSwap(9973));
+        System.out.println(new MaximumSwap$retry().maximumSwap(9973));
     }
 }
