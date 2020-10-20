@@ -22,7 +22,7 @@ import java.util.List;
  *
  * 思路:首先去要对数据进行排序
  */
-public class Merge$$SOS {
+public class Merge$$retry {
     public int[][] merge(int[][] intervals) {
         List<int[]> res = new ArrayList<>();
         if (null==intervals || intervals.length == 0)
@@ -47,6 +47,6 @@ public class Merge$$SOS {
         a[0] = new  int[]{1,4};
         a[1] = new  int[]{2,3};
 
-        System.out.println(new Merge$$SOS().merge(a));
+        System.out.println(new Merge$$retry().merge(a));
     }
 }
