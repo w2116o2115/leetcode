@@ -23,7 +23,7 @@ package array;
 
  思路： 双指针
  */
-public class RemoveDuplicates {
+public class RemoveDuplicates$$retry {
     public int removeDuplicates(int[] nums) {
         int i = 0;
         for (int num:nums){
@@ -37,6 +37,6 @@ public class RemoveDuplicates {
 
     public static void main(String[] args) {
         int[] nums = new int[]{1,1,1,2,2,3};
-        System.out.println(new RemoveDuplicates().removeDuplicates(nums));
+        System.out.println(new RemoveDuplicates$$retry().removeDuplicates(nums));
     }
 }
