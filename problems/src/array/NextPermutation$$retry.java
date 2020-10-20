@@ -18,7 +18,7 @@ package array;
  *      3. 反转 k+1以后的数字，保证第二小
  *
  */
-public class NextPermutation {
+public class NextPermutation$$retry {
     public void nextPermutation(int[] nums) {
         int firstIndex = -1;
         for (int i=nums.length-2;i>=0;i--){
@@ -57,6 +57,6 @@ public class NextPermutation {
      }
 
     public static void main(String[] args) {
-        new NextPermutation().nextPermutation(new int[]{1,3,2});
+        new NextPermutation$$retry().nextPermutation(new int[]{1,3,2});
     }
 }
