@@ -19,7 +19,7 @@ package array;
  * 续子数组长度，我们要记录最小的即可）。接着再把数组中的元素添加到队列中……重复上面的操作，直到数组中的元素全部使用完为止。
  * 这里以[2,3,1,2,4,3]举例画个图来看下
  */
-public class MinSubArrayLen$$SOS {
+public class MinSubArrayLen$$retry {
     public int minSubArrayLen(int s, int[] nums) {
         if (nums == null || nums.length == 0)
             return 0;
@@ -39,6 +39,6 @@ public class MinSubArrayLen$$SOS {
 
     public static void main(String[] args) {
         int[] nums = new int[]{10,2, 3};
-        System.out.println(new MinSubArrayLen$$SOS().minSubArrayLen(6, nums));
+        System.out.println(new MinSubArrayLen$$retry().minSubArrayLen(6, nums));
     }
 }
