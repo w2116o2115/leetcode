@@ -20,7 +20,7 @@ package array;
  *
  * 思路： 二分法查找 ，找到以后  比较 找到最大 以及 最小的位置
  */
-public class SearchRange {
+public class SearchRange$$retry {
     private int[] search(int[] nums, int target,int l,int r,int[] result){
         if (l>r)
             return result;
@@ -44,7 +44,7 @@ public class SearchRange {
 
     public static void main(String[] args) {
         int[] nums = new int[]{5,7,7,8,8,10};
-        int[] a = new SearchRange().search(nums,8,0,nums.length-1,new int[]{-1,-1});
+        int[] a = new SearchRange$$retry().search(nums,8,0,nums.length-1,new int[]{-1,-1});
         System.out.println(1);
     }
 }
