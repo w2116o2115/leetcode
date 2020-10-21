@@ -16,7 +16,7 @@ import java.util.Map;
  * 数组的长度为 [1, 20,000]。
  * 数组中元素的范围是 [-1000, 1000] ，且整数 k 的范围是 [-1e7, 1e7]。
  */
-public class SubarraySum {
+public class SubarraySum$$retry {
 //    public int subarraySum(int[] nums, int k) {
 //        int size = nums.length, res = 0;
 //        for (int i = 0; i < size; ++i) {
@@ -48,6 +48,6 @@ public class SubarraySum {
     }
 
     public static void main(String[] args) {
-        System.out.println(new SubarraySum().subarraySum(new int[]{1,2,1,2,1},3));
+        System.out.println(new SubarraySum$$retry().subarraySum(new int[]{1,2,1,2,1},3));
     }
 }
