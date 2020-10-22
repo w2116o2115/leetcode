@@ -16,9 +16,9 @@ import java.util.List;
  * "()()()"
  * ]
  */
-public class GenerateParentheses$M {
+public class GenerateParentheses$retry {
     public static void main(String[] args) throws Exception {
-        System.out.println(new GenerateParentheses$M().generateParenthesis(3));
+        System.out.println(new GenerateParentheses$retry().generateParenthesis(3));
     }
 
     public List<String> generateParenthesis(int n) {
