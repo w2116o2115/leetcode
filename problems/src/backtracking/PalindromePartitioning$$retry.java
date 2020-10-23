@@ -17,12 +17,12 @@ import java.util.List;
  *   ["a","a","b"]
  * ]
  */
-public class PalindromePartitioning$M {
+public class PalindromePartitioning$$retry {
 
   public static void main(String[] args) {
     int[] candidates = {10,1,2,7,6,1,5};
 
-    List<List<String>> result = new PalindromePartitioning$M().partition("aab");
+    List<List<String>> result = new PalindromePartitioning$$retry().partition("aab");
     System.out.println(result);
   }
 
