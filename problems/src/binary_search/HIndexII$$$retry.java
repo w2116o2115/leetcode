@@ -14,7 +14,7 @@ package binary_search;
  *      由于研究者有 3 篇论文每篇至少被引用了 3 次，其余两篇论文每篇被引用不多于 3 次，所以她的 h 指数是 3。
  *
  */
-public class HIndexII$$$SOS {
+public class HIndexII$$$retry {
   /**
    * Main method
    *
@@ -23,7 +23,7 @@ public class HIndexII$$$SOS {
    */
   public static void main(String[] args) throws Exception {
     int[] A = {1, 1, 1, 1, 1, 15, 20};
-    System.out.println(new HIndexII$$$SOS().hIndex(A));
+    System.out.println(new HIndexII$$$retry().hIndex(A));
   }
 
   public int hIndex(int[] citations) {
