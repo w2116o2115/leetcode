@@ -19,7 +19,7 @@ package binary_search;
  *
  * 算法： 快速幂
  */
-public class PowXN$$$SOS {
+public class PowXN$$$retry {
   /**
    * Main method
    *
@@ -27,7 +27,7 @@ public class PowXN$$$SOS {
    * @throws Exception
    */
   public static void main(String[] args) throws Exception {
-    System.out.println(new PowXN$$$SOS().myPow(2.00000, -2));
+    System.out.println(new PowXN$$$retry().myPow(2.00000, -2));
   }
 
   public double myPow(double x, int n) {
