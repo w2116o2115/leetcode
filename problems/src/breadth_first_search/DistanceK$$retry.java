@@ -15,7 +15,7 @@ import java.util.*;
  * 算法
  * 对所有节点添加一个指向父节点的引用，之后做深度优先搜索，找到所有距离 target 节点 K 距离的节点
  */
-public class DistanceK$$SOS {
+public class DistanceK$$retry {
       public class TreeNode {
       int val;
       TreeNode left;
