@@ -41,7 +41,7 @@ import java.util.Queue;
  *
  * 解题思路：构建图，循环遍历图，找出叶子节点。去除叶子节点。知道图中节点只剩下2个或1个。返回剩下的节点。
  */
-public class FindMinHeightTrees$$SOS {
+public class FindMinHeightTrees$$retry {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         List<Integer> ans = new ArrayList<>();
         if (n == 1) {
@@ -85,6 +85,6 @@ public class FindMinHeightTrees$$SOS {
 
     public static void main(String[] args) {
         int[][] edges = new int[][]{{0, 3},{1, 3},{2, 3},{4, 3},{5, 4}};
-        System.out.println(new FindMinHeightTrees$$SOS().findMinHeightTrees(6,edges));
+        System.out.println(new FindMinHeightTrees$$retry().findMinHeightTrees(6,edges));
     }
 }
