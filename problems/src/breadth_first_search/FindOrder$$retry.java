@@ -41,28 +41,24 @@ public class FindOrder$$retry {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         int[] res = new int[numCourses];
-        for (int i=0;i<prerequisites.length;i++){
-            List list = map.getOrDefault(prerequisites[i][1],new ArrayList<>());
-            list.add(prerequisites[i][0]);
-            map.put(prerequisites[i][1],list);
+        int[] inDegree = new int[numCourses];
+        for (int[] pre:prerequisites){//建立邻接表
+            List<Integer> list = map.getOrDefault(pre[1],new ArrayList<>());
+            list.add(pre[0]);
+            map.put(pre[1],list);
+            //建立入度表
+            inDegree[pre[0]]++;
         }
-        int[] inDegrees = new int[numCourses];
-        // 建立入度表
-        for (int[] p : prerequisites) { // 对于有先修课的课程，计算有几门先修课
-            inDegrees[p[0]]++;
-        }
-        // 入度为0的节点队列
-        for (int i = 0; i < inDegrees.length; i++) {
-            if (inDegrees[i] != 0) continue;
+        for (int i=0;i<inDegree.length;i++){
+            if (inDegree[i] != 0) continue;
             int[] status = new int[numCourses];
-            Stack<Integer> stack = new Stack<>();  // 用栈保存访问序列
-            if (dfs(map,status,inDegrees[i],stack)){
+            Stack<Integer> stack = new Stack<>();
+            if (dfs(map,status,inDegree[i],stack)){
                 int sum = 0;
                 while (!stack.isEmpty()) {
                     res[sum++] = stack.pop();
                 }
             }
-
         }
         return res;
     }
