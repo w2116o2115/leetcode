@@ -37,7 +37,7 @@ import java.util.*;
  * DFS 访问每一个课程，若存在环直接返回
  * status 保存课程的访问状态，同一个栈保存课程的访问序列。
  */
-public class FindOrder$$SOS {
+public class FindOrder$$retry {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         int[] res = new int[numCourses];
@@ -83,7 +83,7 @@ public class FindOrder$$SOS {
 
     public static void main(String[] args) {
         int[][] prerequisites = new int[][]{{1,0},{2,0},{3,1},{3,2}};
-        int[] rest = new FindOrder$$SOS().findOrder(4,prerequisites);
+        int[] rest = new FindOrder$$retry().findOrder(4,prerequisites);
         System.out.println(1);
     }
 }
