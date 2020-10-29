@@ -55,7 +55,7 @@ package breadth_first_search;
  *                    \
  *                     6
  */
-public class Flatten {
+public class Flatten$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -104,6 +104,6 @@ public class Flatten {
         root.left.right = t2;
         root.right.right = t3;
 
-        new Flatten().flatten(root);
+        new Flatten$$retry().flatten(root);
     }
 }
