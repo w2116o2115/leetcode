@@ -19,7 +19,7 @@ import java.util.Queue;
  *
  * 思路：从各个陆地开始，一圈一圈的遍历海洋，最后遍历到的海洋就是离陆地最远的海洋。
  */
-public class MaxDistance$$SOS {
+public class MaxDistance {
     public int maxDistance(int[][] grid) {
         int[] dx = {0, 0, 1, -1};
         int[] dy = {1, -1, 0, 0};
