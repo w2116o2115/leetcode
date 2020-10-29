@@ -29,7 +29,7 @@ import java.util.*;
  * 第一次进行查找，找出距离起点最近的一个顶点，标记为已遍历；下一次进行查找时，从未被遍历中的顶点寻找距离起点最
  * 近的一个顶点， 标记为已遍历；直到n-1次查找完毕，结束查找，返回最终结果。
  */
-public class NetworkDelayTime$$retry {
+public class NetworkDelayTime$$retry$$retry {
     public int networkDelayTime(int[][] times, int N, int K) {
         // 构建邻接矩阵，用于存放各个点到各个点的距离
         int[][] graph = new int[N + 1][N + 1];
@@ -102,6 +102,6 @@ public class NetworkDelayTime$$retry {
 
     public static void main(String[] args) {
         int[][] times = new int[][]{{2,1,1},{2,3,1},{3,4,1}};
-        System.out.println(new NetworkDelayTime$$retry().networkDelayTime(times,4,2));
+        System.out.println(new NetworkDelayTime$$retry$$retry().networkDelayTime(times,4,2));
     }
 }
