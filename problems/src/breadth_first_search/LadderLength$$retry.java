@@ -39,7 +39,7 @@ import java.util.*;
  *
  * 解释: endWord "cog" 不在字典中，所以无法进行转换。
  */
-public class LadderLength$$SOS {
+public class LadderLength$$retry {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         int L = beginWord.length();
         HashMap<String, ArrayList<String>> allComboDict = new HashMap<>();
@@ -91,6 +91,6 @@ public class LadderLength$$SOS {
         wordList.add("lot");
         wordList.add("log");
         wordList.add("cog");
-        System.out.println(new LadderLength$$SOS().ladderLength("hit","cog",wordList));
+        System.out.println(new LadderLength$$retry().ladderLength("hit","cog",wordList));
     }
 }
