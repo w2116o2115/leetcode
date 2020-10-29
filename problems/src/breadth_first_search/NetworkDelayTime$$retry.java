@@ -101,7 +101,7 @@ public class NetworkDelayTime$$retry {
     }
 
     public static void main(String[] args) {
-        int[][] times = new int[][]{{1,2,1},{2,1,3}};
-        System.out.println(new NetworkDelayTime$$retry().networkDelayTime(times,2,2));
+        int[][] times = new int[][]{{2,1,1},{2,3,1},{3,4,1}};
+        System.out.println(new NetworkDelayTime$$retry().networkDelayTime(times,4,2));
     }
 }
