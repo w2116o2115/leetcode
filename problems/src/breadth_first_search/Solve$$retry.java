@@ -25,7 +25,7 @@ package breadth_first_search;
  *
  * 思路： 先从边上找0
  */
-public class Solve$$SOS {
+public class Solve$$retry {
     int[][] dir = new int[][]{{0,1},{0,-1},{1,0},{-1,0}};
 
     public void solve(char[][] board) {
