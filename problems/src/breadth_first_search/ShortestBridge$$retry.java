@@ -38,7 +38,7 @@ import java.util.Queue;
  * [0,0,0,0,0],
  * [0,0,0,0,0]]
  */
-public class ShortestBridge {
+public class ShortestBridge$$retry {
     int[][] dir = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
     int row;
     int col;
@@ -103,6 +103,6 @@ public class ShortestBridge {
 
     public static void main(String[] args) {
         int[][] A = new int[][]{{1, 1, 1, 1, 1}, {1, 0, 0, 0, 1}, {1, 0, 1, 0, 1}, {1, 0, 0, 0, 1}, {1, 1, 1, 1, 1}};
-        System.out.println(new ShortestBridge().shortestBridge(A));
+        System.out.println(new ShortestBridge$$retry().shortestBridge(A));
     }
 }
