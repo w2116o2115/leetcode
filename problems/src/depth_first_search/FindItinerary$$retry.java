@@ -32,8 +32,6 @@ public class FindItinerary$$retry {
             List<String> edge = map.computeIfAbsent(e.get(0), k -> new ArrayList<>());
             edge.add(e.get(1));
         }
-        // 邻接表排序
-        map.values().forEach(x -> x.sort(String::compareTo));
         dfs(map,ans,"JFK");
         return ans;
     }
@@ -46,5 +44,20 @@ public class FindItinerary$$retry {
         }
         //
         ans.add(0, start);
+    }
+
+    public static void main(String[] args) {
+        List<List<String>> root = new ArrayList<>();
+        List<String> list1 = Arrays.asList("JFK","SFO");
+        List<String> list2 = Arrays.asList("JFK","ATL");
+        List<String> list3 = Arrays.asList("SFO","ATL");
+        List<String> list4 = Arrays.asList("ATL","JFK");
+        List<String> list5 = Arrays.asList("ATL","SFO");
+        root.add(list1);
+        root.add(list2);
+        root.add(list3);
+        root.add(list4);
+        root.add(list5);
+        System.out.println(new FindItinerary$$retry().findItinerary(root));
     }
 }
