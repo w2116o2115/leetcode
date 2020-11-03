@@ -23,7 +23,7 @@ import java.util.HashMap;
  *     /  \
  *    15   7
  */
-public class BuildTree$M {
+public class BuildTree$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
