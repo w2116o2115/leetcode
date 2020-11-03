@@ -31,7 +31,7 @@ import java.util.*;
  * 输出：false
  * 解释：我们不能进入 2 号房间。
  */
-public class CanVisitAllRooms$M {
+public class CanVisitAllRooms {
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
             Set<Integer> visited = new HashSet<>();
             visited.add(0);
@@ -54,6 +54,6 @@ public class CanVisitAllRooms$M {
         rooms.add(Arrays.asList(2));
         rooms.add(new ArrayList<>());
         rooms.add(Arrays.asList(1));
-        System.out.println(new CanVisitAllRooms$M().canVisitAllRooms(rooms));
+        System.out.println(new CanVisitAllRooms().canVisitAllRooms(rooms));
     }
 }
