@@ -19,7 +19,7 @@ import java.util.List;
  *
  * 输出: [1, 3, 9]
  */
-public class LargestValues$M {
+public class LargestValues {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -53,6 +53,6 @@ public class LargestValues$M {
         node.left.left = new TreeNode(5);
         node.left.right = new TreeNode(3);
         node.right.right = new TreeNode(9);
-        System.out.println(new LargestValues$M().largestValues(node));
+        System.out.println(new LargestValues().largestValues(node));
     }
 }
