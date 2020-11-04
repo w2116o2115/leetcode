@@ -25,7 +25,7 @@ package depth_first_search;
  *          \
  *           6
  */
-public class Flatten$M {
+public class Flatten$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -38,16 +38,12 @@ public class Flatten$M {
 
     private static TreeNode last = null;
     private static void recursion(TreeNode root) {
-        if (root==null)
-            return;
-        if (last != null){
-            last.left = null;
-            last.right = root;
-        }
-        last = root;
-        TreeNode copyRight = root.right;
+        if (root == null) return;
+        recursion(root.right);
         recursion(root.left);
-        recursion(copyRight);
+        root.right = last;
+        root.left = null;
+        last = root;
     }
 
     public static void main(String[] args) {
