@@ -23,7 +23,7 @@ import java.util.*;
  *
  * 通过dfs的方法找到第i位数右边所有比它大的数，压并且压到sbuseq中，当subseq的长度大于1的时候就把它压到ans中。这样就能找到所有递增的子序列， 但是可能会出现重复的情况；
  */
-public class FindSubsequences {
+public class FindSubsequences$$retry {
     /**
      * DFS回溯问题
      * List去重会超时，直接用Set解决
@@ -50,6 +50,6 @@ public class FindSubsequences {
     }
 
     public static void main(String[] args) {
-        System.out.println(new FindSubsequences().findSubsequences(new int[]{1,2,3,4,5,6,7,8,9,10,1,1,1,1,1}).toString());
+        System.out.println(new FindSubsequences$$retry().findSubsequences(new int[]{1,2,3,4,5,6,7,8,9,10,1,1,1,1,1}).toString());
     }
 }
