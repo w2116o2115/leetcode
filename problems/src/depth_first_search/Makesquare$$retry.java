@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
  * 感觉像回溯
  *
  */
-public class Makesquare$$SOS {
+public class Makesquare$$retry {
     public List<Integer> nums;
     public int[] sums = new int[4];
     public int possibleSquareSide;
@@ -82,6 +82,6 @@ public class Makesquare$$SOS {
 
     public static void main(String[] args) {
         int[] nums = new int[]{5,5,5,5,4,4,4,4,3,3,3,3};
-        System.out.println(new Makesquare$$SOS().makesquare(nums));
+        System.out.println(new Makesquare$$retry().makesquare(nums));
     }
 }
