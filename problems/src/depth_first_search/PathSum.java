@@ -26,7 +26,7 @@ import java.util.*;
  *    [5,8,4,5]
  * ]
  */
-public class PathSum$M {
+public class PathSum {
     public static class TreeNode {
         int val;
         TreeNode left;
