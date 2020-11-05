@@ -37,12 +37,6 @@ public class MaxAncestorDiff {
         }
     }
 
-    public int maxAncestorDiff(TreeNode root) {
-        int left = maxAncestorDiff(root.left, root.val, root.val);
-        int right = maxAncestorDiff(root.right, root.val, root.val);
-        return left > right ? left : right;
-    }
-
     public int maxAncestorDiff(TreeNode root, int max, int min){
         if(root == null){
             return 0;
@@ -65,6 +59,6 @@ public class MaxAncestorDiff {
         TreeNode root = new TreeNode(1);
         root.right = new TreeNode(2);
         root.right.right = new TreeNode(17);
-        System.out.println(new MaxAncestorDiff().maxAncestorDiff(root));
+        System.out.println(new MaxAncestorDiff().maxAncestorDiff(root,root.val,root.val));
     }
 }
