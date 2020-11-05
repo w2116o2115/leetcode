@@ -21,7 +21,7 @@ import java.util.List;
  * <p>
  * 思路： 我们按照 「根结点 -> 右子树 -> 左子树」 的顺序访问.我们会最先访问右子树的节点
  */
-public class RightSideView$$SOS {
+public class RightSideView$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -54,7 +54,7 @@ public class RightSideView$$SOS {
         node.left = new TreeNode(2);
         node.right = new TreeNode(3);
         node.left.left = new TreeNode(4);
-        RightSideView$$SOS rightSideView = new RightSideView$$SOS();
+        RightSideView$$retry rightSideView = new RightSideView$$retry();
         rightSideView.rightSideView(node);
     }
 }
