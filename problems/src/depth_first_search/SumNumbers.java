@@ -39,7 +39,7 @@ import java.util.*;
  * 从根到叶子节点路径 4->0 代表数字 40.
  * 因此，数字总和 = 495 + 491 + 40 = 1026.
  */
-public class SumNumbers$M {
+public class SumNumbers {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -75,6 +75,6 @@ public class SumNumbers$M {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
-        System.out.println(new SumNumbers$M().sumNumbers(root));
+        System.out.println(new SumNumbers().sumNumbers(root));
     }
 }

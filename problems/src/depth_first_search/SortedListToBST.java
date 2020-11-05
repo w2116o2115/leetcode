@@ -18,7 +18,7 @@ import java.util.List;
  * /   /
  * -10  5
  */
-public class SortedListToBST$M {
+public class SortedListToBST {
     public static class TreeNode {
         int val;
         TreeNode left;
