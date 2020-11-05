@@ -35,8 +35,10 @@ import java.util.List;
  * 你可以用¥4购买1A和1B，也可以用¥9购买2A，2B和1C。
  * 你需要买1A，2B和1C，所以你付了¥4买了1A和1B（大礼包1），以及¥3购买1B， ¥4购买1C。
  * 你不可以购买超出待购清单的物品，尽管购买大礼包2更加便宜。
+ *
+ * 思路： 以每一个礼包为基准，向下遍历，如果礼包物品数量超出需求，则终止遍历剩下的需求用实际价格补
  */
-public class ShoppingOffers {
+public class ShoppingOffers$$retry {
     public static int minPrice = Integer.MAX_VALUE;
 
     public int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
@@ -75,6 +77,6 @@ public class ShoppingOffers {
         special.add(Arrays.asList(3,0,5));
         special.add(Arrays.asList(1,2,10));
         List<Integer> needs = Arrays.asList(3,2);
-        System.out.println(new ShoppingOffers().shoppingOffers(price,special,needs));
+        System.out.println(new ShoppingOffers$$retry().shoppingOffers(price,special,needs));
     }
 }
