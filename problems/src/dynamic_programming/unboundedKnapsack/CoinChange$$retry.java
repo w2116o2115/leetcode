@@ -24,7 +24,7 @@ import java.util.Arrays;
  * dp[i] 表示 凑够i需要的最小货币数
  * dp[i] = min(dp[i-1],dp[i-coin]+1)  对所有的价值进行遍历，每一个价值去遍历所有的货币
  */
-public class CoinChange {
+public class CoinChange$$retry {
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount+1];
         Arrays.fill(dp,Integer.MAX_VALUE);
@@ -38,6 +38,6 @@ public class CoinChange {
     }
 
     public static void main(String[] args) {
-        System.out.println(new CoinChange().coinChange(new int[]{1,2,5},11));
+        System.out.println(new CoinChange$$retry().coinChange(new int[]{1,2,5},11));
     }
 }
