@@ -22,21 +22,19 @@ package dynamic_programming.easy;
  */
 public class Rob {
     public int rob(int[] nums) {
-        if (nums.length == 0)
-            return 0;
-        int[] dp = new int[nums.length];
-        dp[0] = nums[0];
+        if (nums.length == 0) return 0;
+        int[] dp_0 = new int[nums.length];
+        int[] dp_1 = new int[nums.length];
+        dp_0[0] = 0;
+        dp_1[0] = nums[0];
         for (int i=1;i<nums.length;i++){
-            if (i==0 || i==1){
-                dp[i] = Math.max(dp[i-1],nums[i]);
-            }else {
-                dp[i] = Math.max(dp[i-2]+nums[i],dp[i-1]);
-            }
+            dp_0[i] = dp_1[i-1];
+            dp_1[i] = dp_0[i-1] + nums[i];
         }
-        return dp[nums.length-1];
+        return Math.max(dp_0[nums.length-1],dp_1[nums.length-1]);
     }
 
     public static void main(String[] args) {
-        System.out.println(new Rob().rob(new int[]{2,7,9,3,1}));
+        System.out.println(new Rob().rob(new int[]{1,2,3,1}));
     }
 }
