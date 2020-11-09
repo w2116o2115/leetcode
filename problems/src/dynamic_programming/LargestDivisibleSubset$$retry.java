@@ -19,27 +19,18 @@ import java.util.List;
  * 输出: [1,2,4,8]
  * 约定函数接口: List<Integer> largestDivisibleSubset(int[] nums)
  *
- * 预处理: 对nums进行升序排序
+ * 思路：这道题先对数组由大到小排序，如果满足nums[i]%nums[i+1]==0，那么nums[i+1]一定可以被能整除nums[i]的所有元素整除，
+ * 所以如果满足nums[i]%nums[i+1]==0并且dp[i]+1>=dp[i+1]（dp是我们维护的递推数组，dp[i]表示到第i个元素最大的子集的个数），
+ * 就更新dp[i+1]=dp[i]+1，递推公式就这么简单，但是本文需要求出集合的元素，而不仅仅是个数。所以我们还需要记录哪个dp[i]是最大的并且记录dp[i]对应子集是什么。
  *
- * dp[i]: 表示以nums[i]为最大元素的整除子集的最大长度
+ * 对于记录哪个dp[i]最大，可以用一个global_max来记录即可，但是如何记录每个dp[i]的子集呢，我们需要另外一个parent递推数组，
+ * 如果满足nums[i]%nums[i+1]==0并且dp[i]+1>=dp[i+1]的条件，我们就更新parent[i+1]=i，parent[k]=q的意思是记录第k个元素的
+ * 最大子集开始的下标是q，有了开始下标就可以利用回溯的思想进行返回查找，比如我们最后记录到dp[15]有最大的子集，并且dp[15]=4，
+ * 意味着有4个子集，那我们利用如下公式回溯4个子集：
  *
- * 状态转移方程:
- * 	显然,
- * 	dp[i]=max(dp[i],dp[j]+1),(0<=j<i && nums[i]%nums[j]==0).
- *
- * 初始状态:
- * 	dp[i]=1;
- *
- * 复杂度分析:
- * 时间复杂度: O(n2);
- * 空间复杂度: O(n)
- *
- * Plus: 本题还要求求出具体的集合,将dp过程记忆化便可.
- * pre[i]: 表示以nums[i]为最大元素的最大整除子集第二大元素在nums数组的索引.
- *
- * 排序后，dp【i】是第i个数字结尾的数组段所能拥有的最大整数子集长度。
- * 很显然，dp【i】=max（dp【a1】，dp【a2】。。。dp【ak】）+1，其中dp【ax】代表能实现dp【i】%dp【ax】==0，
- * 也就是说dp【i】是所有在i前面的数字能构造最大整除子集的最长的再加1.
+ * for (int i = 0; i < mx; i++) {
+ * 	res.push_back(nums[mx_index]);
+ * 	mx_index = parent[mx_index];
  */
 public class LargestDivisibleSubset$$retry {
     public List<Integer> largestDivisibleSubset(int[] nums) {
