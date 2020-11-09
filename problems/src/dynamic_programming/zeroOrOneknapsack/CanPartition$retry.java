@@ -33,7 +33,7 @@ package dynamic_programming.zeroOrOneknapsack;
  * dp[i][j] = dp[i - 1][j] or dp[i - 1][j - nums[i]], (nums[i] <= j)
  *
  */
-public class CanPartition$SOS {
+public class CanPartition$retry {
     public boolean canPartition(int[] nums) {
         int count = 0;
         for (int num:nums){
@@ -52,6 +52,6 @@ public class CanPartition$SOS {
     }
 
     public static void main(String[] args) {
-        System.out.println(new CanPartition$SOS().canPartition(new int[]{1, 5, 11, 5}));
+        System.out.println(new CanPartition$retry().canPartition(new int[]{1, 5, 11, 5}));
     }
 }
