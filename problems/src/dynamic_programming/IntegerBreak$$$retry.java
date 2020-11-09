@@ -23,7 +23,7 @@ package dynamic_programming;
  *  数字 i 可以拆分成 j + (i - j)。但 j * (i - j)不一定是最大乘积，因为i-j不一定大于dp[i - j]（数字i-j拆分成整
  *  数之和的最大乘积），这里要选择最大的值作为 dp[i] 的结果。
  */
-public class IntegerBreak$$$SOS {
+public class IntegerBreak$$$retry {
     public int integerBreak(int n) {
         if(n <= 3) return n-1;
         int[] dp = new int[n+1];
@@ -37,6 +37,6 @@ public class IntegerBreak$$$SOS {
     }
 
     public static void main(String[] args) {
-        System.out.println(new IntegerBreak$$$SOS().integerBreak(10));
+        System.out.println(new IntegerBreak$$$retry().integerBreak(10));
     }
 }
