@@ -41,7 +41,7 @@ import java.util.List;
  * 很显然，dp【i】=max（dp【a1】，dp【a2】。。。dp【ak】）+1，其中dp【ax】代表能实现dp【i】%dp【ax】==0，
  * 也就是说dp【i】是所有在i前面的数字能构造最大整除子集的最长的再加1.
  */
-public class LargestDivisibleSubset$$SOS {
+public class LargestDivisibleSubset$$retry {
     public List<Integer> largestDivisibleSubset(int[] nums) {
         List<Integer> res = new ArrayList<>();
         int[]dp = new int[nums.length];
@@ -72,6 +72,6 @@ public class LargestDivisibleSubset$$SOS {
 
     public static void main(String[] args) {
         int[] nums = new int[]{1,2,4,8};
-        System.out.println(new LargestDivisibleSubset$$SOS().largestDivisibleSubset(nums));
+        System.out.println(new LargestDivisibleSubset$$retry().largestDivisibleSubset(nums));
     }
 }
