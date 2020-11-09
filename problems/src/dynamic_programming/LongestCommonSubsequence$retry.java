@@ -1,7 +1,5 @@
 package dynamic_programming;
 
-import java.util.Map;
-
 /**
  * 1143. 最长公共子序列
  *
@@ -39,7 +37,7 @@ import java.util.Map;
  *
  *  dp[i][j] 表示 s1 前 i个字母  和  s2 前j个字母  最大子序
  */
-public class LongestCommonSubsequence$SOS {
+public class LongestCommonSubsequence$retry {
     public int longestCommonSubsequence(String text1, String text2) {
         int m = text1.length();
         int n = text2.length();
@@ -57,6 +55,6 @@ public class LongestCommonSubsequence$SOS {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LongestCommonSubsequence$SOS().longestCommonSubsequence("abcde","ace"));
+        System.out.println(new LongestCommonSubsequence$retry().longestCommonSubsequence("abcde","ace"));
     }
 }
