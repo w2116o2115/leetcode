@@ -29,7 +29,7 @@ import java.util.List;
    状态转移方程：
    res[i][j] = min(res[i + 1][j], res[i + 1][j + 1]) + triangle[i][j]
  */
-public class MinimumTotal$SOS {
+public class MinimumTotal$retry {
     public int minimumTotal(List<List<Integer>> triangle) {
         int row = triangle.size();
         int col = triangle.get(row-1).size();
@@ -56,6 +56,6 @@ public class MinimumTotal$SOS {
         triangle.add(a2);
         triangle.add(a3);
 
-        System.out.println(new MinimumTotal$SOS().minimumTotal(triangle));
+        System.out.println(new MinimumTotal$retry().minimumTotal(triangle));
     }
 }
