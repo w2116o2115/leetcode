@@ -6,7 +6,7 @@ package dynamic_programming;
  * @version 1.0
  * @date 2019/10/15 17:33
  */
-public class MaxCommStr$SOS {
+public class MaxCommStr$retry {
     public static void main(String[] args) {
 
         String a = "damdfac";
