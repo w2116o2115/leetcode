@@ -23,7 +23,7 @@ package dynamic_programming;
  *  index2，index3，index5有个特点，即分别乘以2、3、5得到的数一定含有比第n-1个丑数大（可利用反证法：否则第n-1个丑数
  *  就是它们当中的一个）最小丑数，即第n个丑数由u[index2]*2、u[index3]*3、u[index5]*5中的最小数得出
  */
-public class NthUglyNumber$SOS {
+public class NthUglyNumber$retry {
     public int nthUglyNumber(int n) {
         int[] dp = new int[n];
         dp[0] = 1;
@@ -39,6 +39,6 @@ public class NthUglyNumber$SOS {
     }
 
     public static void main(String[] args) {
-        System.out.println(new NthUglyNumber$SOS().nthUglyNumber(11));
+        System.out.println(new NthUglyNumber$retry().nthUglyNumber(11));
     }
 }
