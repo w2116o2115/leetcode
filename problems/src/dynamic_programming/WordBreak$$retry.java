@@ -36,7 +36,7 @@ import java.util.List;
  *
  * 两种都很容易理解的!看代码就行了
  */
-public class WordBreak {
+public class WordBreak$$retry {
     public boolean wordBreak(String s, List<String> wordDict) {
         if (wordDict == null || wordDict.size() == 0) return s.isEmpty();
         int n = s.length();
@@ -56,6 +56,6 @@ public class WordBreak {
     public static void main(String[] args) {
         String s = "leetcode";
         List<String> list = Arrays.asList("leet", "code");
-        System.out.println(new WordBreak().wordBreak(s,list));
+        System.out.println(new WordBreak$$retry().wordBreak(s,list));
     }
 }
