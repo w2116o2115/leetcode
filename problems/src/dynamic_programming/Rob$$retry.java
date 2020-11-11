@@ -33,8 +33,13 @@ package dynamic_programming;
  * 假设第 n 间没有被偷，那么此时 dp[n] = dp[n-1] ，此时 dp[n+1] = dp[n] + num = dp[n-1] + num ，即可以将 两种情况合并为一种情况 考虑；
  * 假设第 n 间被偷，那么此时 dp[n+1] = dp[n] + num 不可取 ，因为偷了第 n 间就不能偷第 n+1 间。
  * 最终的转移方程： dp[n+1] = max(dp[n],dp[n-1]+num)
+ *
+ *         思路：由于首尾也属于相邻，因此需要分别判断，以第一家是否打劫分成两个问题
+ *         第一家抢：最后一家一定不能抢，从第0个到len-2做动态规划
+ *         第一家不抢：从1到len-1做动态规划
+ *         然后比较找出最大值
  */
-public class Rob {
+public class Rob$$retry {
     public int rob(int[] nums) {
         if(nums==null || nums.length==0) {
             return 0;
@@ -42,27 +47,27 @@ public class Rob {
         if(nums.length<=2) {
             return (nums.length==2) ? Math.max(nums[0],nums[1]) : nums[0];
         }
-        int n = nums.length;
-        int[] dp1 = new int[n];
-        int[] dp2 = new int[n];
-        //初始化两个dp数组，dp1是计算的是[1,end],dp2计算的是[0,end-1]
-        dp1[0] = 0;
-        dp1[1] = nums[1];
-        dp2[0] = nums[0];
-        dp2[1] = Math.max(nums[0],nums[1]);
-        //按照【打家劫舍 I】的转移方式执行两遍
-        for(int i=2;i<n;++i) {
-            dp1[i] = Math.max(dp1[i-1],dp1[i-2]+nums[i]);
-        }
-        for(int i=2;i<n-1;++i) {
-            dp2[i] = Math.max(dp2[i-1],dp2[i-2]+nums[i]);
-        }
-        return Math.max(dp1[n-1],dp2[n-2]);
+        int len=nums.length;
+        int[] dp1=new int[len];
+        int[] dp2=new int[len+1];
+        //第一家抢
+        dp1[0]=0;
+        dp1[1]=nums[0];
+        for(int i=2;i<len;i++)
+            dp1[i]=Math.max(dp1[i-1],dp1[i-2]+nums[i-1]);
+
+        //第一家不抢
+        dp2[0]=0;
+        dp2[1]=0;
+        for(int i=2;i<=len;i++)
+            dp2[i]=Math.max(dp2[i-1],dp2[i-2]+nums[i-1]);
+
+        return Math.max(dp1[len-1],dp2[len]);
     }
 
 
     public static void main(String[] args) {
         int[] nums = new int[]{2,3,2};
-        System.out.println(new Rob().rob(nums));
+        System.out.println(new Rob$$retry().rob(nums));
     }
 }
