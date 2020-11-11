@@ -1,7 +1,5 @@
 package dynamic_programming;
 
-import java.util.Arrays;
-
 /**
  * 213. 打家劫舍 II
  *
