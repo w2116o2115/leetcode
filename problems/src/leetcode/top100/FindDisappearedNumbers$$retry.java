@@ -24,7 +24,7 @@ import java.util.Set;
  *
  * 思路：把数组当字典      记录出现的数字【吧改位置的数变为负的】
  */
-public class FindDisappearedNumbers {
+public class FindDisappearedNumbers$$retry {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> res = new ArrayList<>();
         Set<Integer> set = new HashSet<>();
@@ -56,6 +56,6 @@ public class FindDisappearedNumbers {
     }
 
     public static void main(String[] args) {
-        System.out.println(new FindDisappearedNumbers().findDisappearedNumbers2(new int[]{4,3,2,7,8,2,3,1}));
+        System.out.println(new FindDisappearedNumbers$$retry().findDisappearedNumbers2(new int[]{4,3,2,7,8,2,3,1}));
     }
 }
