@@ -63,7 +63,7 @@ public class FindAnagrams {
                     if (window.get(c2) < need.get(c2))
                         match--;
                 }
-                left--;
+                left++;
             }
         }
         return res;
