@@ -34,4 +34,8 @@ public class NumSquares$$retry {
         }
         return dp[n];
     }
+
+    public static void main(String[] args) {
+        System.out.println(new NumSquares$$retry().numSquares(12));
+    }
 }
