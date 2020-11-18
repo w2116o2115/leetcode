@@ -34,7 +34,7 @@ public class InsertionSortList$$retry {
     public ListNode insertionSortList(ListNode head) {
         ListNode dummy = new ListNode(Integer.MIN_VALUE);
         ListNode pre = dummy;
-        ListNode tail = dummy;
+        ListNode tail = dummy;//记录未排序串
         ListNode cur = head;
         while (cur != null) {
             if (tail.val < cur.val) {
