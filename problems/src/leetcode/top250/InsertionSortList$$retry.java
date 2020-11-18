@@ -34,20 +34,20 @@ public class InsertionSortList$$retry {
     public ListNode insertionSortList(ListNode head) {
         ListNode dummy = new ListNode(Integer.MIN_VALUE);
         ListNode pre = dummy;
-        ListNode tail = dummy;//记录未排序串
+        ListNode tail = dummy;
         ListNode cur = head;
-        while (cur != null) {
-            if (tail.val < cur.val) {
+        while (cur != null){
+            if (cur.val > tail.val){
                 tail.next = cur;
                 tail = cur;
                 cur = cur.next;
-            } else {
+            }else {
                 ListNode tmp = cur.next;
                 tail.next = tmp;
                 while (pre.next != null && pre.next.val < cur.val) pre = pre.next;
                 cur.next = pre.next;
                 pre.next = cur;
-                pre = dummy;
+                pre = dummy;//归位
                 cur = tmp;
             }
         }
