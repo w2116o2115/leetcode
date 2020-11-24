@@ -12,7 +12,7 @@ package string;
  *
  * 思路： 最长
  */
-public class MinDistance$$SOS {
+public class MinDistance$$retry {
     public int minDistance(String s1, String s2) {
         return s1.length() + s2.length() - 2 * lcs(s1, s2, s1.length(), s2.length());
     }
