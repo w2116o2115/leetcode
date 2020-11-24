@@ -14,7 +14,7 @@ import java.util.List;
 
  思路：回溯
  */
-public class RestoreIpAddresses$$SOS {
+public class RestoreIpAddresses$$retry {
     public List<String> restoreIpAddresses(String s) {
         List<String> res = new ArrayList<>();
         helper(s, 0, "", res);
@@ -34,6 +34,6 @@ public class RestoreIpAddresses$$SOS {
     }
 
     public static void main(String[] args) {
-        System.out.println(new RestoreIpAddresses$$SOS().restoreIpAddresses("25525511135"));
+        System.out.println(new RestoreIpAddresses$$retry().restoreIpAddresses("25525511135"));
     }
 }
