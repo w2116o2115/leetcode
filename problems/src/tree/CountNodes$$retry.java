@@ -25,7 +25,7 @@ package tree;
  * left != right。说明此时最后一层不满，但倒数第二层已经满了，可以直接得到右子树的节点个数。
  *      同理，右子树节点+root节点，总数为2^right。再对左子树进行递归查找。
  */
-public class CountNodes$$SOS {
+public class CountNodes$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -99,7 +99,7 @@ public int countNodes(TreeNode root) {
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(5);
         root.right.left = new TreeNode(6);
-        System.out.println(new CountNodes$$SOS().countNodes(root));
+        System.out.println(new CountNodes$$retry().countNodes(root));
 
         System.out.println( 1<<2);
     }
