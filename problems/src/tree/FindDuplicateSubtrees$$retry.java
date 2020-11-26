@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * 思路  对树进行序列化  2 4 #  每棵不同子树的序列化结果都是唯一的。
  */
-public class FindDuplicateSubtrees$$SOS {
+public class FindDuplicateSubtrees$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -95,6 +95,6 @@ public class FindDuplicateSubtrees$$SOS {
         root.right.left = new TreeNode(2);
         root.right.right = new TreeNode(4);
         root.right.left.left = new TreeNode(4);
-        new FindDuplicateSubtrees$$SOS().findDuplicateSubtrees(root);
+        new FindDuplicateSubtrees$$retry().findDuplicateSubtrees(root);
     }
 }
