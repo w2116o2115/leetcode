@@ -45,7 +45,7 @@ package tree;
  *
  * 4 当 left 不为空 ， right 为空 ：与情况 3. 同理；
  */
-public class LowestCommonAncestor$$SOS {
+public class LowestCommonAncestor$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
