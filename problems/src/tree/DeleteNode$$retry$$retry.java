@@ -71,7 +71,7 @@ package tree;
  * 二叉搜索树的性质：
  *  1 二叉搜索树的中序遍历的序列是递增排序的序列。中序遍历的遍历次序：Left -> Node -> Right。
  */
-public class DeleteNode$$SOS$$SOS {
+public class DeleteNode$$retry$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
