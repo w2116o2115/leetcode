@@ -20,7 +20,7 @@ import java.util.Stack;
  * 输出: [1,2,3]
  * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
  */
-public class PreorderTraversal$$SOS {
+public class PreorderTraversal$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
