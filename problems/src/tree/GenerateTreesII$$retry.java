@@ -33,7 +33,7 @@ import java.util.List;
  * 后n-i（从i+1到n）个数为它的右子树，最后只需将找好的左子树，与 右子树根据排列的方式进行组合即可找出所有的情况。
 
  */
-public class GenerateTreesII$$SOS {
+public class GenerateTreesII$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -76,6 +76,6 @@ public class GenerateTreesII$$SOS {
     }
 
     public static void main(String[] args) {
-        System.out.println(new GenerateTreesII$$SOS().generateTrees(3));
+        System.out.println(new GenerateTreesII$$retry().generateTrees(3));
     }
 }
