@@ -33,7 +33,7 @@ package tree;
  * 输出: 9
  * 解释: 小偷一晚能够盗取的最高金额 = 4 + 5 = 9.
  */
-public class Rob$$SOS {
+public class Rob$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -67,6 +67,6 @@ public class Rob$$SOS {
         root.left.right = new TreeNode(3);
         root.right.right = new TreeNode(1);
 
-        System.out.println(new Rob$$SOS().rob(root));
+        System.out.println(new Rob$$retry().rob(root));
     }
 }
