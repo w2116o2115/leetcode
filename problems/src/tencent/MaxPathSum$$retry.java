@@ -16,7 +16,7 @@ package tencent;
  *
  * 输出: 6
  */
-public class MaxPathSum {
+public class MaxPathSum$$retry {
     public static class TreeNode {
         int val;
         TreeNode left;
