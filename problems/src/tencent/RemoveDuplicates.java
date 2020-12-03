@@ -16,13 +16,17 @@ package tencent;
  */
 public class RemoveDuplicates {
     public int removeDuplicates(int[] nums) {
-        int i=0;
-        for (int num:nums){
-            if (i<2 || num!=nums[i-2]){
-                nums[i] = num;
-                i++;
+        int index = 0;
+        for (int i = 0;i<nums.length;i++){
+            if (i>1 && nums[i] != nums[i-1]){
+                index++;
+                nums[index] = nums[i];
             }
         }
-        return i;
+        return index+1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new RemoveDuplicates().removeDuplicates(new int[]{1,1,2,3,4,5,6,6,6}));
     }
 }
