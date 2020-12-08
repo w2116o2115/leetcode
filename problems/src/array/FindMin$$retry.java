@@ -25,21 +25,21 @@ package array;
  */
 public class FindMin$$retry {
     public int findMin(int[] nums) {
-        int left = 0;
-        int right = nums.length-1;
-        while (left < right){
-            int mid = (left+right) >> 1;
-            if (nums[mid] > right){
-                left = mid+1;
-            }else {
-                right = mid;
-            }
+        return findMinHelper(nums,0,nums.length-1);
+    }
+
+    public int findMinHelper(int[] nums,int start,int end){
+        if (start == end) return nums[start];
+        int min = (start + end) >> 1;
+        if (nums[min] > nums[end]){
+            return findMinHelper(nums,min+1,end);
+        }else {
+            return findMinHelper(nums,start,min);
         }
-        return nums[left];
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{4,5,6,7,0,1,2};
+        int[] nums = new int[]{3,4,5,1,2};
         System.out.println(new FindMin$$retry().findMin(nums));
     }
 }
