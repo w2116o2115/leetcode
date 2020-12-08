@@ -26,7 +26,7 @@ public class CanJump$retry {
         int maxPoint = 0;
         for (int i=0;i<nums.length;i++){
             if (i>maxPoint) return false;
-            maxPoint = Math.max(nums[i],maxPoint);
+            maxPoint = Math.max(nums[i]+i,maxPoint);
         }
         return true;
     }
