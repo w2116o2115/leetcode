@@ -20,15 +20,15 @@ import java.util.List;
  */
 public class MinimumTotal$retry {
     public int minimumTotal(List<List<Integer>> triangle) {
-        int r = triangle.size();
-        int c = triangle.get(triangle.size()-1).size();
-        int[][] dp = new int[r][c];
-        for (int i=0;i<c;i++){
-            dp[r-1][i] = triangle.get(r-1).get(i);
+        int row = triangle.size() - 1;
+        int col = triangle.get(row).size() - 1;
+        int[][] dp = new int[row+1][col+1];
+        for (int i=0;i<=col;i++){
+            dp[row][i] = triangle.get(row).get(i);
         }
-        for (int i=r-2;i>=0;i--){
+        for (int i=row-1;i>=0;i--){
             for (int j=0;j<triangle.get(i).size();j++){
-                dp[i][j] = Math.min(dp[i+1][j],dp[i+1][j+1])+triangle.get(i).get(j);
+                dp[i][j] = Math.min(dp[i+1][j],dp[i+1][j+1]) + triangle.get(i).get(j);
             }
         }
         return dp[0][0];
