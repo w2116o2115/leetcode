@@ -2,6 +2,7 @@ package backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 给定一个字符串 s，将 s 分割成一些子串，使每个子串都是回文串。
@@ -28,12 +29,12 @@ public class PalindromePartitioning$$retry {
 
   public List<List<String>> partition(String s) {
     List<List<String>> res = new ArrayList<>();
-    backtrack(res, s,  new ArrayList<>());
+    backtrack(res, s,  new Stack<>());
     return res;
 
   }
 
-  private void backtrack(List<List<String>> res, String s, ArrayList<String> tmp) {
+  private void backtrack(List<List<String>> res, String s, Stack<String> tmp) {
     if (s == null || s.length() == 0){
       res.add(new ArrayList<>(tmp));
       return;
@@ -43,7 +44,7 @@ public class PalindromePartitioning$$retry {
       if (isPalidrome(s.substring(0,i))){
         tmp.add(s.substring(0,i));
         backtrack(res,s.substring(i),tmp);
-        tmp.remove(tmp.size()-1);
+        tmp.pop();
       }
     }
   }
