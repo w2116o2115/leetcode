@@ -43,26 +43,24 @@ package array;
  *   [12, 6, 8, 9],
  *   [16, 7,10,11]
  * ]
+ *
+ * 13 == 12 == 10 == 1  times是层 一层的处理
  */
-public class Rotate {
+public class Rotate$$retry {
     public void rotate(int[][] matrix) {
         int n = matrix.length;
 
-        // transpose matrix
-        for (int i = 0; i < n; i++) {
-            for (int j = i; j < n; j++) {
-                int tmp = matrix[j][i];
-                matrix[j][i] = matrix[i][j];
-                matrix[i][j] = tmp;
+        int times = 0;
+        while (times <= n>>1){
+            int len = n-(2*times);
+            for (int i=0;i<len-1;i++){
+                int temp = matrix[times][times + i];
+                matrix[times][times + i] = matrix[times + len - i - 1][times];
+                matrix[times + len - i - 1][times] = matrix[times + len - 1][times + len - i - 1];
+                matrix[times + len - 1][times + len - i - 1] = matrix[times + i][times + len - 1];
+                matrix[times + i][times + len - 1] = temp;
             }
-        }
-        // reverse each row
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n / 2; j++) {
-                int tmp = matrix[i][j];
-                matrix[i][j] = matrix[i][n - j - 1];
-                matrix[i][n - j - 1] = tmp;
-            }
+            times++;
         }
     }
 }
