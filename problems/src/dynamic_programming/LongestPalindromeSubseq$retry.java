@@ -1,7 +1,5 @@
 package dynamic_programming;
 
-import java.util.Arrays;
-
 /**
  * 516. 最长回文子序列
  * 给定一个字符串s，找到其中最长的回文子序列。可以假设s的最大长度为1000。
@@ -44,7 +42,7 @@ import java.util.Arrays;
  * 结果
  * f[0][n - 1]
  */
-public class LongestPalindromeSubseq$SOS {
+public class LongestPalindromeSubseq$retry {
     public int longestPalindromeSubseq(String s) {
         int n = s.length();
         int[][] dp = new int[n][n];
@@ -63,6 +61,6 @@ public class LongestPalindromeSubseq$SOS {
 
     public static void main(String[] args) {
         String s = "bbbab";
-        System.out.println(new LongestPalindromeSubseq$SOS().longestPalindromeSubseq(s));
+        System.out.println(new LongestPalindromeSubseq$retry().longestPalindromeSubseq(s));
     }
 }
