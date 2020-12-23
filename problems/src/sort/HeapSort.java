@@ -6,6 +6,7 @@ import java.util.Arrays;
  * 堆排序
  * @author Carlose wei
  * 堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆；或者每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。
+ * https://blog.csdn.net/qq_36186690/article/details/82505569
  */
 public class HeapSort {
     public static void main(String []args){
