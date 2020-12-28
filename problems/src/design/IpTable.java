@@ -49,7 +49,7 @@ public class IpTable {
         return  ((Integer.parseInt(ip_bytes[0]) << 24) |
                 (Integer.parseInt(ip_bytes[1]) << 16) |
                 (Integer.parseInt(ip_bytes[2]) <<  8) |
-                (Integer.parseInt(ip_bytes[3]) <<  0)) & 0x0ffffffffL;
+                (Integer.parseInt(ip_bytes[3]))) & 0x0ffffffffL;
     }
 
 
