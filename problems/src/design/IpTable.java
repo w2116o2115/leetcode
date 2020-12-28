@@ -78,13 +78,8 @@ public class IpTable {
     }
 
     public static void main(String[] args) {
-        IpTable ipTable = IpTable.getIpTable("ip.txt");
-        System.out.println("ipTable has valid ip num: "  + ipTable.getValidIpNum());
-
         String ip = "192.168.128.10";
-        if (ipTable.hasIp(IpTable.ipToLong(ip))) {
-            System.out.println("ip table has ip: " + ip);
-        }
+        System.out.println(ipToLong(ip));
     }
 
 }

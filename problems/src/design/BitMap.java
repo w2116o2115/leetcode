@@ -28,8 +28,10 @@ public class BitMap {
     }
 
     public void set(long index) {
-        int offset = (int) ((index >>> SHIFT) & 0x0ffffffffL);
-        map[offset] |= (1 << (index & MASK));
+        int offset = (int) ((index >>> SHIFT) & 0x0ffffffffL); //获得index
+        long position  = index & MASK; // 取模  position = value % 8 ,模八，也即看最低三位是什么，因为最低三位肯定除不尽8，就是最终的余数。  所以即 value & 0111 即可，即0x07
+        int tmp = 1<<position;
+        map[offset] |= 1<<position;
     }
 
     public void clear(long index) {
@@ -46,33 +48,9 @@ public class BitMap {
     }
 
     public static void main(String[] args) {
-        System.out.println(MASK);
-        long size = 1L << 32;
-        System.out.println(size);
-        BitMap bitMap = new BitMap(size);
-
-        System.out.println("bitMap size: " + bitMap.size());
-        for (long i = 0; i <= bitMap.size(); ++i) {
-            if (bitMap.isSet(i)) {
-                System.out.println("Error:@ " + i);
-            }
-        }
-        System.err.println("xxxx");
-
-        for (long i = 0; i <= bitMap.size(); i++) {
-            bitMap.set(i);
-            if (!bitMap.isSet(i)) {
-                System.out.println("not set:@ " + i);
-            }
-            bitMap.clear(i);
-        }
-
-        System.err.println("xxxx");
-        for (long i = 0; i <= bitMap.size(); ++i) {
-            if (bitMap.isSet(i)) {
-                System.out.println("Error:@ " + i);
-            }
-        }
+        BitMap bitMap = new BitMap(1L << 32);
+        bitMap.set(3232268298L);
+        System.out.println(bitMap.isSet(3232268298L));
     }
 
 }
