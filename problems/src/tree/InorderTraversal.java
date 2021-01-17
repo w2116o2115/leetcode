@@ -31,43 +31,42 @@ public class InorderTraversal {
         }
     }
 
-    public List<Integer> inorderTraversal(TreeNode root) {//中序遍历
-        List<Integer> res = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode current = root;
-        while (current!=null || !stack.isEmpty()){
-            while (current!=null){
-                stack.add(current);
-                current = current.left;
+    public void preOrder(TreeNode t) {  //先序遍历
+        Stack<TreeNode> s = new Stack<>();
+        while(t != null || !s.isEmpty()) {
+            while(t != null) {
+                System.out.println(t.val);  //第一次碰到就访问结点
+                s.push(t);                //压栈保存，以便左边访问完了，之后可以弹出它得到它的右节点
+                t = t.left;
             }
-            current = stack.pop();
-            res.add(current.val);
-            current = current.right;
+            if(!s.isEmpty()) {
+                t = s.pop();
+                t = t.right;      //当上述循环退出，说明左子树全访问完了，则把父结点弹出，准备访问右子树
+            }
         }
-        return res;
     }
 
-    public List<Integer> inorderTraversal1(TreeNode root) {//先序遍历
-        List<Integer> res = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode current = root;
-        while (current!=null || !stack.isEmpty()){
-            while (current != null){
-                res.add(current.val);
-                stack.add(current);
-                current = current.left;
+    public void inOrder(TreeNode t) {  //中序，与先序很像，只是在第二次碰到结点才访问
+        Stack<TreeNode> s = new Stack<>();
+        while(t != null || !s.isEmpty()) {
+            while(t != null) {
+                s.push(t);      //第一次碰到不访问，只保存
+                t = t.left;
             }
-            current = stack.pop();
-            current = current.right;
+            if(!s.isEmpty()) {
+                t = s.pop();
+                System.out.println(t.val);    //左子树访问完了，弹出父结点，第二次碰到则访问
+                t = t.right;            //准备访问右子树
+            }
         }
-        return res;
     }
+
+
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.right = new TreeNode(2);
         root.right.left = new TreeNode(3);
-        List<Integer> list = new InorderTraversal().inorderTraversal1(root);
-        System.out.println(list.toString());
+        new InorderTraversal().preOrder(root);
     }
 }
