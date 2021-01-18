@@ -15,15 +15,31 @@ import java.util.PriorityQueue;
  */
 public class FindKthLargest {
     public int findKthLargest(int[] nums, int k) {
-        PriorityQueue<Integer> heap = new PriorityQueue<>();//默认小顶堆
-        for (int num:nums){
-            heap.add(num);
+        for (int i=nums.length/2-1;i>=0;i--){
+            adJustHeap(nums,i,nums.length);
         }
+        int count = 0;
+        for (int i=nums.length-1;i>=0;i--){
+            if (++count == k) return nums[nums.length-i-1];
+            adJustHeap(nums,0,i);
+        }
+        return 0;
+    }
 
-        for (int i=0;i<nums.length-k;i++){
-            heap.poll();
+    private static void adJustHeap(int[] arr,int i,int length){
+        int temp = arr[i];
+        for (int k=2*i+1;k<length;k=2*k+1){
+            if (k+1<length && arr[k+1]>arr[k]){
+                k++;
+            }
+            if (arr[k] > temp){
+                arr[i] = arr[k];
+                i = k;
+            }else {
+                break;
+            }
         }
-        return heap.peek();
+        arr[i] = temp;
     }
 
     public static void main(String[] args) {
