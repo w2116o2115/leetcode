@@ -9,29 +9,17 @@ public class ThreeThread extends Thread{
     public static void main(String[] args) {
 
         MyObject ob = new MyObject();
-        new Thread(new Runnable(){
-            @Override
-            public void run() {
-                for(int i = 0 ; i<10 ; i++)
-                    ob.printA();
-            }
-
+        new Thread(() -> {
+            for(int i = 0 ; i<10 ; i++)
+                ob.printA();
         }).start();
-        new Thread(new Runnable(){
-            @Override
-            public void run() {
-                for(int i = 0 ; i<10 ; i++)
-                    ob.printB();
-            }
-
+        new Thread(() -> {
+            for(int i = 0 ; i<10 ; i++)
+                ob.printB();
         }).start();
-        new Thread(new Runnable(){
-            @Override
-            public void run() {
-                for(int i = 0 ; i<10 ; i++)
-                    ob.printC();
-            }
-
+        new Thread(() -> {
+            for(int i = 0 ; i<10 ; i++)
+                ob.printC();
         }).start();
     }
 
