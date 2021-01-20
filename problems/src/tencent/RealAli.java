@@ -18,13 +18,19 @@ public class RealAli {
         int c = x+y+1;
         System.out.println((c)*(c+1)/2);
         int res = c*(c+1)/2;
-        while (y-->0){
+        int count = 0;
+        if ((c & 1) == 1){
+            count = x;
+        }else {
+            count = y;
+        }
+        while (count-->0){
             res--;
         }
         return res;
     }
 
     public static void main(String[] args) {
-        System.out.println(getValue(2,1));
+        System.out.println(getValue(4,0));
     }
 }
