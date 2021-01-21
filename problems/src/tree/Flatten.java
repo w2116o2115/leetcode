@@ -54,6 +54,28 @@ public class Flatten {
         pre = root;
     }
 
+    public void flatten1(TreeNode root) {
+        if (root == null) return;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        TreeNode pre = null;
+        while (!stack.isEmpty()){
+            TreeNode temp = stack.pop();
+            if (pre!=null){
+                pre.right = temp;
+                pre.left = null;
+            }
+            if (temp.right != null){
+                stack.push(temp.right);
+            }
+            if (temp.left != null){
+                stack.push(temp.left);
+            }
+            pre = temp;
+        }
+    }
+
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
@@ -61,7 +83,7 @@ public class Flatten {
         root.left.left = new TreeNode(3);
         root.left.right = new TreeNode(4);
         root.right.right = new TreeNode(6);
-        new Flatten().flatten(root);
+        new Flatten().flatten1(root);
         System.out.println(1);
     }
 }
