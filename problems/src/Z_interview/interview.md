@@ -50,6 +50,27 @@
     https://zhuanlan.zhihu.com/p/259819465
 ```
 
+- Netty FastThreadLocal怎么Fast？
+```
+    JDK的ThreadLocal是根据它的哈希值然后再取模计算出索引位置,如果冲突还要再根据开放地址法-线性探测继续寻找下一个可用索引的
+    位置.性能是比较低的
+    在 FastThreadLocal 内部，使用了索引常量代替了 Hash Code 和哈希表
+    public FastThreadLocal() {
+        index = InternalThreadLocalMap.nextVariableIndex();
+    }
+    FastThreadLocal 内部维护了一个索引常量 index，该常量在每次创建 FastThreadLocal 中都会自动+1，从而保证了下标的不重复性。
+    
+    要利用 FastThreadLocal 带来的性能优势，就必须结合使用 FastThreadLocalThread 线程类或其子类，因为 FastThreadLocalThread 
+    线程类会存储必要的状态，如果使用了非 FastThreadLocalThread 线程类则会回到常规 ThreadLocal。
+    
+    在使用完 FastThreadLocal 之后不用 remove 了，因为在 FastThreadLocalRunnable 中已经加了移除逻辑，在线程运行完时会移除全
+    部绑定在当前线程上的所有变量。
+    
+    1.创建FastThreadLocal时它的索引值index就确定下来了，并不需要再去计算hash值，减少了计算时间以及哈市碰撞的概率
+    2.FastThreadLocalThread netty自己实现的线程类，在线程结束以后会自己清楚map中的所有数据，不需要手动删除。
+
+```
+
 - java中==和equals和hashCode的区别
 ```
     1）==若是基本数据类型比较，是比较值，若是引用类型，则比较的是他们在内存中的存放地址。对象是存放在堆中，栈中存放的对象的引用，
@@ -181,3 +202,4 @@
     败就会被加入到AQS同步队列中，那么，如果同步队列中的节点存在前驱节点，也就表明存在线程比当前节点线程更早的获取锁，故只有
     等待前面的线程释放锁后才能获取锁。
 ```
+
