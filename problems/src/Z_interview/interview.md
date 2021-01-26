@@ -128,3 +128,56 @@
     内，同一队列的消息进行串行消费。
     2）向 Broker 端请求锁定当前顺序消费的队列，防止在消费过程中被分配给其它消费者处理从而打乱消费顺序。
 ```
+
+- reentrylock如何实现公平锁和非公平锁
+```
+    final boolean nonfairTryAcquire(int acquires) {// 非公平锁
+                //获取当前线程
+                final Thread current = Thread.currentThread();
+                //通过AQS获取同步状态
+                int c = getState();
+                //同步状态为0，说明临界区处于无锁状态，
+                if (c == 0) {
+                    //修改同步状态，即加锁
+                    if (compareAndSetState(0, acquires)) {
+                        //将当前线程设置为锁的owner
+                        setExclusiveOwnerThread(current);
+                        return true;
+                    }
+                }
+                //如果临界区处于锁定状态，且上次获取锁的线程为当前线程
+                else if (current == getExclusiveOwnerThread()) {
+                     //则递增同步状态
+                    int nextc = c + acquires;
+                    if (nextc < 0) // overflow
+                        throw new Error("Maximum lock count exceeded");
+                    setState(nextc);
+                    return true;
+                }
+                return false;
+    }
+    
+    protected final boolean tryAcquire(int acquires) {//公平锁
+                final Thread current = Thread.currentThread();
+                int c = getState();
+                if (c == 0) {
+                    //此处为公平锁的核心，即判断同步队列中当前节点是否有前驱节点
+                    if (!hasQueuedPredecessors() &&
+                        compareAndSetState(0, acquires)) {
+                        setExclusiveOwnerThread(current);
+                        return true;
+                    }
+                }
+                else if (current == getExclusiveOwnerThread()) {
+                    int nextc = c + acquires;
+                    if (nextc < 0)
+                        throw new Error("Maximum lock count exceeded");
+                    setState(nextc);
+                    return true;
+                }
+                return false;
+    }
+        公平锁与非公平锁的区别仅在于是否判断当前节点是否存在前驱节点!hasQueuedPredecessors() ，由AQS可知，如果当前线程获取锁失
+    败就会被加入到AQS同步队列中，那么，如果同步队列中的节点存在前驱节点，也就表明存在线程比当前节点线程更早的获取锁，故只有
+    等待前面的线程释放锁后才能获取锁。
+```
