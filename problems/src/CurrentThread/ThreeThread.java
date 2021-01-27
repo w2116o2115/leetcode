@@ -1,5 +1,9 @@
 package CurrentThread;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * @author Carlose wei
  * @version 1.0
@@ -7,67 +11,77 @@ package CurrentThread;
  */
 public class ThreeThread extends Thread{
     public static void main(String[] args) {
-
-        MyObject ob = new MyObject();
-        new Thread(() -> {
-            for(int i = 0 ; i<10 ; i++)
-                ob.printA();
+        MyObject object = new MyObject();
+        new Thread(() ->{
+            for (int i=0;i<10;i++){
+                object.printA();
+            }
         }).start();
-        new Thread(() -> {
-            for(int i = 0 ; i<10 ; i++)
-                ob.printB();
+        new Thread(() ->{
+            for (int i=0;i<10;i++){
+                object.printB();
+            }
         }).start();
-        new Thread(() -> {
-            for(int i = 0 ; i<10 ; i++)
-                ob.printC();
+        new Thread(() ->{
+            for (int i=0;i<10;i++){
+                object.printC();
+            }
         }).start();
     }
 
     private static class MyObject {
-
+        Lock lock = new ReentrantLock();
+        Condition c1 = lock.newCondition();
+        Condition c2 = lock.newCondition();
+        Condition c3 = lock.newCondition();
         private int flag = 1;
 
-        public synchronized void printA() {
-            while (flag != 1) {
-                try {
-                    this.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        private void printA(){
+            lock.lock();
+            try {
+                while (flag != 1) {
+                    c1.await();
                 }
+                flag = 2;
+                System.out.print("A");
+                c2.signal();
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                lock.unlock();
             }
-            System.out.print("A");
-            flag = 2;
-            this.notifyAll();
-
-
         }
 
-        public synchronized void printC() {
-            while (flag != 3) {
-                try {
-                    this.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        private void printB(){
+            lock.lock();
+            try {
+                while (flag != 2) {
+                    c2.await();
                 }
+                flag = 3;
+                System.out.print("B");
+                c3.signal();
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                lock.unlock();
             }
-            System.out.println("C");
-            flag = 1;
-            this.notifyAll();
-
-
         }
 
-        public synchronized void printB() {
-            while (flag != 2) {
-                try {
-                    this.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        private void printC(){
+            lock.lock();
+            try {
+                while (flag != 3) {
+                    c3.await();
                 }
+                flag = 1;
+                System.out.println("C");
+                c1.signal();
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                lock.unlock();
             }
-            System.out.print("B");
-            flag = 3;
-            this.notifyAll();
         }
     }
 }
