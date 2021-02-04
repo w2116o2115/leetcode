@@ -21,7 +21,7 @@ package dynamic_programming;
  * rorse -> rose (删除 'r')
  * rose -> ros (删除 'e')
  */
-public class MinDistance {
+public class MinDistance$$retry {
     public int minDistance(String word1, String word2) {
         int n = word1.length();
         int m = word2.length();
