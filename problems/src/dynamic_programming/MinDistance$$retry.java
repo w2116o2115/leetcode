@@ -31,13 +31,14 @@ public class MinDistance$$retry {
             return n + m;
         }
 
-        // DP 数组
+        // DP 数组 x 和 y的意思就是 0 - x  转换成 0 - y 需要的步骤数量
         int[][] D = new int[n + 1][m + 1];
 
-        // 边界状态初始化
+        // 边界状态初始化 y 轴为0说明 s2字符串为空，s1 到达 空只需要做删除操作就行
         for (int i = 0; i < n + 1; i++) {
             D[i][0] = i;
         }
+        // 边界状态初始化 x 轴为0说明 s1字符串为空，s2 到达 空只需要做删除操作就行
         for (int j = 0; j < m + 1; j++) {
             D[0][j] = j;
         }
