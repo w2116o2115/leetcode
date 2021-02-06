@@ -20,7 +20,8 @@ import java.util.List;
 
  思路 : 利用递归进行解答，用一个int 来代表括号，左括号+1  右括号 -1
        当stack < 0 的时候，闭括号少了，然后从左边开始删除第一个闭括号
-       当stack > 0 需要
+       当stack > 0 需要 对 String进行反转，这样做的好处是只用就处理
+       闭括号偏多的情况。
  */
 public class RemoveInvalidParentheses$$retry {
     public List<String> removeInvalidParentheses(String s) {
