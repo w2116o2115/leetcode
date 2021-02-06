@@ -24,6 +24,11 @@ import java.util.List;
  大礼包1，你可以以¥5的价格购买3A和0B。
  大礼包2， 你可以以¥10的价格购买1A和2B。
  你需要购买3个A和2个B， 所以你付了¥10购买了1A和2B（大礼包2），以及¥4购买2A。
+
+ 思路 ：1 定义全局minPrice
+       2 初始化 minPrice 不用special 需要的钱
+       3 定义 helper 一个一个 special的去回溯 ，需要判断当前的special是否可用
+       4 遍历完左右的special 的时候需要把剩下的needs 不用special进行计算
  */
 public class ShoppingOffers$$retry {
     private int minPrice = Integer.MAX_VALUE;
@@ -36,7 +41,7 @@ public class ShoppingOffers$$retry {
     private void helper(List<Integer> price, List<List<Integer>> special, List<Integer> needs,int index,int used){
         if (used >= minPrice) return;
         if (index == special.size()){
-            used = buyWithoutSpecial(price,needs);
+            used += buyWithoutSpecial(price,needs);
             if (used < minPrice){
                 minPrice = used;
             }
