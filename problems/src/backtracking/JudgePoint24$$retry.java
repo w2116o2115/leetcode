@@ -1,4 +1,4 @@
-package array;
+package backtracking;
 
 /**
  * 679. 24 点游戏
