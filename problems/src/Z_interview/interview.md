@@ -365,3 +365,28 @@ RPC协议
     再用jstat -gc 查看垃圾回收，可以用来观察gc发生的时候各个区域的占用情况。
     再用jmap -histo:live 12829  查看每个对象所占用的内存大小。
 ```
+
+- Dump文件的生成和分析
+```
+    Dump包分析是JVM问题排查的杀手锏啦，直接定位到大对象所在的类，为问题排查提供最直接的指导
+    
+    Dump文件的生成
+        jmap命令生成： jmap -dump:live,file=dump_001.bin PID
+        监控工具生成：jvisualvm 工具里面有 Heap Dump的功能
+        jvm参数的配置： 比如FullGC的时候生成dump包
+            HeapDumpBeforeFullGC ：实现在Full GC前dump。
+            HeapDumpAfterFullGC ：实现在Full GC后dump。
+            HeapDumpPath ：设置Dump保存的路径
+            
+    Dump文件的jvisualvm分析（找到大对象）
+        1、根据size进行排序，查看大的对象
+        2、根据size/百分比得到当前 堆区的大小
+        3、当前最大的对象：multiThread.TestMain ，也就是 multiThread包下的TestMain这个类，占了19%堆的大小
+        4、堆中对象占用空间最大的对象类型是 java.util.HashMap$Entry，也就是HashMap有很多的Entry
+        5、最大的java.util.HashMap编号是 174
+        
+    大对象分析
+        对象编号174 ，占用空间 67108888b % （1024*1024）=64M
+        这个对象是被 TestMain这个类的 map这个属性引用的
+        另外左边的小框框的右上角 提供按照 size排序的功能
+```
