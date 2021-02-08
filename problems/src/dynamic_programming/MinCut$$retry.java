@@ -29,12 +29,15 @@ public class MinCut$$retry {
         int[] dp = new int[n];
 
         for (int i = 0; i < n; i++) {
-            dp[i] = i;
+            if (isPal[0][i]){
+                dp[i] = 0;
+            }else {
+                dp[i] = i;
+            }
         }
 
         for (int i=1;i<n;i++){
             if (isPal[0][i]) {
-                dp[i] = 0;
                 continue;
             }
             for (int j=0;j<i;j++){
@@ -48,7 +51,7 @@ public class MinCut$$retry {
 
     private void isPal(String s, boolean[][] isPal) {
         int n = s.length();
-        for (int len = 1;len<n;len++){
+        for (int len = 1;len<=n;len++){
             for (int start = 0;start<n;start++){
                 int end = start+len-1;
                 if (end >= n) break;
@@ -60,6 +63,6 @@ public class MinCut$$retry {
     }
 
     public static void main(String[] args) {
-        System.out.println(new MinCut$$retry().minCut("aab"));
+        System.out.println(new MinCut$$retry().minCut("aa"));
     }
 }
