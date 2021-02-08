@@ -30,7 +30,7 @@ public class CountSquares$$retry {
         for (int i=0;i<m;i++){
             for (int j=0;j<n;j++){
                 if (matrix[i][j] == 0) continue;
-                if (i ==0 || j ==0) {
+                if (i ==0 || j ==0) {// 在边上， 直接 一个1 就是一个正方形
                     res++;
                     continue;
                 }
