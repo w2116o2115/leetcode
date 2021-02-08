@@ -16,7 +16,7 @@ package array;
  *        剪纸 ： left + right + unchecked <= 2*max
  *                Math.abs(left - right) > unchecked  如果加上上下的 都没法让木桶找平，就没有找下去的意义了
  */
-public class TallestBillboard {
+public class TallestBillboard$$retry {
     private int max = 0;
     public int tallestBillboard(int[] rods) {
         int sum = 0;
@@ -41,6 +41,6 @@ public class TallestBillboard {
     }
 
     public static void main(String[] args) {
-        System.out.println(new TallestBillboard().tallestBillboard(new int[]{1,2,3,6}));
+        System.out.println(new TallestBillboard$$retry().tallestBillboard(new int[]{1,2,3,6}));
     }
 }
