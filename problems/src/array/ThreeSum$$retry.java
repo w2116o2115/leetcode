@@ -17,7 +17,7 @@ import java.util.*;
  *   [-1, -1, 2]
  * ]
  */
-public class ThreeSum {
+public class ThreeSum$$retry {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ans = new ArrayList();
         int len = nums.length;
@@ -45,6 +45,6 @@ public class ThreeSum {
     }
 
     public static void main(String[] args) {
-        new ThreeSum().threeSum(new int[]{-1, 0, 1, 2, -1, -4});
+        new ThreeSum$$retry().threeSum(new int[]{-1, 0, 1, 2, -1, -4});
     }
 }
