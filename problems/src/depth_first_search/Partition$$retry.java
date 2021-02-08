@@ -21,7 +21,7 @@ import java.util.List;
  *
  * 思路二: 动态规划 + 回溯
  */
-public class Partition {
+public class Partition$$retry {
     public List<List<String>> partition(String s) {
         List<List<String>> res = new ArrayList<>();
         int n = s.length();
@@ -49,6 +49,6 @@ public class Partition {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Partition().partition("aab"));
+        System.out.println(new Partition$$retry().partition("aab"));
     }
 }
