@@ -11,9 +11,36 @@ package array;
  * 输入：[1,2,3,6]
  * 输出：6
  * 解释：我们有两个不相交的子集 {1,2,3} 和 {6}，它们具有相同的和 sum = 6。
+ *
+ * 思路 : 每个数字有三种情况， 1. 加在左边  2.加在右边  3 不用
+ *        剪纸 ： left + right + unchecked <= 2*max
+ *                Math.abs(left - right) > unchecked  如果加上上下的 都没法让木桶找平，就没有找下去的意义了
  */
 public class TallestBillboard {
+    private int max = 0;
     public int tallestBillboard(int[] rods) {
-        return 0;
+        int sum = 0;
+        for (int rod:rods){
+            sum+=rod;
+        }
+        helper(rods,rods.length-1,0,0,sum);
+        return max;
+    }
+
+    private void helper(int[] rods,int index,int left ,int right ,int unchecked){
+        if (index < 0) {
+            if (left == right)
+                max = Math.max(max, left);
+            return;
+        }
+        if ((left+right+unchecked) <= 2*max || Math.abs(left-right) > unchecked)
+            return;
+        helper(rods,index-1,left+rods[index],right,unchecked-rods[index]);
+        helper(rods,index-1,left,right+rods[index],unchecked-rods[index]);
+        helper(rods,index-1,left,right,unchecked-rods[index]);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new TallestBillboard().tallestBillboard(new int[]{1,2,3,6}));
     }
 }
