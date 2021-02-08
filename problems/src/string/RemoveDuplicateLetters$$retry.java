@@ -10,6 +10,7 @@ package string;
  *         利用两个数组，来记录 字符出现的最后的位置
  *                      来记录 字符是否被使用过
  *                      只有当前的字符 小于栈顶字符，并且后边还有相关的字符，才进行出栈操作。
+ * 思考 ： 所有小写字母的问题都可以考虑用int数组来解决
  */
 public class RemoveDuplicateLetters$$retry {
     public String removeDuplicateLetters(String s) {
