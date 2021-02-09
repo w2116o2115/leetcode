@@ -18,7 +18,7 @@ public class FindCheapestPrice$$retry {
         }
 
         PriorityQueue<int[]> heap = new PriorityQueue<>((a,b) -> a[0]-b[0]); //小顶堆 用来存放钱最少的飞行路线
-        heap.offer(new int[]{0,src,K+1}); // 花费的钱   所在的笛地点   还剩的中转次数
+        heap.offer(new int[]{0,src,K+1}); // 花费的钱   所在的地点   还剩的中转次数
 
         while (!heap.isEmpty()){
             int[] cur = heap.poll();
