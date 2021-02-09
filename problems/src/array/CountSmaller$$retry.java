@@ -16,6 +16,8 @@ import java.util.List;
  * 2 的右侧仅有 1 个更小的元素 (1)
  * 6 的右侧有 1 个更小的元素 (1)
  * 1 的右侧有 0 个更小的元素
+ *
+ * 思路： 分制 mergeSort
  */
 public class CountSmaller$$retry {
 
