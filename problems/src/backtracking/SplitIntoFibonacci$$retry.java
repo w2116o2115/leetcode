@@ -9,8 +9,11 @@ import java.util.List;
  * 输出：[123,456,579]
  *
  * 回溯 ： 由于只需要找到一个解，所有 backtrack 需要返回一个boolean
+ *         回溯的两部分：
+ *                      backCase
+ *                      backTrack
  */
-public class SplitIntoFibonacci {
+public class SplitIntoFibonacci$$retry {
     public List<Integer> splitIntoFibonacci(String S) {
         List<Integer> res = new ArrayList<>();
         helper(S,res,0);
@@ -37,6 +40,6 @@ public class SplitIntoFibonacci {
     }
 
     public static void main(String[] args) {
-        System.out.println(new SplitIntoFibonacci().splitIntoFibonacci("123456579"));
+        System.out.println(new SplitIntoFibonacci$$retry().splitIntoFibonacci("123456579"));
     }
 }
