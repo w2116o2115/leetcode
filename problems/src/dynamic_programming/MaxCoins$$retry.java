@@ -14,7 +14,9 @@ package dynamic_programming;
     coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167
 
     思路 : 区间动态规划
-    dp[i][j] 扎破 第i到j个气球所能得到的最大值
+    dp[i][j] 表示戳破开区间(i,j)内的气球可以获得的最大硬币数量
+   假设在开区间(i,j)内，我们最后戳破的气球的索引是k，则此时dp[i][j] = dp[i][k] + dp[k][j] + nums[i]*nums[k]*nums[j]
+
  */
 public class MaxCoins$$retry {
     public int maxCoins(int[] nums) {
