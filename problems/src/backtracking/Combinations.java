@@ -20,7 +20,7 @@ import java.util.Stack;
  *   [1,4],
  * ]
  */
-public class Combinations$M {
+public class Combinations {
 
   private static List<List<Integer>> res = new ArrayList<>();
 
