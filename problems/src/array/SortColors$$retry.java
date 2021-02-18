@@ -15,39 +15,31 @@ package array;
  * 输出: [0,0,1,1,2,2]
 
  */
-public class SortColors {
+public class SortColors$$retry {
     public void sortColors(int[] nums) {
         quickSort(0,nums.length-1,nums);
     }
 
     private void quickSort(int l,int r,int[] nums){
-        if (l>r)
+        if (nums == null || nums.length <= 1) {
             return;
-        int left = l;
-        int right = r;
-        int sentry = nums[l];
-        while (left < right){
-            while (left<right && nums[right] >= sentry){
-                right--;
-            }
-            while (left<right && nums[left] <= sentry){
-                left++;
-            }
-            if (left < right){
-                int t = nums[left];
-                nums[left] = nums[right];
-                nums[right] = t;
+        }
+        int p0 = 0;
+        int p2 = nums.length - 1;
+        for (int i = p0; i <= p2; i++) {
+            if (nums[i] == 0) {
+                nums[i] = nums[p0];
+                nums[p0++] = 0;
+            } else if (nums[i] == 2) {
+                nums[i--] = nums[p2];
+                nums[p2--] = 2;
             }
         }
-        nums[l] = nums[left];
-        nums[left] = sentry;
-        quickSort(l,left-1,nums);
-        quickSort(left+1,r,nums);
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2,0,2,1,1,0};
-        new SortColors().sortColors(nums);
+        int[] nums = new int[]{0,2,1};
+        new SortColors$$retry().sortColors(nums);
         System.out.println(1);
     }
 }
