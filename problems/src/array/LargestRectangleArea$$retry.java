@@ -7,9 +7,12 @@ import java.util.Stack;
  * 给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
  * 求在该柱状图中，能够勾勒出来的矩形的最大面积。
  *
+ * 输入: [2,1,5,6,2,3]
+ * 输出: 10
+ *
  * 思路 单调递增的栈
  */
-public class LargestRectangleArea {
+public class LargestRectangleArea$$retry {
     public int largestRectangleArea(int[] heights) {
         Stack<Integer> stack = new Stack<>();
         stack.push(-1);
