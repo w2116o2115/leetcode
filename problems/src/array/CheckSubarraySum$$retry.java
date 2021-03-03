@@ -32,4 +32,8 @@ public class CheckSubarraySum$$retry {
         }
         return false;
     }
+
+    public static void main(String[] args) {
+        System.out.println(new CheckSubarraySum$$retry().checkSubarraySum(new int[]{23,2,4,6,7},6));
+    }
 }
